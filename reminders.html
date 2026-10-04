@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reminders | Orvera Home</title>
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/reminders.css">
+  <link rel="stylesheet" href="css/dashboard-chrome.css">
+    <link rel="icon" type="image/png" href="assets/orvexa-logo.png">
+
+  <script defer src="js/app.js"></script>
+</head>
+
+<body class="dashboard-page">
+
+  <input aria-label="Toggle dashboard sidebar"
+         class="side-toggle"
+         id="side-toggle"
+         type="checkbox">
+
+  <div class="dash">
+
+    <!-- SIDEBAR -->
+    <aside class="side" id="side">
+
+      <a aria-label="Orvera Home" class="brand" href="index.html">
+        <img alt="Orvera Home logo" src="assets/orvexa-logo.png">
+
+        <span class="brand-copy">
+          <span class="brand-name">
+            <span class="orvera">Orvera</span>
+            <span class="home">Home</span>
+          </span>
+          <small>Connected Care. Right at Home.</small>
+        </span>
+      </a>
+
+      
+
+      <nav>
+        <a href="dashboard.html">
+          <i class="bi bi-grid-1x2"></i>
+          <span>Overview</span>
+        </a>
+
+        <a href="appointments.html">
+          <i class="bi bi-calendar-check"></i>
+          <span>Appointments</span>
+        </a>
+
+        <a href="vitals.html">
+          <i class="bi bi-heart-pulse"></i>
+          <span>Vitals History</span>
+        </a>
+
+        <a href="visit-notes.html">
+          <i class="bi bi-journal-text"></i>
+          <span>Visit Notes</span>
+        </a>
+
+        <a href="medications.html">
+          <i class="bi bi-capsule"></i>
+          <span>Medications</span>
+        </a>
+
+        <a class="active" href="reminders.html">
+          <i class="bi bi-alarm"></i>
+          <span>Reminders</span>
+        </a>
+
+        <a href="profile.html">
+          <i class="bi bi-person-circle"></i>
+          <span>Profile</span>
+        </a>
+
+        <a href="settings.html">
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+        </a>
+
+        <a href="support.html">
+          <i class="bi bi-headset"></i>
+          <span>Help &amp; Support</span>
+        </a>
+      </nav>
+
+      <div class="sideBottom">
+        <a href="login.html">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="dashmain">
+
+      <!-- TOPBAR -->
+      <div class="topbar">
+
+        <label aria-label="Toggle dashboard menu"
+               class="icon dashboardMenu"
+               for="side-toggle">
+          <i class="bi bi-list"></i>
+        </label>
+
+        <div class="topbar-title">
+          <span class="topbar-kicker">PATIENT PORTAL</span>
+          <strong>REMINDERS</strong>
+        </div>
+
+        <div class="topuser">
+
+          <button aria-label="Notifications"
+                  class="icon notification-control"
+                  type="button">
+            <i class="bi bi-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+
+          <a aria-label="Go to Orvera Home"
+             class="icon home-control"
+             href="index.html">
+            <i class="bi bi-house-fill"></i>
+          </a>
+
+          <button aria-label="Switch direction"
+                  class="icon direction-control"
+                  onclick="rtlToggle()"
+                  type="button">
+            LTR
+          </button>
+
+          <button aria-label="Switch theme"
+                  class="icon theme-control"
+                  onclick="themeToggle()"
+                  type="button">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <span class="avatar">MK</span>
+        </div>
+      </div>
+
+      <div class="dashcontent">
+
+        <!-- PAGE HEAD -->
+        <div class="dc-head">
+          <div>
+            <span class="dc-kicker dc-kicker-plain">CARE ROUTINE</span>
+            <h1>Stay on top of <span class="headingAccent">your care.</span></h1>
+            <p>
+              Keep track of medications, appointments, vital checks
+              and important home-care activities in one connected view.
+            </p>
+          </div>
+
+          <a class="btn btn-primary" href="#reminder-form">
+            <i class="bi bi-plus-lg"></i>
+            Add Reminder
+          </a>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="reminder-stats">
+
+          <div class="reminder-stat">
+            <div class="reminder-stat-icon">
+              <i class="bi bi-alarm"></i>
+            </div>
+            <strong>6</strong>
+            <span>Active Reminders</span>
+            <small>Currently scheduled</small>
+          </div>
+
+          <div class="reminder-stat">
+            <div class="reminder-stat-icon">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <strong>2</strong>
+            <span>Due Today</span>
+            <small>Need your attention</small>
+          </div>
+
+          <div class="reminder-stat">
+            <div class="reminder-stat-icon">
+              <i class="bi bi-capsule"></i>
+            </div>
+            <strong>3</strong>
+            <span>Medication</span>
+            <small>Medication reminders</small>
+          </div>
+
+          <div class="reminder-stat">
+            <div class="reminder-stat-icon">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <strong>1</strong>
+            <span>Appointment</span>
+            <small>Upcoming care visit</small>
+          </div>
+
+        </div>
+
+        <!-- TODAY -->
+        <section class="dc-section">
+          <div class="dc-section-head">
+            <div>
+              <span class="dc-kicker dc-kicker-plain">TODAY</span>
+              <h2>Today's <span class="headingAccent">reminders.</span></h2>
+              <p>Important care activities scheduled for today.</p>
+            </div>
+
+            <span class="date-badge">
+              <i class="bi bi-calendar3"></i>
+              October 14, 2026
+            </span>
+          </div>
+
+          <div class="today-list">
+
+            <article class="today-card priority">
+              <div class="today-time">
+                <strong>08:00</strong>
+                <small>AM</small>
+              </div>
+
+              <div class="today-icon">
+                <i class="bi bi-capsule"></i>
+              </div>
+
+              <div class="today-copy">
+                <span>MEDICATION</span>
+                <h3>Morning medication</h3>
+                <p>Take your scheduled morning medication with water.</p>
+              </div>
+
+              <span class="status-pill status-pending">
+                <i class="bi bi-clock"></i> Pending
+              </span>
+            </article>
+
+            <article class="today-card">
+              <div class="today-time">
+                <strong>10:30</strong>
+                <small>AM</small>
+              </div>
+
+              <div class="today-icon">
+                <i class="bi bi-heart-pulse"></i>
+              </div>
+
+              <div class="today-copy">
+                <span>VITALS</span>
+                <h3>Check blood pressure</h3>
+                <p>Record your blood pressure and heart rate.</p>
+              </div>
+
+              <span class="status-pill">
+                <i class="bi bi-clock"></i> Upcoming
+              </span>
+            </article>
+
+            <article class="today-card">
+              <div class="today-time">
+                <strong>08:00</strong>
+                <small>PM</small>
+              </div>
+
+              <div class="today-icon">
+                <i class="bi bi-capsule-pill"></i>
+              </div>
+
+              <div class="today-copy">
+                <span>MEDICATION</span>
+                <h3>Evening medication</h3>
+                <p>Take your scheduled evening medication.</p>
+              </div>
+
+              <span class="status-pill">
+                <i class="bi bi-clock"></i> Upcoming
+              </span>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ALL REMINDERS -->
+        <section class="dc-section dc-alt">
+          <div class="dc-section-head">
+            <div>
+              <span class="dc-kicker dc-kicker-plain">YOUR ROUTINE</span>
+              <h2>All <span class="headingAccent">reminders.</span></h2>
+              <p>Your scheduled care reminders.</p>
+            </div>
+
+            <span class="reminder-count">6 active</span>
+          </div>
+
+          <div class="reminder-table">
+
+            <div class="reminder-row reminder-head">
+              <span>Reminder</span>
+              <span>Type</span>
+              <span>Time</span>
+              <span>Status</span>
+              <span></span>
+            </div>
+
+            <div class="reminder-row">
+              <span class="reminder-main">
+                <i class="bi bi-capsule"></i>
+                Morning medication
+              </span>
+              <span>Medication</span>
+              <span>Daily · 8:00 AM</span>
+              <span class="dc-pill dc-pill-green">Active</span>
+              <a class="row-action" href="#reminder-form" aria-label="Edit reminder">
+                <i class="bi bi-pencil"></i>
+              </a>
+            </div>
+
+            <div class="reminder-row">
+              <span class="reminder-main">
+                <i class="bi bi-capsule-pill"></i>
+                Evening medication
+              </span>
+              <span>Medication</span>
+              <span>Daily · 8:00 PM</span>
+              <span class="dc-pill dc-pill-green">Active</span>
+              <a class="row-action" href="#reminder-form" aria-label="Edit reminder">
+                <i class="bi bi-pencil"></i>
+              </a>
+            </div>
+
+            <div class="reminder-row">
+              <span class="reminder-main">
+                <i class="bi bi-calendar-check"></i>
+                Home Vitals Check
+              </span>
+              <span>Appointment</span>
+              <span>Tue · 10:30 AM</span>
+              <span class="dc-pill dc-pill-green">Active</span>
+              <a class="row-action" href="appointments.html" aria-label="Open appointment">
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <div class="reminder-row">
+              <span class="reminder-main">
+                <i class="bi bi-heart-pulse"></i>
+                Blood pressure check
+              </span>
+              <span>Vitals</span>
+              <span>Every morning · 10:30 AM</span>
+              <span class="dc-pill dc-pill-green">Active</span>
+              <a class="row-action" href="vitals.html" aria-label="Open vitals">
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <div class="reminder-row">
+              <span class="reminder-main">
+                <i class="bi bi-droplet"></i>
+                Stay hydrated
+              </span>
+              <span>General Care</span>
+              <span>Every 2 hours</span>
+              <span class="dc-pill dc-pill-green">Active</span>
+              <a class="row-action" href="#" aria-label="More options">
+                <i class="bi bi-three-dots"></i>
+              </a>
+            </div>
+
+            <div class="reminder-row">
+              <span class="reminder-main">
+                <i class="bi bi-person-walking"></i>
+                Gentle activity
+              </span>
+              <span>General Care</span>
+              <span>Every evening · 6:00 PM</span>
+              <span class="dc-pill dc-pill-green">Active</span>
+              <a class="row-action" href="#" aria-label="More options">
+                <i class="bi bi-three-dots"></i>
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- CARE INFORMATION -->
+        <section class="dc-section reminder-info">
+          <div class="info-icon">
+            <i class="bi bi-shield-check"></i>
+          </div>
+
+          <div>
+            <span class="dc-kicker dc-kicker-plain">CARE ROUTINE</span>
+            <h2>Small reminders can keep your care routine on track.</h2>
+            <p>
+              Use reminders for medication schedules, vital checks,
+              appointments and everyday activities that support your
+              home-care routine.
+            </p>
+          </div>
+
+          <a class="btn btn-secondary" href="medications.html">
+            View Medications
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </section>
+
+        <!-- NEXT REMINDER -->
+        <section class="dc-section dc-alt next-section">
+
+          <div class="next-copy">
+            <span class="dc-kicker dc-kicker-plain">NEXT REMINDER</span>
+            <h2>Keep your <span class="headingAccent">care routine connected.</span></h2>
+            <p>
+              Your reminders help you stay prepared for medications,
+              vital checks and scheduled home-care visits.
+            </p>
+
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Medication reminders</li>
+              <li><i class="bi bi-check-circle-fill"></i> Vital monitoring</li>
+              <li><i class="bi bi-check-circle-fill"></i> Home-care appointments</li>
+            </ul>
+          </div>
+
+          <div class="next-card">
+            <span class="next-label">NEXT REMINDER</span>
+
+            <div class="next-time">
+              <strong>08:00</strong>
+              <div>
+                <small>PM</small>
+                <b>Today</b>
+              </div>
+            </div>
+
+            <div class="next-detail">
+              <div class="next-icon">
+                <i class="bi bi-capsule-pill"></i>
+              </div>
+              <div>
+                <strong>Evening medication</strong>
+                <small>Take your scheduled medication</small>
+              </div>
+            </div>
+
+            <a class="btn btn-primary" href="medications.html">
+              View Medication
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+        </section>
+
+        <!-- ADD REMINDER -->
+        <section class="dc-section dc-alt" id="reminder-form">
+
+          <div class="dc-section-head">
+            <div>
+              <span class="dc-kicker dc-kicker-plain">CREATE REMINDER</span>
+              <h2>Add a new <span class="headingAccent">care reminder.</span></h2>
+              <p>Create a reminder for medication, appointments, vitals or daily care.</p>
+            </div>
+          </div>
+
+          <form class="reminder-form">
+
+            <div class="form-grid">
+
+              <div class="form-field">
+                <label for="reminderTitle">Reminder Title</label>
+                <input id="reminderTitle"
+                       type="text"
+                       placeholder="e.g. Morning medication">
+              </div>
+
+              <div class="form-field">
+                <label for="reminderType">Reminder Type</label>
+                <select id="reminderType">
+                  <option>Medication</option>
+                  <option>Appointment</option>
+                  <option>Vitals</option>
+                  <option>General Care</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="reminderDate">Date</label>
+                <input id="reminderDate" type="date">
+              </div>
+
+              <div class="form-field">
+                <label for="reminderTime">Time</label>
+                <input id="reminderTime" type="time">
+              </div>
+
+            </div>
+
+            <div class="form-field notes-field">
+              <label for="reminderNotes">Notes</label>
+              <textarea id="reminderNotes"
+                        rows="4"
+                        placeholder="Add any additional information..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <a class="btn btn-secondary" href="reminders.html">Cancel</a>
+              <button class="btn btn-primary" type="submit">
+                <i class="bi bi-check-lg"></i>
+                Save Reminder
+              </button>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- CLOSING CTA -->
+        <section class="dc-cta">
+          <div>
+            <span class="dc-kicker dc-kicker-plain">ORVERA HOME</span>
+            <h2>Connected Care. Right at <span class="headingAccent">Home.</span></h2>
+            <p>Everything about your care journey, kept in one dashboard.</p>
+          </div>
+
+          <a class="btn btn-primary" href="support.html">
+            Help &amp; Support
+          </a>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

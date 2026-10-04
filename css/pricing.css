@@ -1,0 +1,8357 @@
+/* =========================================================
+   ORVERA HOME
+   PRICING PAGE
+   COMPLETE CSS
+
+   Header + Hero + Footer preserved
+   5 pricing sections
+   No CSS Grid in new pricing content
+========================================================= */
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+  --primary: #02A59D;
+  --primary-dark: #028F89;
+
+  --secondary: #F86B4F;
+  --secondary-dark: #E95B40;
+
+  --ink: #263B3D;
+  --muted: #5F6F71;
+
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --soft: #F0FAF9;
+  --border: #D5E8E7;
+
+  --dark: #10191A;
+  --dark-surface: #172324;
+  --dark-border: #293B3D;
+
+  --shadow:
+    0 18px 45px rgba(38, 59, 61, .08);
+
+  --radius: 20px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background: var(--bg);
+  color: var(--ink);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.container {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 12px 21px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    color .25s ease,
+    transform .25s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff !important;
+}
+
+.btn-primary:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff !important;
+}
+
+.btn-secondary:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HEADER
+   EXISTING HEADER STYLE
+========================================================= */
+
+.header {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+
+  background:
+    rgba(255, 255, 255, .94);
+
+  border-bottom:
+    1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+}
+
+.navwrap {
+  min-height: 82px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+.brand img {
+  width: 45px;
+  height: 45px;
+
+  object-fit: contain;
+}
+
+.brand-copy {
+  display: flex;
+
+  flex-direction: column;
+
+  line-height: 1.05;
+}
+
+.brand-name {
+  font-size: 1.35rem;
+
+  font-weight: 900;
+
+  white-space: nowrap;
+}
+
+.brand-name .orvera {
+  color: var(--primary);
+}
+
+.brand-name .home {
+  color: var(--secondary);
+}
+
+.brand-copy small {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: .65rem;
+
+  letter-spacing: .03em;
+}
+
+.nav {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  flex: 1;
+}
+
+.nav > a,
+.drop > summary {
+  padding: 9px 12px;
+
+  border-radius: 9px;
+
+  color: var(--ink);
+
+  font-size: .88rem;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  list-style: none;
+
+  position: relative;
+
+  transition:
+    color .25s ease,
+    background .25s ease;
+}
+
+
+/* IMPORTANT:
+   NO BLUE BACKGROUND ON ACTIVE PAGE */
+
+.nav > a:hover,
+.drop > summary:hover {
+  color: var(--secondary);
+
+  background: transparent !important;
+}
+
+.nav > a.active {
+  color: var(--secondary) !important;
+
+  background: transparent !important;
+
+  position: relative;
+}
+
+.nav > a.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -20px;
+
+  height: 2px;
+
+  background: var(--secondary);
+
+  border-radius: 5px;
+}
+
+
+/* HOME DROPDOWN */
+
+.drop {
+  position: relative;
+}
+
+.drop > summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropmenu {
+  position: absolute;
+
+  top: calc(100% + 10px);
+
+  left: 0;
+
+  min-width: 205px;
+
+  padding: 8px;
+
+  background: #fff;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 14px;
+
+  box-shadow: var(--shadow);
+}
+
+.drop:not([open]) .dropmenu {
+  display: none;
+}
+
+.dropmenu a {
+  display: block;
+
+  padding: 10px 12px;
+
+  border-radius: 9px;
+
+  font-size: .82rem;
+}
+
+.dropmenu a:hover {
+  background: var(--soft);
+
+  color: var(--primary);
+}
+
+
+/* HEADER ACTIONS */
+
+.actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: #fff;
+
+  color: var(--ink);
+
+  cursor: pointer;
+}
+
+.direction-control {
+  font-size: .72rem;
+
+  font-weight: 800;
+}
+
+.mobile,
+.nav-toggle {
+  display: none;
+}
+
+
+/* =========================================================
+   HERO
+   EXISTING HERO STYLE
+========================================================= */
+
+/* =========================================================
+   SECTION 01
+   CARE PLANS
+========================================================= */
+
+.orvera-pricing-plans {
+  padding: 105px 0 100px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.orvera-section-heading {
+  max-width: 760px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.orvera-section-heading > span {
+  display: inline-block;
+
+  margin-bottom: 13px;
+
+  color: var(--secondary) !important;
+
+  font-size: .72rem;
+
+  font-weight: 800;
+
+  letter-spacing: .18em;
+}
+
+.orvera-section-heading h2 {
+  margin: 0 0 18px;
+
+  color:black!important; 
+
+  font-size:
+    clamp(2.2rem, 4vw, 3.7rem);
+
+  line-height: 1.08;
+
+  letter-spacing: -.035em;
+}
+
+.orvera-section-heading h2 strong {
+  color:var(--secondary)!important;
+}
+
+.orvera-section-heading p {
+  max-width: 670px;
+
+  margin: 0 auto;
+
+  color: var(--muted) !important;
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+}
+
+
+/* SECTION 01 ANIMATION */
+
+.pricing-heading-animate {
+  animation:
+    pricingHeadingReveal .9s ease both;
+}
+
+@keyframes pricingHeadingReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* PLAN LIST */
+
+.orvera-plan-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+
+/* PLAN */
+
+.orvera-plan {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  min-height: 245px;
+
+  padding: 34px 40px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 28px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 18px 45px rgba(38, 59, 61, .07);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+
+.orvera-plan:hover {
+  transform:
+    translateY(-7px);
+
+  box-shadow:
+    0 30px 60px rgba(38, 59, 61, .13);
+
+  border-color:
+    rgba(2, 165, 157, .35);
+}
+
+
+/* DIFFERENT PLAN ANIMATIONS */
+
+.essential-plan {
+  animation:
+    planFromLeft .9s .1s ease both;
+}
+
+.standard-plan {
+  animation:
+    planFromRight 1s .25s ease both;
+}
+
+.premium-plan {
+  animation:
+    planFromBottom 1s .4s ease both;
+}
+
+@keyframes planFromLeft {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-90px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+
+}
+
+@keyframes planFromRight {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(90px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+
+}
+
+@keyframes planFromBottom {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(70px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* PLAN NUMBER */
+
+.plan-index {
+  flex: 0 0 58px;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--soft);
+
+  color: var(--primary);
+
+  font-size: .8rem;
+
+  font-weight: 900;
+
+  letter-spacing: .08em;
+}
+
+.standard-plan .plan-index {
+  background: var(--primary);
+
+  color: #ffffff;
+}
+
+
+/* PLAN INFORMATION */
+
+.plan-information {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.plan-label {
+  display: inline-block;
+
+  margin-bottom: 8px;
+
+  color: var(--primary);
+
+  font-size: .7rem;
+
+  font-weight: 900;
+
+  letter-spacing: .16em;
+}
+
+.standard-plan .plan-label {
+  color: var(--secondary);
+}
+
+.plan-information h3 {
+  margin: 0 0 9px;
+
+  color: var(--ink) !important;
+
+  font-size: 1.8rem;
+}
+
+.plan-information > p {
+  max-width: 590px;
+
+  margin: 0 0 20px;
+
+  color: var(--muted) !important;
+
+  font-size: .94rem;
+
+  line-height: 1.7;
+}
+
+
+/* FEATURES */
+
+.plan-features {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px 22px;
+}
+
+.plan-features span {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--ink) !important;
+
+  font-size: .84rem;
+
+  font-weight: 700;
+}
+
+.plan-features i {
+  color: var(--primary);
+}
+
+
+/* STANDARD POPULAR */
+
+.plan-title-line {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+.popular-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 5px 10px;
+
+  border-radius: 50px;
+
+  background:
+    rgba(248, 107, 79, .1);
+
+  color: var(--secondary);
+
+  font-size: .65rem;
+
+  font-weight: 900;
+
+  letter-spacing: .07em;
+
+  text-transform: uppercase;
+}
+
+
+/* PRICE */
+
+.plan-action {
+  flex:
+    0 0 185px;
+
+  text-align: right;
+}
+
+.plan-action small {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--muted);
+
+  font-size: .66rem;
+
+  font-weight: 800;
+
+  letter-spacing: .14em;
+}
+
+.plan-action strong {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--ink);
+
+  font-size: 2.45rem;
+
+  line-height: 1;
+}
+
+.standard-plan .plan-action strong {
+  color: var(--primary);
+}
+
+.plan-action a {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  min-width: 155px;
+
+  padding: 11px 17px;
+
+  border-radius: 11px;
+
+  background: var(--ink);
+
+  color: #ffffff !important;
+
+  font-size: .78rem;
+
+  font-weight: 800;
+
+  transition:
+    background .25s ease,
+    transform .25s ease;
+}
+
+.standard-plan .plan-action a {
+  background: var(--primary);
+}
+
+.plan-action a:hover {
+  background: var(--secondary);
+
+  transform:
+    translateY(-3px);
+}
+
+.plan-action a i {
+  transition:
+    transform .25s ease;
+}
+
+.plan-action a:hover i {
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   SECTION 02
+   COMPARE PLANS
+========================================================= */
+
+.orvera-comparison {
+  padding: 110px 0;
+
+  background: #F5F9F8;
+
+  overflow: hidden;
+}
+
+.comparison-layout {
+  display: flex;
+
+  align-items: center;
+
+  gap: 90px;
+}
+
+.comparison-intro {
+  flex:
+    0 0 40%;
+
+  animation:
+    comparisonIntro .9s ease both;
+}
+
+.comparison-intro > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: var(--secondary);
+
+  font-size: .7rem;
+
+  font-weight: 800;
+
+  letter-spacing: .18em;
+}
+
+.comparison-intro h2 {
+  margin: 0 0 18px;
+
+  color:black !important;
+
+  font-size:
+    clamp(2rem, 3.5vw, 3.3rem);
+
+  line-height: 1.1;
+}
+
+.comparison-intro h2 strong {
+  color: var(--secondary) !important;
+}
+
+.comparison-intro p {
+  margin: 0;
+
+  color: var(--muted) !important;
+
+  line-height: 1.8;
+}
+
+
+/* UNIQUE ANIMATION */
+
+@keyframes comparisonIntro {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translate(-55px, 45px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(0, 0);
+  }
+
+}
+
+
+/* COMPARISON LIST */
+
+.comparison-list {
+  flex: 1;
+
+  padding-left: 35px;
+
+  border-left:
+    2px solid
+    rgba(2, 165, 157, .18);
+}
+
+.comparison-row {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 22px 0;
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+.comparison-row:last-child {
+  border-bottom: none;
+}
+
+
+/* STAGGER */
+
+.comparison-row-one {
+  animation:
+    comparisonRowLeft .7s .15s ease both;
+}
+
+.comparison-row-two {
+  animation:
+    comparisonRowLeft .7s .3s ease both;
+}
+
+.comparison-row-three {
+  animation:
+    comparisonRowLeft .7s .45s ease both;
+}
+
+@keyframes comparisonRowLeft {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(65px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+/* ICON */
+
+.comparison-icon {
+  flex:
+    0 0 54px;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #ffffff;
+
+  color: var(--primary);
+
+  box-shadow:
+    0 12px 28px rgba(38, 59, 61, .08);
+
+  font-size: 1.2rem;
+}
+
+.comparison-row strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: var(--ink);
+
+  font-size: 1rem;
+}
+
+.comparison-row p {
+  margin: 0;
+
+  color: var(--muted) !important;
+
+  font-size: .86rem;
+}
+
+.comparison-row > span {
+  margin-left: auto;
+
+  color:
+    rgba(2, 165, 157, .28);
+
+  font-size: 2.2rem;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   SECTION 03
+   BENEFITS
+========================================================= */
+
+.orvera-benefits {
+  padding: 110px 0;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* UNIQUE HEADING ANIMATION */
+
+.benefits-heading {
+  animation:
+    benefitsHeading .9s ease both;
+}
+
+@keyframes benefitsHeading {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(.94);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+}
+
+
+/* BENEFIT FLOW */
+
+.benefit-flow {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.benefit-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  padding: 32px 0;
+
+  border-bottom:
+    1px solid var(--border);
+}
+
+.benefit-item:last-child {
+  border-bottom: none;
+}
+
+
+/* UNIQUE ANIMATION */
+
+.benefit-one {
+  animation:
+    benefitRise .8s .1s ease both;
+}
+
+.benefit-two {
+  animation:
+    benefitRise .8s .3s ease both;
+}
+
+.benefit-three {
+  animation:
+    benefitRise .8s .5s ease both;
+}
+
+@keyframes benefitRise {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(55px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* NUMBER */
+
+.benefit-number {
+  flex:
+    0 0 75px;
+
+  color:
+    rgba(2, 165, 157, .16);
+
+  font-size: 3.5rem;
+
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+
+/* ICON */
+
+.benefit-icon {
+  flex:
+    0 0 58px;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: var(--soft);
+
+  color: var(--primary);
+
+  font-size: 1.3rem;
+
+  transition:
+    transform .35s ease,
+    background .35s ease,
+    color .35s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+  transform:
+    rotate(-8deg)
+    scale(1.08);
+
+  background:
+    var(--primary);
+
+  color: #ffffff;
+}
+
+.benefit-item > div:last-child {
+  flex: 1;
+}
+
+.benefit-item > div:last-child > span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--secondary);
+
+  font-size: .68rem;
+
+  font-weight: 800;
+
+  letter-spacing: .16em;
+}
+
+.benefit-item h3 {
+  margin: 0 0 7px;
+
+  color: var(--ink) !important;
+
+  font-size: 1.45rem;
+}
+
+.benefit-item p {
+  max-width: 680px;
+
+  margin: 0;
+
+  color: var(--muted) !important;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SECTION 04
+   BOOKING PROCESS
+========================================================= */
+
+.orvera-booking-process {
+  padding: 110px 0;
+
+  background: #F7FAF9;
+
+  overflow: hidden;
+}
+
+
+/* UNIQUE HEADING ANIMATION */
+
+.process-heading {
+  animation:
+    processHeading .8s ease both;
+}
+
+@keyframes processHeading {
+
+  from {
+    opacity: 0;
+
+    transform:
+      rotateX(25deg)
+      translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      rotateX(0)
+      translateY(0);
+  }
+
+}
+
+
+/* FLOW */
+
+.booking-flow {
+  display: flex;
+
+  align-items: stretch;
+
+  gap: 0;
+}
+
+.booking-step {
+  flex: 1;
+
+  padding: 25px 18px;
+
+  text-align: center;
+
+  animation:
+    stepPop .75s ease both;
+}
+
+.booking-step-one {
+  animation-delay: .1s;
+}
+
+.booking-step-two {
+  animation-delay: .3s;
+}
+
+.booking-step-three {
+  animation-delay: .5s;
+}
+
+.booking-step-four {
+  animation-delay: .7s;
+}
+
+@keyframes stepPop {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(.78)
+      translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+  }
+
+}
+
+
+/* STEP CIRCLE */
+
+.booking-step-top {
+  position: relative;
+
+  width: 75px;
+  height: 75px;
+
+  margin:
+    0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  border:
+    2px solid var(--border);
+
+  box-shadow:
+    0 15px 35px rgba(38, 59, 61, .08);
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease;
+}
+
+.booking-step:hover .booking-step-top {
+  transform:
+    translateY(-7px)
+    rotate(5deg);
+
+  border-color:
+    var(--primary);
+}
+
+.booking-step-top span {
+  position: absolute;
+
+  top: -8px;
+
+  right: -4px;
+
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--secondary);
+
+  color: #ffffff;
+
+  font-size: .62rem;
+
+  font-weight: 900;
+}
+
+.booking-step-top i {
+  color: var(--primary);
+
+  font-size: 1.4rem;
+}
+
+.booking-step h3 {
+  margin: 0 0 8px;
+
+  color: var(--ink) !important;
+
+  font-size: 1.05rem;
+}
+
+.booking-step p {
+  max-width: 190px;
+
+  margin: 0 auto;
+
+  color: var(--muted) !important;
+
+  font-size: .82rem;
+
+  line-height: 1.65;
+}
+
+
+/* CONNECTOR */
+
+.booking-line {
+  flex:
+    0 0 45px;
+
+  align-self: flex-start;
+
+  margin-top: 61px;
+
+  height: 2px;
+
+  background: var(--border);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.booking-line::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: var(--primary);
+
+  transform:
+    translateX(-100%);
+
+  animation:
+    lineDraw 1s .8s ease forwards;
+}
+
+@keyframes lineDraw {
+
+  to {
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+/* =========================================================
+   SECTION 05
+   FINAL CTA
+========================================================= */
+
+.orvera-pricing-final {
+  padding: 110px 0;
+
+  background:
+
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(2, 165, 157, .10),
+      transparent 32%
+    ),
+
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(248, 107, 79, .10),
+      transparent 32%
+    ),
+
+    #ffffff;
+
+  overflow: hidden;
+}
+
+.pricing-final-box {
+  position: relative;
+
+  max-width: 920px;
+
+  margin: 0 auto;
+
+  padding: 75px 50px;
+
+  text-align: center;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 32px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 25px 70px rgba(38, 59, 61, .09);
+
+  animation:
+    finalScale .95s ease both;
+}
+
+
+/* UNIQUE CTA ANIMATION */
+
+@keyframes finalScale {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(.86);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+
+}
+
+
+/* PULSE ICON */
+
+.final-pulse-icon {
+  width: 65px;
+  height: 65px;
+
+  margin:
+    0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--soft);
+
+  color: var(--primary);
+
+  font-size: 1.4rem;
+
+  animation:
+    iconPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0
+      rgba(2, 165, 157, .18);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 16px
+      rgba(2, 165, 157, 0);
+  }
+
+}
+
+.pricing-final-box > span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--secondary);
+
+  font-size: .7rem;
+
+  font-weight: 800;
+
+  letter-spacing: .18em;
+}
+
+.pricing-final-box h2 {
+  margin: 0 0 18px;
+
+  color:black !important;
+
+  font-size:
+    clamp(2.2rem, 4vw, 3.6rem);
+
+  line-height: 1.08;
+}
+
+.pricing-final-box h2 strong {
+  display: block;
+
+  color: var(--secondary) !important;
+}
+
+.pricing-final-box > p {
+  max-width: 600px;
+
+  margin:
+    0 auto 30px;
+
+  color: var(--muted) !important;
+
+  line-height: 1.8;
+}
+
+.final-buttons {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 24px;
+
+  flex-wrap: wrap;
+}
+
+.final-buttons .btn {
+  min-width: 155px;
+}
+
+.final-contact-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--ink) !important;
+
+  font-weight: 800;
+
+  transition:
+    color .25s ease,
+    transform .25s ease;
+}
+
+.final-contact-link:hover {
+  color: var(--secondary) !important;
+
+  transform:
+    translateY(-2px);
+}
+
+.final-contact-link i {
+  transition:
+    transform .25s ease;
+}
+
+.final-contact-link:hover i {
+  transform:
+    translate(3px, -3px);
+}
+
+
+/* =========================================================
+   FOOTER
+   EXISTING FOOTER STYLE
+========================================================= */
+
+.footer {
+  padding:
+    65px 0 25px;
+
+  background: #162324;
+
+  color: #d7e2e1;
+}
+
+.footergrid {
+  display: grid;
+
+  grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+  gap: 45px;
+}
+
+.footer .brand-name {
+  color: #fff;
+}
+
+.footer .brand-copy small {
+  color: #9eb0af;
+}
+
+.footer-copy {
+  max-width: 330px;
+
+  color: #9eb0af;
+
+  line-height: 1.7;
+}
+
+.footer h4 {
+  margin: 0 0 15px;
+
+  color: #fff;
+}
+
+.footergrid > div > a:not(.brand) {
+  display: block;
+
+  margin: 9px 0;
+
+  color: #aebfbe;
+
+  font-size: .87rem;
+}
+
+.footergrid > div > a:not(.brand):hover {
+  color: var(--primary);
+}
+
+.footer-social h4 {
+  font-size: .88rem;
+}
+
+.social-links {
+  display: flex;
+
+  gap: 8px;
+}
+
+.social-links a {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid #385052;
+
+  border-radius: 10px;
+
+  color: #d7e2e1;
+}
+
+.social-links a:hover {
+  background: var(--primary);
+
+  border-color: var(--primary);
+
+  color: #fff;
+}
+
+.footbottom {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 45px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid #304446;
+
+  color: #829695;
+
+  font-size: .75rem;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+[data-theme="dark"] .header {
+  background:
+    rgba(16, 25, 26, .94);
+
+  border-color:
+    var(--dark-border);
+}
+
+[data-theme="dark"] .nav > a,
+[data-theme="dark"] .drop > summary {
+  color: #f1f6f5;
+}
+
+[data-theme="dark"] .nav > a:hover,
+[data-theme="dark"] .drop > summary:hover {
+  background: transparent !important;
+
+  color: var(--secondary);
+}
+
+[data-theme="dark"] .nav > a.active {
+  background: transparent !important;
+
+  color: var(--secondary) !important;
+}
+
+[data-theme="dark"] .brand-copy small {
+  color: #9eb0af;
+}
+
+[data-theme="dark"] .icon,
+[data-theme="dark"] .dropmenu {
+  background:
+    var(--dark-surface);
+
+  border-color:
+    var(--dark-border);
+
+  color: #fff;
+}
+
+[data-theme="dark"] .dropmenu a {
+  color: #d7e2e1;
+}
+
+
+/* NEW SECTIONS DARK MODE */
+
+[data-theme="dark"] .orvera-pricing-plans,
+[data-theme="dark"] .orvera-benefits,
+[data-theme="dark"] .orvera-pricing-final {
+  background:
+    #10191A;
+}
+
+[data-theme="dark"] .orvera-comparison,
+[data-theme="dark"] .orvera-booking-process {
+  background:
+    #162122;
+}
+
+[data-theme="dark"] .orvera-plan,
+[data-theme="dark"] .pricing-final-box {
+  background:
+    var(--dark-surface);
+
+  border-color:
+    var(--dark-border);
+}
+
+[data-theme="dark"] .orvera-plan:hover {
+  border-color:
+    rgba(2, 165, 157, .5);
+}
+
+[data-theme="dark"] .orvera-section-heading h2,
+[data-theme="dark"] .comparison-intro h2,
+[data-theme="dark"] .benefit-item h3,
+[data-theme="dark"] .booking-step h3,
+[data-theme="dark"] .pricing-final-box h2,
+[data-theme="dark"] .plan-information h3,
+[data-theme="dark"] .comparison-row strong {
+  color:
+    #F3F8F7 !important;
+}
+
+[data-theme="dark"] .orvera-section-heading p,
+[data-theme="dark"] .comparison-intro p,
+[data-theme="dark"] .comparison-row p,
+[data-theme="dark"] .benefit-item p,
+[data-theme="dark"] .booking-step p,
+[data-theme="dark"] .pricing-final-box > p,
+[data-theme="dark"] .plan-information > p {
+  color:
+    #AEBEBD !important;
+}
+
+[data-theme="dark"] .comparison-icon,
+[data-theme="dark"] .booking-step-top {
+  background:
+    #172829;
+
+  border-color:
+    var(--dark-border);
+}
+
+[data-theme="dark"] .benefit-item {
+  border-color:
+    var(--dark-border);
+}
+
+[data-theme="dark"] .final-pulse-icon,
+[data-theme="dark"] .benefit-icon,
+[data-theme="dark"] .plan-index {
+  background:
+    #203334;
+}
+
+[data-theme="dark"] .plan-action strong {
+  color:
+    #F3F8F7;
+}
+
+[data-theme="dark"] .comparison-list {
+  border-color:
+    rgba(2, 165, 157, .3);
+}
+
+
+/* =========================================================
+   RTL
+========================================================= */
+
+[dir="rtl"] .pricing-hero-copy {
+  text-align: right;
+}
+
+[dir="rtl"] .pricing-eyebrow {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .pricing-hero-btn i {
+  transform:
+    rotate(180deg);
+}
+
+[dir="rtl"] .pricing-hero-btn:hover i {
+  transform:
+    rotate(180deg)
+    translateX(4px);
+}
+
+[dir="rtl"] .pricing-hero-badge {
+  left: auto;
+
+  right: -28px;
+}
+
+[dir="rtl"] .plan-action {
+  text-align: left;
+}
+
+[dir="rtl"] .comparison-layout {
+  flex-direction:
+    row-reverse;
+}
+
+[dir="rtl"] .comparison-list {
+  padding-left: 0;
+
+  padding-right: 35px;
+
+  border-left: none;
+
+  border-right:
+    2px solid
+    rgba(2, 165, 157, .18);
+}
+
+[dir="rtl"] .comparison-row > span {
+  margin-left: 0;
+
+  margin-right: auto;
+}
+
+[dir="rtl"] .benefit-item {
+  text-align: right;
+}
+
+[dir="rtl"] .booking-step-top span {
+  right: auto;
+
+  left: -4px;
+}
+
+[dir="rtl"] .plan-action a i,
+[dir="rtl"] .final-contact-link i {
+  transform:
+    rotate(180deg);
+}
+
+[dir="rtl"] .plan-action a:hover i {
+  transform:
+    rotate(180deg)
+    translateX(4px);
+}
+
+/* =========================================
+   RTL BRAND POSITION FIX (row-reverse swap)
+   Matches home1.css pattern — no gap between logo + name in RTL
+   ========================================= */
+
+/* HEADER */
+html[dir="rtl"] .header .navwrap {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] .header .brand {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  direction: rtl !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  gap: 4px !important;
+}
+
+/* Website name (brand-copy) — order:1 so it appears LEFT in RTL */
+html[dir="rtl"] .header .brand > span,
+html[dir="rtl"] .header .brand > .brand-copy {
+  order: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  direction: ltr !important;
+  align-items: flex-start !important;
+}
+
+/* Logo — order:2 so it appears RIGHT in RTL */
+html[dir="rtl"] .header .brand > img {
+  order: 2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html[dir="rtl"] .header .nav {
+  direction: rtl;
+}
+
+html[dir="rtl"] .header .actions {
+  direction: ltr;
+}
+
+/* =========================================
+   FOOTER (row-reverse swap too)
+   ========================================= */
+
+html[dir="rtl"] .footer .brand {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  direction: rtl !important;
+  gap: 4px !important;
+  margin: 0 !important;
+}
+
+/* Footer website name — order:1 (LEFT) */
+html[dir="rtl"] .footer .brand > span,
+html[dir="rtl"] .footer .brand > .brand-copy {
+  order: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  direction: ltr !important;
+  align-items: flex-start !important;
+}
+
+/* Footer logo — order:2 (RIGHT) */
+html[dir="rtl"] .footer .brand > img {
+  order: 2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* =========================================
+   KEEP LOGO + TEXT CLOSE
+   ========================================= */
+
+html[dir="rtl"] .brand-name,
+html[dir="rtl"] .footer-brand-name {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  direction: ltr !important;
+  text-align: left !important;
+  line-height: .88 !important;
+}
+
+html[dir="rtl"] .brand small {
+  margin-top: 3px !important;
+}
+
+/* =========================================
+   MOBILE RTL (800px)
+   ========================================= */
+
+@media (max-width: 800px) {
+  html[dir="rtl"] .header .brand {
+    gap: 3px !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+  }
+
+  html[dir="rtl"] .footer .brand {
+    gap: 3px !important;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .pricing-hero-grid {
+    grid-template-columns:
+      1fr;
+
+    gap: 48px;
+  }
+
+  .pricing-hero-copy {
+    max-width: 760px;
+  }
+
+  .pricing-hero-visual {
+    min-height: 430px;
+  }
+
+  .pricing-hero-image {
+    height: 430px;
+  }
+
+  .pricing-hero-badge {
+    left: 18px;
+
+    bottom: 25px;
+  }
+
+
+  /* PLANS */
+
+  .orvera-plan {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .plan-information {
+    flex-basis:
+      calc(100% - 95px);
+  }
+
+  .plan-action {
+    flex:
+      1 1 100%;
+
+    margin-left: 88px;
+
+    text-align: left;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+  }
+
+  .plan-action small {
+    margin: 0;
+  }
+
+  .plan-action strong {
+    margin:
+      0 auto 0 0;
+  }
+
+
+  /* COMPARISON */
+
+  .comparison-layout {
+    gap: 55px;
+  }
+
+
+  /* BOOKING */
+
+  .booking-flow {
+    flex-wrap: wrap;
+  }
+
+  .booking-step {
+    flex:
+      1 1 45%;
+  }
+
+  .booking-line {
+    display: none;
+  }
+
+
+  /* FOOTER */
+
+  .footergrid {
+    grid-template-columns:
+      1.5fr 1fr 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .container {
+    width:
+      min(
+        calc(100% - 28px),
+        1180px
+      );
+  }
+
+
+  /* HEADER */
+
+  .navwrap {
+    min-height: 72px;
+  }
+
+  .mobile {
+    display: flex;
+
+    order: 3;
+  }
+
+  .nav {
+    position: absolute;
+
+    top: 72px;
+
+    left: 14px;
+    right: 14px;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding: 12px;
+
+    background: #fff;
+
+    border:
+      1px solid var(--border);
+
+    border-radius: 15px;
+
+    box-shadow:
+      var(--shadow);
+  }
+
+  .nav-toggle:checked ~ .nav {
+    display: flex;
+  }
+
+  .nav > a,
+  .drop > summary {
+    padding: 12px;
+  }
+
+  .actions {
+    margin-left: auto;
+  }
+
+  .headercta {
+    display: none;
+  }
+
+  .dropmenu {
+    position: static;
+
+    margin-top: 5px;
+
+    box-shadow: none;
+  }
+
+  .brand-copy small {
+    display: none;
+  }
+
+  .nav > a.active::after {
+    display: none;
+  }
+
+
+  /* HERO */
+
+  .pricing-hero {
+    padding:
+      55px 0 60px;
+  }
+
+  .pricing-hero-grid {
+    gap: 34px;
+  }
+
+  .pricing-hero-copy h1 {
+    font-size:
+      clamp(
+        2.55rem,
+        13vw,
+        4rem
+      );
+  }
+
+  .pricing-hero-copy p {
+    font-size: .98rem;
+  }
+
+  .pricing-hero-points {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 9px;
+  }
+
+  .pricing-hero-visual {
+    min-height: 340px;
+  }
+
+  .pricing-hero-image {
+    width: 100%;
+
+    height: 340px;
+
+    border-radius: 25px;
+
+    transform: none;
+  }
+
+  .pricing-hero-badge {
+    left: 12px;
+
+    bottom: 15px;
+
+    min-width: 190px;
+
+    padding: 12px 14px;
+  }
+
+
+  /* MAIN SECTIONS */
+
+  .orvera-pricing-plans,
+  .orvera-comparison,
+  .orvera-benefits,
+  .orvera-booking-process,
+  .orvera-pricing-final {
+    padding:
+      75px 0;
+  }
+
+
+  /* PLANS */
+
+  .orvera-plan {
+    display: block;
+
+    padding:
+      28px 24px;
+
+    border-radius:
+      22px;
+  }
+
+  .plan-index {
+    margin-bottom:
+      20px;
+  }
+
+  .plan-information h3 {
+    font-size:
+      1.5rem;
+  }
+
+  .plan-features {
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+    gap:
+      9px;
+  }
+
+  .plan-action {
+    display: block;
+
+    margin: 25px 0 0;
+
+    padding:
+      25px 0 0;
+
+    text-align:
+      left;
+
+    border-top:
+      1px solid var(--border);
+  }
+
+  .plan-action strong {
+    margin:
+      7px 0 17px;
+
+    font-size:
+      2.15rem;
+  }
+
+  [dir="rtl"] .plan-action {
+    text-align:
+      right;
+  }
+
+
+  /* COMPARISON */
+
+  .comparison-layout {
+    flex-direction:
+      column;
+
+    gap:
+      45px;
+  }
+
+  .comparison-list {
+    padding-left:
+      20px;
+  }
+
+  [dir="rtl"] .comparison-layout {
+    flex-direction:
+      column;
+  }
+
+  [dir="rtl"] .comparison-list {
+    padding-left:
+      0;
+
+    padding-right:
+      20px;
+  }
+
+  .comparison-row {
+    gap:
+      13px;
+  }
+
+  .comparison-icon {
+    flex:
+      0 0 46px;
+
+    width:
+      46px;
+
+    height:
+      46px;
+  }
+
+  .comparison-row > span {
+    font-size:
+      1.5rem;
+  }
+
+
+  /* BENEFITS */
+
+  .benefit-item {
+    align-items:
+      flex-start;
+
+    gap:
+      16px;
+
+    padding:
+      25px 0;
+  }
+
+  .benefit-number {
+    flex:
+      0 0 42px;
+
+    font-size:
+      2.2rem;
+  }
+
+  .benefit-icon {
+    flex:
+      0 0 48px;
+
+    width:
+      48px;
+
+    height:
+      48px;
+  }
+
+  .benefit-item h3 {
+    font-size:
+      1.2rem;
+  }
+
+
+  /* BOOKING */
+
+  .booking-step {
+    flex:
+      0 0 100%;
+
+    padding:
+      22px 10px;
+  }
+
+  .booking-step p {
+    max-width:
+      270px;
+  }
+
+
+  /* FINAL */
+
+  .pricing-final-box {
+    padding:
+      55px 24px;
+
+    border-radius:
+      25px;
+  }
+
+  .final-buttons {
+    flex-direction:
+      column;
+  }
+
+  .final-buttons .btn {
+    width:
+      100%;
+  }
+
+
+  /* FOOTER */
+
+  .footergrid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .footbottom {
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .brand img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-name {
+    font-size:
+      1.1rem;
+  }
+
+  .orvera-section-heading h2 {
+    font-size:
+      2rem;
+  }
+
+  .comparison-intro h2 {
+    font-size:
+      2rem;
+  }
+
+  .pricing-final-box h2 {
+    font-size:
+      2rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      .01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    scroll-behavior:
+      auto !important;
+
+    transition-duration:
+      .01ms !important;
+  }
+
+}
+/* =========================================================
+   ORVERA PRICING
+   PREMIUM LINE-BY-LINE ANIMATION SYSTEM
+   Header + Hero + Footer untouched
+========================================================= */
+
+
+/* =========================================================
+   01 — SECTION HEADING MICRO ANIMATION
+========================================================= */
+
+.orvera-section-heading > span {
+  opacity: 0;
+  animation: pricingEyebrowIn .65s ease forwards;
+  animation-delay: .10s;
+}
+
+.orvera-section-heading h2 {
+  opacity: 0;
+  animation: pricingTitleIn .80s cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay: .25s;
+}
+
+.orvera-section-heading p {
+  opacity: 0;
+  animation: pricingParagraphIn .75s ease forwards;
+  animation-delay: .45s;
+}
+
+
+@keyframes pricingEyebrowIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    letter-spacing: .30em;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: .18em;
+  }
+}
+
+
+@keyframes pricingTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+@keyframes pricingParagraphIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   02 — PLAN CARDS
+========================================================= */
+
+.orvera-plan {
+  will-change: transform, opacity;
+}
+
+
+/* Essential */
+
+.essential-plan .plan-index {
+  animation:
+    planNumberIn
+    .65s
+    .55s
+    cubic-bezier(.34,1.56,.64,1)
+    both;
+}
+
+.essential-plan .plan-label {
+  animation:
+    planLabelIn
+    .55s
+    .68s
+    ease
+    both;
+}
+
+.essential-plan .plan-information h3 {
+  animation:
+    planTitleIn
+    .65s
+    .78s
+    ease
+    both;
+}
+
+.essential-plan .plan-information > p {
+  animation:
+    planTextIn
+    .65s
+    .88s
+    ease
+    both;
+}
+
+
+/* Standard */
+
+.standard-plan .plan-index {
+  animation:
+    planNumberIn
+    .65s
+    .70s
+    cubic-bezier(.34,1.56,.64,1)
+    both;
+}
+
+.standard-plan .plan-label {
+  animation:
+    planLabelIn
+    .55s
+    .83s
+    ease
+    both;
+}
+
+.standard-plan .plan-information h3 {
+  animation:
+    planTitleIn
+    .65s
+    .93s
+    ease
+    both;
+}
+
+.standard-plan .plan-information > p {
+  animation:
+    planTextIn
+    .65s
+    1.03s
+    ease
+    both;
+}
+
+
+/* Premium */
+
+.premium-plan .plan-index {
+  animation:
+    planNumberIn
+    .65s
+    .85s
+    cubic-bezier(.34,1.56,.64,1)
+    both;
+}
+
+.premium-plan .plan-label {
+  animation:
+    planLabelIn
+    .55s
+    .98s
+    ease
+    both;
+}
+
+.premium-plan .plan-information h3 {
+  animation:
+    planTitleIn
+    .65s
+    1.08s
+    ease
+    both;
+}
+
+.premium-plan .plan-information > p {
+  animation:
+    planTextIn
+    .65s
+    1.18s
+    ease
+    both;
+}
+
+
+@keyframes planNumberIn {
+  from {
+    opacity: 0;
+    transform: scale(.45) rotate(-20deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+@keyframes planLabelIn {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes planTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(17px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes planTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(13px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   PLAN FEATURE — EACH LINE SEPARATELY
+========================================================= */
+
+.orvera-plan .plan-features span {
+  opacity: 0;
+  animation:
+    featureLineIn
+    .55s
+    ease
+    forwards;
+}
+
+
+/* Essential */
+
+.essential-plan .plan-features span:nth-child(1) {
+  animation-delay: 1.00s;
+}
+
+.essential-plan .plan-features span:nth-child(2) {
+  animation-delay: 1.10s;
+}
+
+.essential-plan .plan-features span:nth-child(3) {
+  animation-delay: 1.20s;
+}
+
+
+/* Standard */
+
+.standard-plan .plan-features span:nth-child(1) {
+  animation-delay: 1.15s;
+}
+
+.standard-plan .plan-features span:nth-child(2) {
+  animation-delay: 1.25s;
+}
+
+.standard-plan .plan-features span:nth-child(3) {
+  animation-delay: 1.35s;
+}
+
+.standard-plan .plan-features span:nth-child(4) {
+  animation-delay: 1.45s;
+}
+
+
+/* Premium */
+
+.premium-plan .plan-features span:nth-child(1) {
+  animation-delay: 1.30s;
+}
+
+.premium-plan .plan-features span:nth-child(2) {
+  animation-delay: 1.40s;
+}
+
+.premium-plan .plan-features span:nth-child(3) {
+  animation-delay: 1.50s;
+}
+
+.premium-plan .plan-features span:nth-child(4) {
+  animation-delay: 1.60s;
+}
+
+
+@keyframes featureLineIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Feature icons */
+
+.plan-features i {
+  transition:
+    transform .35s ease,
+    color .35s ease;
+}
+
+.plan-features span:hover i {
+  transform:
+    scale(1.22)
+    rotate(8deg);
+}
+
+
+/* =========================================================
+   PRICE + BUTTON
+========================================================= */
+
+.essential-plan .plan-action {
+  animation:
+    priceRevealLeft
+    .70s
+    1.15s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.standard-plan .plan-action {
+  animation:
+    priceRevealUp
+    .70s
+    1.30s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.premium-plan .plan-action {
+  animation:
+    priceRevealRight
+    .70s
+    1.45s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+
+@keyframes priceRevealLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes priceRevealUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes priceRevealRight {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Price number */
+
+.plan-action strong {
+  transition:
+    transform .35s ease,
+    color .35s ease;
+}
+
+.orvera-plan:hover .plan-action strong {
+  transform: scale(1.045);
+}
+
+
+/* Button */
+
+.plan-action a {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+.plan-action a:hover {
+  transform:
+    translateY(-4px);
+  box-shadow:
+    0 12px 28px rgba(248,107,79,.20);
+}
+
+
+/* Button shine */
+
+.plan-action a::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 75%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.28),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition:
+    left .65s ease;
+}
+
+.plan-action a:hover::before {
+  left: 130%;
+}
+
+
+/* =========================================================
+   03 — COMPARISON SECTION
+========================================================= */
+
+.comparison-intro > span {
+  opacity: 0;
+
+  animation:
+    comparisonEyebrow
+    .65s
+    .10s
+    ease
+    both;
+}
+
+.comparison-intro h2 {
+  opacity: 0;
+
+  animation:
+    comparisonTitle
+    .75s
+    .25s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.comparison-intro p {
+  opacity: 0;
+
+  animation:
+    comparisonParagraph
+    .70s
+    .45s
+    ease
+    both;
+}
+
+
+@keyframes comparisonEyebrow {
+  from {
+    opacity: 0;
+    transform: translateX(-22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes comparisonTitle {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes comparisonParagraph {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Comparison rows individually */
+
+.comparison-row-one {
+  animation:
+    compareOne
+    .75s
+    .35s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.comparison-row-two {
+  animation:
+    compareTwo
+    .75s
+    .55s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.comparison-row-three {
+  animation:
+    compareThree
+    .75s
+    .75s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+
+@keyframes compareOne {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes compareTwo {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes compareThree {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Comparison icon */
+
+.comparison-icon {
+  transition:
+    transform .4s cubic-bezier(.34,1.56,.64,1),
+    box-shadow .35s ease;
+}
+
+.comparison-row:hover .comparison-icon {
+  transform:
+    translateY(-6px)
+    rotate(5deg)
+    scale(1.08);
+
+  box-shadow:
+    0 16px 32px rgba(2,165,157,.16);
+}
+
+
+/* Comparison heading */
+
+.comparison-row strong {
+  transition:
+    transform .3s ease,
+    color .3s ease;
+}
+
+.comparison-row:hover strong {
+  transform: translateX(5px);
+  color: var(--primary) !important;
+}
+
+
+/* Comparison text */
+
+.comparison-row p {
+  transition:
+    transform .3s ease;
+}
+
+.comparison-row:hover p {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   04 — BENEFITS
+========================================================= */
+
+.benefits-heading > span {
+  opacity: 0;
+
+  animation:
+    benefitsLabel
+    .6s
+    .15s
+    ease
+    both;
+}
+
+.benefits-heading h2 {
+  opacity: 0;
+
+  animation:
+    benefitsTitle
+    .8s
+    .30s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.benefits-heading p {
+  opacity: 0;
+
+  animation:
+    benefitsParagraph
+    .7s
+    .48s
+    ease
+    both;
+}
+
+
+@keyframes benefitsLabel {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes benefitsTitle {
+  from {
+    opacity: 0;
+    transform: scale(.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes benefitsParagraph {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Benefit lines */
+
+.benefit-one {
+  animation:
+    benefitOneIn
+    .75s
+    .35s
+    ease
+    both;
+}
+
+.benefit-two {
+  animation:
+    benefitTwoIn
+    .75s
+    .55s
+    ease
+    both;
+}
+
+.benefit-three {
+  animation:
+    benefitThreeIn
+    .75s
+    .75s
+    ease
+    both;
+}
+
+
+@keyframes benefitOneIn {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes benefitTwoIn {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes benefitThreeIn {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Benefit number */
+
+.benefit-number {
+  transition:
+    transform .4s ease,
+    color .4s ease;
+}
+
+.benefit-item:hover .benefit-number {
+  transform:
+    translateX(8px)
+    scale(1.05);
+}
+
+
+/* Benefit icon */
+
+.benefit-icon {
+  transition:
+    transform .4s cubic-bezier(.34,1.56,.64,1),
+    background .35s ease,
+    color .35s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+  transform:
+    rotate(-8deg)
+    scale(1.10);
+}
+
+
+/* Benefit small label */
+
+.benefit-item > div:last-child > span {
+  transition:
+    letter-spacing .3s ease,
+    transform .3s ease;
+}
+
+.benefit-item:hover > div:last-child > span {
+  letter-spacing: .20em;
+  transform: translateX(4px);
+}
+
+
+/* Benefit title */
+
+.benefit-item h3 {
+  transition:
+    transform .3s ease,
+    color .3s ease;
+}
+
+.benefit-item:hover h3 {
+  transform: translateX(5px);
+  color: var(--primary) !important;
+}
+
+
+/* Benefit paragraph */
+
+.benefit-item p {
+  transition:
+    transform .35s ease,
+    opacity .35s ease;
+}
+
+.benefit-item:hover p {
+  transform: translateX(4px);
+  opacity: .82;
+}
+
+
+/* =========================================================
+   05 — BOOKING PROCESS
+========================================================= */
+
+.process-heading > span {
+  opacity: 0;
+
+  animation:
+    processLabel
+    .6s
+    .15s
+    ease
+    both;
+}
+
+.process-heading h2 {
+  opacity: 0;
+
+  animation:
+    processTitle
+    .8s
+    .30s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.process-heading p {
+  opacity: 0;
+
+  animation:
+    processParagraph
+    .7s
+    .48s
+    ease
+    both;
+}
+
+
+@keyframes processLabel {
+  from {
+    opacity: 0;
+    letter-spacing: .30em;
+  }
+
+  to {
+    opacity: 1;
+    letter-spacing: .18em;
+  }
+}
+
+
+@keyframes processTitle {
+  from {
+    opacity: 0;
+    transform:
+      perspective(500px)
+      rotateX(20deg)
+      translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      perspective(500px)
+      rotateX(0)
+      translateY(0);
+  }
+}
+
+
+@keyframes processParagraph {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Booking steps */
+
+.booking-step-one {
+  animation:
+    bookingLeft
+    .75s
+    .30s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.booking-step-two {
+  animation:
+    bookingTop
+    .75s
+    .50s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.booking-step-three {
+  animation:
+    bookingBottom
+    .75s
+    .70s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.booking-step-four {
+  animation:
+    bookingRight
+    .75s
+    .90s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+
+@keyframes bookingLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-45px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes bookingTop {
+  from {
+    opacity: 0;
+    transform: translateY(-35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes bookingBottom {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes bookingRight {
+  from {
+    opacity: 0;
+    transform: translateX(45px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Booking circle */
+
+.booking-step-top {
+  transition:
+    transform .45s cubic-bezier(.34,1.56,.64,1),
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+
+.booking-step:hover .booking-step-top {
+  transform:
+    translateY(-8px)
+    scale(1.08);
+
+  box-shadow:
+    0 20px 40px rgba(2,165,157,.15);
+
+  border-color:
+    var(--primary);
+}
+
+
+/* Step number */
+
+.booking-step-top span {
+  transition:
+    transform .35s ease;
+}
+
+.booking-step:hover .booking-step-top span {
+  transform:
+    scale(1.12)
+    rotate(8deg);
+}
+
+
+/* Step icon */
+
+.booking-step-top i {
+  transition:
+    transform .35s ease;
+}
+
+.booking-step:hover .booking-step-top i {
+  transform:
+    scale(1.15);
+}
+
+
+/* Step title */
+
+.booking-step h3 {
+  transition:
+    transform .3s ease,
+    color .3s ease;
+}
+
+.booking-step:hover h3 {
+  transform:
+    translateY(-4px);
+
+  color:
+    var(--primary) !important;
+}
+
+
+/* Step paragraph */
+
+.booking-step p {
+  transition:
+    transform .3s ease,
+    opacity .3s ease;
+}
+
+.booking-step:hover p {
+  transform:
+    translateY(-2px);
+
+  opacity: .82;
+}
+
+
+/* =========================================================
+   06 — FINAL CTA
+========================================================= */
+
+.pricing-final-box > .final-pulse-icon {
+  animation:
+    finalIconIn
+    .8s
+    .25s
+    cubic-bezier(.34,1.56,.64,1)
+    both,
+    iconPulse
+    2.4s
+    1.2s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes finalIconIn {
+  from {
+    opacity: 0;
+    transform:
+      scale(.35)
+      rotate(-25deg);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      scale(1)
+      rotate(0);
+  }
+}
+
+
+.pricing-final-box > span {
+  opacity: 0;
+
+  animation:
+    finalLabelIn
+    .60s
+    .55s
+    ease
+    both;
+}
+
+.pricing-final-box h2 {
+  opacity: 0;
+
+  animation:
+    finalTitleIn
+    .80s
+    .70s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+.pricing-final-box > p {
+  opacity: 0;
+
+  animation:
+    finalParagraphIn
+    .70s
+    .88s
+    ease
+    both;
+}
+
+.final-buttons {
+  opacity: 0;
+
+  animation:
+    finalButtonsIn
+    .70s
+    1.05s
+    cubic-bezier(.22,.61,.36,1)
+    both;
+}
+
+
+@keyframes finalLabelIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    letter-spacing: .30em;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: .18em;
+  }
+}
+
+
+@keyframes finalTitleIn {
+  from {
+    opacity: 0;
+    transform:
+      translateY(28px)
+      scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes finalParagraphIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes finalButtonsIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   FINAL CTA BUTTON MICRO INTERACTION
+========================================================= */
+
+.final-buttons .btn {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.final-buttons .btn:hover {
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 14px 32px rgba(248,107,79,.20);
+}
+
+
+.final-buttons .btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.25),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition:
+    left .65s ease;
+}
+
+.final-buttons .btn:hover::before {
+  left: 130%;
+}
+
+
+/* Contact link */
+
+.final-contact-link {
+  transition:
+    transform .3s ease,
+    color .3s ease;
+}
+
+.final-contact-link:hover {
+  transform:
+    translateY(-3px);
+
+  color:
+    var(--secondary) !important;
+}
+
+
+/* =========================================================
+   PLAN CARD PREMIUM HOVER
+========================================================= */
+
+.orvera-plan {
+  overflow: hidden;
+}
+
+.orvera-plan::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(2,165,157,.07),
+      transparent 42%
+    );
+
+  transition:
+    opacity .45s ease;
+}
+
+.orvera-plan:hover::after {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MOBILE — KEEP ANIMATIONS SMOOTH
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .orvera-plan,
+  .comparison-row,
+  .benefit-item,
+  .booking-step {
+    animation-duration: .65s;
+  }
+
+  .orvera-plan:hover {
+    transform:
+      translateY(-4px);
+  }
+
+  .comparison-row:hover .comparison-icon {
+    transform:
+      scale(1.04);
+  }
+
+  .benefit-item:hover .benefit-icon {
+    transform:
+      scale(1.05);
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .orvera-plan,
+  .orvera-plan *,
+  .comparison-row,
+  .comparison-row *,
+  .benefit-item,
+  .benefit-item *,
+  .booking-step,
+  .booking-step *,
+  .pricing-final-box,
+  .pricing-final-box * {
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+  }
+}
+
+
+/* =========================================================
+   PRICING PAGE — NEW HERO
+   Distinct pricing-focused visual system
+   ========================================================= */
+
+.pricing-hero-new {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 82px 0 96px;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(2,165,157,.14), transparent 30%),
+    radial-gradient(circle at 88% 78%, rgba(248,107,79,.13), transparent 30%),
+    var(--bg);
+}
+
+.pricing-hero-new-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(500px, 1.1fr);
+  gap: 58px;
+  align-items: center;
+}
+
+.pricing-hero-new-copy {
+  max-width: 620px;
+}
+
+.pricing-new-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  padding: 8px 13px;
+  border: 1px solid rgba(2,165,157,.18);
+  border-radius: 999px;
+  background: rgba(2,165,157,.07);
+  color: var(--primary);
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+.pricing-new-eyebrow i {
+  font-size: .9rem;
+}
+
+.pricing-hero-new-copy h1 {
+  margin: 0 0 22px;
+  font-size: clamp(3.1rem, 5.4vw, 5.5rem);
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+
+.pricing-hero-new-copy h1 span {
+  display: block;
+  color: black!important;;
+}
+
+.pricing-hero-new-copy h1 strong {
+  display: block;
+  color: var(--secondary);
+  font-weight: 900;
+}
+
+.pricing-hero-new-copy p {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted) !important;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.pricing-new-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.pricing-new-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: .8rem;
+  font-weight: 800;
+}
+
+.pricing-new-note i {
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.pricing-hero-new-visual {
+  position: relative;
+  min-height: 535px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricing-visual-image {
+  position: relative;
+  width: min(100%, 510px);
+  height: 500px;
+  overflow: hidden;
+  border: 8px solid rgba(255,255,255,.78);
+  border-radius: 46% 54% 45% 55% / 38% 42% 58% 62%;
+  background: var(--soft);
+  box-shadow: 0 35px 80px rgba(8,79,82,.18);
+  transform: rotate(2deg);
+  animation: pricingHeroFloat 6s ease-in-out infinite;
+}
+
+.pricing-visual-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(2,165,157,.05), transparent 45%),
+    linear-gradient(0deg, rgba(16,25,26,.06), transparent 45%);
+  pointer-events: none;
+}
+
+.pricing-visual-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.03);
+}
+
+@keyframes pricingHeroFloat {
+  0%,100% {
+    transform: rotate(2deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1deg) translateY(-10px);
+  }
+}
+
+.pricing-orbit-card {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  min-width: 145px;
+  padding: 15px 17px;
+  border: 1px solid rgba(255,255,255,.78);
+  border-radius: 17px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 18px 45px rgba(38,59,61,.15);
+  backdrop-filter: blur(12px);
+  animation: pricingCardFloat 5s ease-in-out infinite;
+}
+
+.pricing-orbit-card span {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+
+.pricing-orbit-card strong {
+  color: var(--ink);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.pricing-orbit-card small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: .65rem;
+}
+
+.pricing-orbit-essential {
+  top: 54px;
+  left: 2px;
+  border-left: 4px solid var(--primary);
+  animation-delay: -.5s;
+}
+
+.pricing-orbit-standard {
+  top: 205px;
+  right: -16px;
+  border-left: 4px solid var(--secondary);
+  animation-delay: -1.7s;
+}
+
+.pricing-orbit-premium {
+  bottom: 45px;
+  left: 35px;
+  border-left: 4px solid var(--primary);
+  animation-delay: -3s;
+}
+
+@keyframes pricingCardFloat {
+  0%,100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+.pricing-visual-label {
+  position: absolute;
+  z-index: 5;
+  right: 20px;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 15px;
+  border-radius: 15px;
+  background: var(--dark-surface);
+  color: #fff;
+  box-shadow: 0 18px 40px rgba(8,79,82,.2);
+}
+
+.pricing-visual-label > i {
+  color: var(--secondary);
+  font-size: 1.25rem;
+}
+
+.pricing-visual-label strong {
+  display: block;
+  color: #fff;
+  font-size: .8rem;
+}
+
+.pricing-visual-label span {
+  display: block;
+  margin-top: 2px;
+  color: #B7C9C8;
+  font-size: .65rem;
+}
+
+.pricing-hero-orb {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(.2px);
+}
+
+.pricing-hero-orb-one {
+  width: 270px;
+  height: 270px;
+  top: -95px;
+  right: 14%;
+  border: 1px solid rgba(2,165,157,.13);
+  box-shadow: 0 0 0 28px rgba(2,165,157,.025);
+  animation: pricingOrb 9s linear infinite;
+}
+
+.pricing-hero-orb-two {
+  width: 180px;
+  height: 180px;
+  bottom: -80px;
+  left: 9%;
+  border: 1px solid rgba(248,107,79,.16);
+  animation: pricingOrbReverse 11s linear infinite;
+}
+
+@keyframes pricingOrb {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pricingOrbReverse {
+  to { transform: rotate(-360deg); }
+}
+
+[data-theme="dark"] .pricing-hero-new {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(2,165,157,.14), transparent 30%),
+    radial-gradient(circle at 88% 78%, rgba(248,107,79,.11), transparent 30%),
+    #10191A;
+}
+
+[data-theme="dark"] .pricing-new-eyebrow {
+  background: rgba(2,165,157,.12);
+  border-color: rgba(2,165,157,.3);
+  color: #5DE0D8;
+}
+
+[data-theme="dark"] .pricing-hero-new-copy h1 span {
+  color: #F3F8F7;
+}
+
+[data-theme="dark"] .pricing-hero-new-copy p,
+[data-theme="dark"] .pricing-new-note {
+  color: #AEBEBD !important;
+}
+
+[data-theme="dark"] .pricing-new-note i {
+  color: #5DE0D8;
+}
+
+[data-theme="dark"] .pricing-visual-image {
+  border-color: rgba(42,60,61,.95);
+  box-shadow: 0 35px 80px rgba(0,0,0,.34);
+}
+
+[data-theme="dark"] .pricing-orbit-card {
+  background: rgba(23,35,36,.96);
+  border-color: #293B3D;
+  box-shadow: 0 18px 45px rgba(0,0,0,.3);
+}
+
+[data-theme="dark"] .pricing-orbit-card strong {
+  color: #F3F8F7;
+}
+
+[data-theme="dark"] .pricing-orbit-card span,
+[data-theme="dark"] .pricing-orbit-card small {
+  color: #AEBEBD;
+}
+
+[data-theme="dark"] .pricing-visual-label {
+  background: #0C1516;
+  border: 1px solid #293B3D;
+}
+
+[dir="rtl"] .pricing-new-eyebrow {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .pricing-hero-new-copy {
+  text-align: right;
+}
+
+[dir="rtl"] .pricing-hero-new-copy p {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+[dir="rtl"] .pricing-new-actions {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .pricing-hero-btn i {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .pricing-hero-btn:hover i {
+  transform: rotate(180deg) translateX(4px);
+}
+
+[dir="rtl"] .pricing-orbit-essential {
+  left: auto;
+  right: 2px;
+}
+
+[dir="rtl"] .pricing-orbit-standard {
+  right: auto;
+  left: -16px;
+}
+
+[dir="rtl"] .pricing-orbit-premium {
+  left: auto;
+  right: 35px;
+}
+
+[dir="rtl"] .pricing-visual-label {
+  right: auto;
+  left: 20px;
+}
+
+@media (max-width: 1000px) {
+  .pricing-hero-new {
+    padding: 72px 0 82px;
+  }
+
+  .pricing-hero-new-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .pricing-hero-new-copy {
+    max-width: 760px;
+  }
+
+  .pricing-hero-new-visual {
+    min-height: 510px;
+  }
+
+  .pricing-orbit-essential {
+    left: 8%;
+  }
+
+  .pricing-orbit-standard {
+    right: 4%;
+  }
+
+  .pricing-orbit-premium {
+    left: 13%;
+  }
+
+  [dir="rtl"] .pricing-orbit-essential {
+    left: auto;
+    right: 8%;
+  }
+
+  [dir="rtl"] .pricing-orbit-standard {
+    right: auto;
+    left: 4%;
+  }
+
+  [dir="rtl"] .pricing-orbit-premium {
+    left: auto;
+    right: 13%;
+  }
+}
+
+@media (max-width: 700px) {
+  .pricing-hero-new {
+    padding: 55px 0 68px;
+  }
+
+  .pricing-hero-new-grid {
+    gap: 32px;
+  }
+
+  .pricing-hero-new-copy h1 {
+    font-size: clamp(2.7rem, 13vw, 4rem);
+  }
+
+  .pricing-new-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pricing-hero-new-visual {
+    min-height: 430px;
+  }
+
+  .pricing-visual-image {
+    width: 100%;
+    height: 390px;
+    border-radius: 34px;
+    transform: none;
+    animation: pricingHeroFloatMobile 6s ease-in-out infinite;
+  }
+
+  @keyframes pricingHeroFloatMobile {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .pricing-orbit-card {
+    min-width: 118px;
+    padding: 11px 12px;
+  }
+
+  .pricing-orbit-card strong {
+    font-size: 1.15rem;
+  }
+
+  .pricing-orbit-essential {
+    top: 18px;
+    left: 2px;
+  }
+
+  .pricing-orbit-standard {
+    top: 150px;
+    right: -2px;
+  }
+
+  .pricing-orbit-premium {
+    bottom: 25px;
+    left: 10px;
+  }
+
+  [dir="rtl"] .pricing-orbit-essential {
+    left: auto;
+    right: 2px;
+  }
+
+  [dir="rtl"] .pricing-orbit-standard {
+    right: auto;
+    left: -2px;
+  }
+
+  [dir="rtl"] .pricing-orbit-premium {
+    left: auto;
+    right: 10px;
+  }
+
+  .pricing-visual-label {
+    right: 8px;
+    bottom: 0;
+    padding: 10px 12px;
+  }
+
+  [dir="rtl"] .pricing-visual-label {
+    right: auto;
+    left: 8px;
+  }
+
+  .pricing-hero-orb-one {
+    width: 170px;
+    height: 170px;
+    right: -70px;
+  }
+
+  .pricing-hero-orb-two {
+    width: 120px;
+    height: 120px;
+    left: -55px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-visual-image,
+  .pricing-orbit-card,
+  .pricing-hero-orb-one,
+  .pricing-hero-orb-two {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   PRICING PLANS — 3 CARDS SIDE BY SIDE
+   ========================================================= */
+
+.orvera-plan-list {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 20px;
+}
+
+
+/* =========================================================
+   INDIVIDUAL PLAN CARD
+   ========================================================= */
+
+.orvera-plan {
+    position: relative;
+
+    flex: 1 1 0;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 22px;
+
+    min-height: 430px;
+    padding: 30px 27px;
+
+    border: 1px solid var(--border);
+    border-radius: 26px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 18px 45px rgba(38, 59, 61, .07);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease,
+        border-color .4s ease,
+        background .4s ease;
+}
+
+
+/* CARD HOVER */
+
+.orvera-plan:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 30px 65px rgba(38, 59, 61, .14);
+
+    border-color:
+        rgba(2, 165, 157, .45);
+}
+
+
+/* =========================================================
+   PLAN NUMBER
+   ========================================================= */
+
+.plan-index {
+    flex: 0 0 58px;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--soft);
+    color: var(--primary);
+
+    font-size: .8rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        transform .35s ease;
+}
+
+.orvera-plan:hover .plan-index {
+    background: var(--primary);
+    color: #ffffff;
+
+    transform:
+        rotate(8deg)
+        scale(1.08);
+}
+
+
+/* STANDARD NUMBER */
+
+.standard-plan .plan-index {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   PLAN INFORMATION
+   ========================================================= */
+
+.plan-information {
+    flex: 1;
+    min-width: 0;
+}
+
+.plan-label {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: var(--primary);
+
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .16em;
+}
+
+.standard-plan .plan-label {
+    color: var(--secondary);
+}
+
+
+/* TITLE */
+
+.plan-information h3 {
+    margin: 0 0 10px;
+
+    color: var(--ink) !important;
+
+    font-size: 1.7rem;
+    line-height: 1.2;
+}
+
+
+/* DESCRIPTION */
+
+.plan-information > p {
+    max-width: none;
+
+    margin: 0 0 22px;
+
+    color: var(--muted) !important;
+
+    font-size: .88rem;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.plan-features {
+    display: flex;
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+.plan-features span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--ink) !important;
+
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+.plan-features i {
+    color: var(--primary);
+
+    transition:
+        transform .3s ease;
+}
+
+.orvera-plan:hover .plan-features i {
+    transform: scale(1.15);
+}
+
+
+/* =========================================================
+   PLAN ACTION
+   ========================================================= */
+
+.plan-action {
+    flex: 0 0 auto;
+
+    width: 100%;
+
+    margin-top: auto;
+
+    text-align: left;
+}
+
+.plan-action small {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--muted);
+
+    font-size: .63rem;
+    font-weight: 800;
+
+    letter-spacing: .14em;
+}
+
+.plan-action strong {
+    display: block;
+
+    margin-bottom: 17px;
+
+    color: var(--ink);
+
+    font-size: 2rem;
+    line-height: 1;
+}
+
+
+/* STANDARD PRICE */
+
+.standard-plan .plan-action strong {
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   PLAN BUTTONS
+   ========================================================= */
+
+.plan-action a {
+    width: 100%;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 12px 15px;
+
+    border: 1px solid var(--primary);
+    border-radius: 11px;
+
+    background: var(--primary);
+
+    color: #ffffff !important;
+
+    font-size: .78rem;
+    font-weight: 800;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* NORMAL HOVER */
+
+.plan-action a:hover {
+    background: var(--secondary) !important;
+
+    border-color: var(--secondary) !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(248, 107, 79, .22);
+}
+
+
+/* ARROW */
+
+.plan-action a i {
+    transition:
+        transform .3s ease;
+}
+
+.plan-action a:hover i {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PREMIUM BUTTON
+   SECONDARY COLOR BY DEFAULT
+   SECONDARY COLOR ON HOVER TOO
+   ========================================================= */
+
+.premium-plan .plan-action a {
+    background: var(--secondary) !important;
+
+    border-color: var(--secondary) !important;
+
+    color: #ffffff !important;
+}
+
+
+/* PREMIUM HOVER */
+
+.premium-plan .plan-action a:hover {
+    background: var(--secondary-dark) !important;
+
+    border-color: var(--secondary-dark) !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 28px rgba(248, 107, 79, .30);
+}
+
+
+/* PREMIUM LABEL */
+
+.premium-plan .plan-label {
+    color: var(--secondary);
+}
+
+
+/* PREMIUM NUMBER HOVER */
+
+.premium-plan:hover .plan-index {
+    background: var(--secondary);
+
+    color: #ffffff;
+}
+
+/* Pricing hero — remove the floating Connected Care card */
+.pricing-visual-label {
+  display: none !important;
+}
+/* =========================================================
+   ORVERA HOME — ABOUT PAGE FOOTER
+   PROFESSIONAL 4-COLUMN FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 72px 0 22px;
+    background: #083D40;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.footergrid {
+    display: grid !important;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    align-items: start;
+    gap: 55px;
+}
+
+/* ---------------------------------------------------------
+   BRAND COLUMN
+   --------------------------------------------------------- */
+
+.footer-brand-column {
+    min-width: 0;
+}
+
+.footer .brand {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    width: max-content;
+    max-width: 100%;
+    min-width: 0 !important;
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+.footer .brand img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex: 0 0 64px;
+}
+
+.footer .brand-copy {
+    display: flex;
+    flex-direction: column;
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+.footer .brand-name {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    font-size: 1.55rem;
+    font-weight: 800;
+    line-height: 1;
+    direction: ltr !important;
+}
+
+.footer .brand-name .orvera {
+    color: #02A59D;
+}
+
+.footer .brand-name .home {
+    color: #F86B4F;
+}
+
+.footer .brand small {
+    margin-top: 7px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.72rem;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.footer-description {
+    max-width: 410px;
+    margin: 22px 0 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.96rem;
+    line-height: 1.75;
+}
+
+/* ---------------------------------------------------------
+   SOCIAL MEDIA
+   --------------------------------------------------------- */
+
+.footer-social {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 11px !important;
+    margin-top: 22px;
+    width: max-content;
+}
+
+/* Important:
+   Social links are direct children of .footer-social
+   in your About HTML.
+*/
+
+.footer-social > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF !important;
+
+    text-decoration: none;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.footer-social > a i {
+    display: block;
+    font-size: 17px;
+    line-height: 1;
+}
+
+.footer-social > a:hover {
+    background: #F86B4F;
+    border-color: #F86B4F;
+    color: #FFFFFF !important;
+    transform: translateY(-4px);
+}
+
+/* ---------------------------------------------------------
+   FOOTER COLUMNS
+   --------------------------------------------------------- */
+
+.footer-column {
+    min-width: 0;
+}
+
+.footer h4 {
+    margin: 0 0 18px;
+    color: #FFFFFF;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.footer-column > a {
+    display: block;
+    width: max-content;
+    margin: 9px 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.footer-column > a:hover {
+    color: #F86B4F;
+    transform: translateX(5px);
+}
+
+/* ---------------------------------------------------------
+   CONTACT US
+   --------------------------------------------------------- */
+
+.footer-contact {
+    min-width: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0 0 16px;
+}
+
+.contact-item > i {
+    flex: 0 0 19px;
+    margin-top: 3px;
+    color: #02A59D;
+    font-size: 16px;
+}
+
+.contact-item > span,
+.contact-item > a {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.70) !important;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-decoration: none;
+    transform: none !important;
+}
+
+.contact-item > a:hover {
+    color: #F86B4F !important;
+}
+
+/* ---------------------------------------------------------
+   FOOTER BOTTOM
+   --------------------------------------------------------- */
+
+.footbottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-top: 52px;
+    padding-top: 19px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 0.78rem;
+}
+
+.footbottom span:first-child {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* ---------------------------------------------------------
+   RTL
+   --------------------------------------------------------- */
+
+body:has(#rtl-toggle:checked) .footergrid {
+    direction: rtl;
+}
+
+body:has(#rtl-toggle:checked) .footer .brand {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+body:has(#rtl-toggle:checked) .footer .brand-copy,
+body:has(#rtl-toggle:checked) .footer .brand-name {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+body:has(#rtl-toggle:checked) .footer-column > a:hover {
+    transform: translateX(-5px);
+}
+
+/* Social icons always stay horizontal */
+body:has(#rtl-toggle:checked) .footer-social {
+    flex-direction: row !important;
+    direction: rtl;
+}
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 1050px) {
+
+    .footergrid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 38px;
+    }
+
+    .footer-brand-column {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+    .footer {
+        padding: 58px 0 20px;
+    }
+
+    .footergrid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 38px 28px;
+    }
+
+    .footer-brand-column {
+        grid-column: 1 / -1;
+    }
+
+    .footer .brand {
+        width: max-content;
+    }
+
+    .footer .brand img {
+        width: 58px;
+        height: 58px;
+        flex-basis: 58px;
+    }
+
+    .footer .brand-name {
+        font-size: 1.35rem;
+    }
+
+    .footer-description {
+        max-width: 500px;
+    }
+
+    /* SOCIAL ICONS MUST REMAIN HORIZONTAL */
+    .footer-social {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        width: max-content !important;
+        gap: 10px !important;
+    }
+
+    .footer-social > a {
+        flex: 0 0 40px !important;
+    }
+
+    .footbottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-top: 40px;
+    }
+}
+
+/* ---------------------------------------------------------
+   SMALL MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 520px) {
+
+    .footergrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-brand-column {
+        grid-column: auto;
+    }
+
+    .footer .brand {
+        width: 100%;
+    }
+
+    .footer .brand img {
+        width: 54px;
+        height: 54px;
+        flex-basis: 54px;
+    }
+
+    .footer .brand-name {
+        font-size: 1.25rem;
+    }
+
+    .footer .brand small {
+        font-size: 0.64rem;
+    }
+
+    .footer-description {
+        font-size: 0.9rem;
+    }
+
+    /* KEEP SOCIAL ICONS IN ONE ROW */
+    .footer-social {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .footer-social > a {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        flex: 0 0 38px !important;
+    }
+
+    .contact-item {
+        margin-bottom: 14px;
+    }
+}
+/* =========================================================
+   GLOBAL HEADER + FOOTER BRAND
+   LOGO LEFT | ORVERA HOME ONE LINE
+   TAGLINE BELOW
+   ========================================================= */
+
+/* HEADER + FOOTER BRAND */
+.header .brand,
+.footer .brand {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+
+    gap: 8px !important;
+    column-gap: 8px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   LOGO — LEFT
+   ========================================================= */
+
+.header .brand > img,
+.footer .brand > img {
+    order: 1 !important;
+
+    display: block !important;
+
+    width: 58px !important;
+    height: 58px !important;
+
+    flex: 0 0 58px !important;
+
+    object-fit: contain !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   TEXT — RIGHT OF LOGO
+   ========================================================= */
+
+.header .brand > .brand-copy,
+.footer .brand > .brand-copy {
+    order: 2 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   ORVERA HOME — ONE SINGLE LINE
+   ========================================================= */
+
+.header .brand .brand-name,
+.footer .brand .brand-name {
+    display: flex !important;
+
+    flex-direction: row !important;
+    align-items: baseline !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* ORVERA */
+.header .brand .brand-name .orvera,
+.footer .brand .brand-name .orvera {
+    display: inline !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #02A59D !important;
+}
+
+
+/* HOME */
+.header .brand .brand-name .home,
+.footer .brand .brand-name .home {
+    display: inline !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #F86B4F !important;
+}
+
+
+/* =========================================================
+   TAGLINE — BELOW ORVERA HOME
+   ========================================================= */
+
+.header .brand-copy > small,
+.footer .brand-copy > small {
+    display: block !important;
+
+    margin: 4px 0 0 0 !important;
+    padding: 0 !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    white-space: nowrap !important;
+
+    font-size: .68rem !important;
+    line-height: 1.1 !important;
+}
+
+
+/* FOOTER TAGLINE */
+.footer .brand-copy > small {
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   RTL — KEEP SAME VISUAL BRAND
+   LOGO LEFT | ORVERA HOME RIGHT
+   ========================================================= */
+
+html[dir="rtl"] .header .brand,
+html[dir="rtl"] .footer .brand {
+    direction: ltr !important;
+    flex-direction: row !important;
+
+    gap: 8px !important;
+    column-gap: 8px !important;
+}
+
+html[dir="rtl"] .header .brand > img,
+html[dir="rtl"] .footer .brand > img {
+    order: 1 !important;
+}
+
+html[dir="rtl"] .header .brand > .brand-copy,
+html[dir="rtl"] .footer .brand > .brand-copy {
+    order: 2 !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+html[dir="rtl"] .header .brand .brand-name,
+html[dir="rtl"] .footer .brand .brand-name {
+    flex-direction: row !important;
+    direction: ltr !important;
+    text-align: left !important;
+}
+/* =========================================================
+   RTL BRAND
+   WEBSITE NAME LEFT + LOGO RIGHT
+   ========================================================= */
+
+html[dir="rtl"] .header .brand,
+html[dir="rtl"] .footer .brand {
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    direction: ltr !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+
+    gap: 8px !important;
+    column-gap: 8px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* WEBSITE NAME — LEFT */
+html[dir="rtl"] .header .brand > .brand-copy,
+html[dir="rtl"] .footer .brand > .brand-copy {
+    order: 1 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* ORVERA HOME — ONE LINE */
+html[dir="rtl"] .header .brand .brand-name,
+html[dir="rtl"] .footer .brand .brand-name {
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: baseline !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    white-space: nowrap !important;
+
+    width: max-content !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    line-height: 1 !important;
+}
+
+
+/* ORVERA */
+html[dir="rtl"] .header .brand .orvera,
+html[dir="rtl"] .footer .brand .orvera {
+    display: inline !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* HOME */
+html[dir="rtl"] .header .brand .home,
+html[dir="rtl"] .footer .brand .home {
+    display: inline !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* LOGO — RIGHT */
+html[dir="rtl"] .header .brand > img,
+html[dir="rtl"] .footer .brand > img {
+    order: 2 !important;
+
+    display: block !important;
+
+    width: 58px !important;
+    height: 58px !important;
+
+    flex: 0 0 58px !important;
+
+    object-fit: contain !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* TAGLINE */
+html[dir="rtl"] .header .brand-copy > small,
+html[dir="rtl"] .footer .brand-copy > small {
+    display: block !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    white-space: nowrap !important;
+
+    margin: 4px 0 0 0 !important;
+    padding: 0 !important;
+}
+/* =========================================================
+   ORVERA HOME
+   FINAL HEADER FIX
+   IPAD MINI + SAMSUNG + MOBILE
+   LTR / RTL
+   ========================================================= */
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 99999 !important;
+
+    width: 100%;
+
+    background: var(--surface) !important;
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.header .navwrap {
+    position: relative !important;
+
+    width: min(100% - 20px, 1180px);
+
+    min-height: 58px;
+
+    margin: 0 auto !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    flex-wrap: nowrap !important;
+
+    gap: 5px !important;
+
+    direction: ltr !important;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.header .brand {
+    order: 1 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    flex: 1 1 auto !important;
+
+    width: auto !important;
+
+    min-width: 0 !important;
+
+    max-width: none !important;
+
+    gap: 5px !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    direction: ltr !important;
+
+    text-decoration: none !important;
+}
+
+
+.header .brand > img {
+    width: 34px !important;
+
+    height: 34px !important;
+
+    flex: 0 0 34px !important;
+
+    object-fit: contain !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+}
+
+
+.header .brand-copy {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+
+    justify-content: center !important;
+
+    width: max-content !important;
+
+    min-width: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    direction: ltr !important;
+
+    text-align: left !important;
+}
+
+
+.header .brand-name {
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: baseline !important;
+
+    width: max-content !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    font-size: 0.88rem !important;
+
+    line-height: 1 !important;
+
+    font-weight: 800 !important;
+
+    white-space: nowrap !important;
+
+    direction: ltr !important;
+}
+
+
+.header .brand-name .orvera {
+    color: #02A59D !important;
+}
+
+
+.header .brand-name .home {
+    color: #F86B4F !important;
+}
+
+
+.header .brand-copy small {
+    display: block !important;
+
+    margin: 2px 0 0 !important;
+
+    padding: 0 !important;
+
+    font-size: 0.39rem !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+
+    color: var(--muted) !important;
+
+    direction: ltr !important;
+}
+
+
+/* =========================================================
+   DESKTOP NAV
+   ========================================================= */
+
+.header .nav {
+    order: 2 !important;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex: 1 1 auto;
+
+    gap: 18px;
+
+    direction: ltr;
+}
+
+
+.header .actions {
+    order: 3 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    flex: 0 0 auto;
+
+    gap: 4px;
+
+    direction: ltr !important;
+}
+
+
+/* =========================================================
+   HEADER BUTTONS
+   ========================================================= */
+
+.header .actions .icon,
+.header .headercta {
+    width: 30px !important;
+
+    height: 30px !important;
+
+    min-width: 30px !important;
+
+    min-height: 30px !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    border-radius: 6px !important;
+
+    line-height: 1 !important;
+}
+
+
+.header .actions .icon i {
+    font-size: 12px !important;
+}
+
+
+.header .direction-control {
+    font-size: 0.52rem !important;
+
+    font-weight: 800 !important;
+}
+
+
+.header .headercta {
+    text-decoration: none !important;
+
+    font-size: 0.55rem !important;
+
+    font-weight: 800 !important;
+}
+
+
+/* =========================================================
+   HAMBURGER
+   ========================================================= */
+
+.header .mobile {
+    display: none !important;
+
+    order: 4 !important;
+
+    width: 30px !important;
+
+    height: 30px !important;
+
+    min-width: 30px !important;
+
+    min-height: 30px !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    border-radius: 6px !important;
+
+    cursor: pointer;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--primary);
+}
+
+
+.header .mobile i {
+    font-size: 15px !important;
+
+    line-height: 1;
+}
+
+
+.header .nav-toggle {
+    position: absolute !important;
+
+    width: 1px !important;
+
+    height: 1px !important;
+
+    opacity: 0 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* =========================================================
+   TABLET / IPAD MINI / SAMSUNG
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .header .navwrap {
+        min-height: 56px !important;
+
+        width: calc(100% - 18px) !important;
+
+        gap: 4px !important;
+    }
+
+
+    /* BRAND LEFT IN LTR */
+
+    .header .brand {
+        order: 1 !important;
+
+        flex: 1 1 auto !important;
+    }
+
+
+    /* ACTIONS */
+
+    .header .actions {
+        order: 2 !important;
+
+        flex: 0 0 auto !important;
+
+        gap: 4px !important;
+    }
+
+
+    /* HAMBURGER */
+
+    .header .mobile {
+        display: inline-flex !important;
+
+        order: 3 !important;
+
+        flex: 0 0 30px !important;
+    }
+
+
+    /* LOGIN MUST REMAIN */
+
+    .header .headercta {
+        display: inline-flex !important;
+    }
+
+
+    /* HIDE NORMAL NAV */
+
+    .header .nav {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       OPEN MOBILE MENU
+       ===================================================== */
+
+    .header .nav-toggle:checked ~ .nav {
+        display: flex !important;
+
+        position: absolute !important;
+
+        top: calc(100% + 5px) !important;
+
+        left: 0 !important;
+
+        right: 0 !important;
+
+        width: 100% !important;
+
+        flex-direction: column !important;
+
+        align-items: stretch !important;
+
+        justify-content: flex-start !important;
+
+        gap: 0 !important;
+
+        padding: 6px !important;
+
+        background: var(--surface) !important;
+
+        border: 1px solid var(--border) !important;
+
+        border-radius: 9px !important;
+
+        box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
+
+        z-index: 999999 !important;
+
+        direction: ltr !important;
+    }
+
+
+    /* =====================================================
+       MOBILE NAV LINKS
+       ===================================================== */
+
+    .header .nav > a,
+    .header .nav details.drop > summary {
+        display: flex !important;
+
+        align-items: center !important;
+
+        width: 100% !important;
+
+        min-height: 34px !important;
+
+        padding: 7px 9px !important;
+
+        margin: 0 !important;
+
+        border-radius: 5px !important;
+
+        font-size: 0.68rem !important;
+
+        font-weight: 700 !important;
+
+        color: var(--ink) !important;
+
+        text-decoration: none !important;
+    }
+
+
+    .header .nav > a:hover,
+    .header .nav details.drop > summary:hover {
+        background: var(--soft) !important;
+
+        color: var(--primary) !important;
+    }
+
+
+    /* =====================================================
+       HOME DROPDOWN
+       ===================================================== */
+
+    .header .nav details.drop {
+        width: 100% !important;
+
+        position: relative !important;
+    }
+
+
+    .header .nav details.drop > summary {
+        justify-content: space-between !important;
+
+        cursor: pointer !important;
+
+        list-style: none !important;
+    }
+
+
+    .header .nav details.drop > summary::-webkit-details-marker {
+        display: none !important;
+    }
+
+
+    .header .nav details.drop > summary i {
+        font-size: 9px !important;
+
+        transition: transform .2s ease !important;
+    }
+
+
+    .header .nav details.drop[open] > summary i {
+        transform: rotate(180deg) !important;
+    }
+
+
+    /* THIS FIXES HOME 1 / HOME 2 VISIBILITY */
+
+    .header .nav .dropmenu {
+        position: static !important;
+
+        display: block !important;
+
+        width: 100% !important;
+
+        transform: none !important;
+
+        margin: 2px 0 5px !important;
+
+        padding: 4px !important;
+
+        background: var(--soft) !important;
+
+        border: 1px solid var(--border) !important;
+
+        border-radius: 6px !important;
+
+        box-shadow: none !important;
+    }
+
+
+    .header .nav details.drop:not([open]) .dropmenu {
+        display: none !important;
+    }
+
+
+    .header .nav .dropmenu a {
+        display: block !important;
+
+        width: 100% !important;
+
+        padding: 7px 9px !important;
+
+        margin: 0 !important;
+
+        border-radius: 5px !important;
+
+        color: var(--ink) !important;
+
+        font-family: Georgia, "Times New Roman", serif !important;
+
+        font-size: 0.64rem !important;
+
+        font-weight: 400 !important;
+
+        line-height: 1.25 !important;
+
+        white-space: nowrap !important;
+
+        text-decoration: none !important;
+    }
+
+
+    .header .nav .dropmenu a:hover,
+    .header .nav .dropmenu a.active {
+        background: var(--surface) !important;
+
+        color: var(--secondary) !important;
+    }
+
+
+    /* =====================================================
+       HAMBURGER -> CROSS
+       ===================================================== */
+
+    .header .nav-toggle:checked + .mobile {
+        background: var(--secondary) !important;
+
+        border-color: var(--secondary) !important;
+
+        color: #fff !important;
+    }
+
+}
+
+
+/* =========================================================
+   RTL TABLET / SAMSUNG
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    /*
+       LTR:
+       BRAND | ACTIONS | HAMBURGER
+
+       RTL:
+       HAMBURGER | ACTIONS | BRAND
+    */
+
+    html[dir="rtl"] .header .navwrap {
+        direction: ltr !important;
+    }
+
+
+    html[dir="rtl"] .header .mobile {
+        order: 1 !important;
+    }
+
+
+    html[dir="rtl"] .header .actions {
+        order: 2 !important;
+
+        direction: ltr !important;
+    }
+
+
+    html[dir="rtl"] .header .brand {
+        order: 3 !important;
+
+        flex: 1 1 auto !important;
+
+        justify-content: flex-end !important;
+
+        direction: ltr !important;
+
+        margin-left: 0 !important;
+
+        margin-right: 0 !important;
+    }
+
+
+    /*
+       IMPORTANT:
+       LOGO + WEBSITE NAME MOVE TOGETHER
+    */
+
+    html[dir="rtl"] .header .brand > img {
+        order: 2 !important;
+    }
+
+
+    html[dir="rtl"] .header .brand-copy {
+        order: 1 !important;
+
+        direction: ltr !important;
+
+        text-align: left !important;
+
+        align-items: flex-start !important;
+    }
+
+
+    html[dir="rtl"] .header .brand-name {
+        direction: ltr !important;
+
+        text-align: left !important;
+
+        flex-direction: row !important;
+    }
+
+
+    /*
+       RTL MOBILE NAV
+    */
+
+    html[dir="rtl"] .header .nav-toggle:checked ~ .nav {
+        direction: rtl !important;
+
+        text-align: right !important;
+    }
+
+
+    html[dir="rtl"] .header .nav > a,
+    html[dir="rtl"] .header .nav details.drop > summary {
+        direction: rtl !important;
+
+        text-align: right !important;
+    }
+
+
+    html[dir="rtl"] .header .nav details.drop > summary {
+        justify-content: space-between !important;
+    }
+
+
+    html[dir="rtl"] .header .nav .dropmenu {
+        direction: rtl !important;
+
+        text-align: right !important;
+    }
+
+
+    html[dir="rtl"] .header .nav .dropmenu a {
+        text-align: right !important;
+
+        direction: rtl !important;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SAMSUNG / PHONE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+    .header .navwrap {
+        min-height: 53px !important;
+
+        width: calc(100% - 12px) !important;
+    }
+
+
+    .header .brand > img {
+        width: 30px !important;
+
+        height: 30px !important;
+
+        flex-basis: 30px !important;
+    }
+
+
+    .header .brand-name {
+        font-size: 0.76rem !important;
+    }
+
+
+    .header .brand-copy small {
+        display: none !important;
+    }
+
+
+    .header .actions {
+        gap: 3px !important;
+    }
+
+
+    .header .actions .icon,
+    .header .headercta,
+    .header .mobile {
+        width: 28px !important;
+
+        height: 28px !important;
+
+        min-width: 28px !important;
+
+        min-height: 28px !important;
+    }
+
+
+    .header .actions .icon i {
+        font-size: 11px !important;
+    }
+
+
+    .header .direction-control {
+        font-size: 0.48rem !important;
+    }
+
+
+    .header .headercta {
+        font-size: 0.48rem !important;
+    }
+
+}
+/* =========================================================
+   MOBILE — COMPACT HEADER & FOOTER BRAND
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    /* HEADER BRAND */
+    .header .brand {
+        gap: 5px !important;
+        column-gap: 5px !important;
+    }
+
+    .header .brand > img {
+        width: 40px !important;
+        height: 40px !important;
+        flex: 0 0 40px !important;
+    }
+
+    .header .brand .brand-name {
+        font-size: 1.05rem !important;
+        line-height: 1 !important;
+    }
+
+    .header .brand-copy small {
+        font-size: 0.45rem !important;
+        margin-top: 3px !important;
+        letter-spacing: .02em !important;
+    }
+
+
+    /* FOOTER BRAND */
+    .footer .brand {
+        gap: 5px !important;
+        column-gap: 5px !important;
+    }
+
+    .footer .brand > img {
+        width: 42px !important;
+        height: 42px !important;
+        flex: 0 0 42px !important;
+    }
+
+    .footer .brand .brand-name {
+        font-size: 1.05rem !important;
+        line-height: 1 !important;
+    }
+
+    .footer .brand-copy small {
+        font-size: 0.48rem !important;
+        margin-top: 3px !important;
+        letter-spacing: .02em !important;
+    }
+}
+
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 480px) {
+
+    .header .brand > img {
+        width: 36px !important;
+        height: 36px !important;
+        flex-basis: 36px !important;
+    }
+
+    .header .brand .brand-name {
+        font-size: 0.95rem !important;
+    }
+
+    .header .brand-copy small {
+        font-size: 0.40rem !important;
+    }
+
+    .footer .brand > img {
+        width: 38px !important;
+        height: 38px !important;
+        flex-basis: 38px !important;
+    }
+
+    .footer .brand .brand-name {
+        font-size: 0.95rem !important;
+    }
+
+    .footer .brand-copy small {
+        font-size: 0.42rem !important;
+    }
+}
+/* =========================================================
+   ORVERA HOME
+   MOBILE ONLY
+   SMALL BRAND + COMPACT 2-COLUMN FOOTER
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+    /* =====================================================
+       HEADER — SMALL LOGO + WEBSITE NAME
+       ===================================================== */
+
+    .header .brand {
+        gap: 3px !important;
+        min-width: 0 !important;
+    }
+
+    .header .brand > img {
+        width: 24px !important;
+        height: 24px !important;
+        flex: 0 0 24px !important;
+        object-fit: contain !important;
+    }
+
+    .header .brand-copy {
+        min-width: 0 !important;
+        width: max-content !important;
+    }
+
+    .header .brand-name {
+        font-size: 0.64rem !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+    }
+
+    .header .brand-copy small {
+        display: block !important;
+        margin-top: 1px !important;
+        font-size: 0.26rem !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+    }
+
+
+    /* =====================================================
+       HEADER HEIGHT
+       ===================================================== */
+
+    .header .navwrap {
+        min-height: 45px !important;
+        width: calc(100% - 10px) !important;
+        gap: 3px !important;
+    }
+
+
+    /* =====================================================
+       HEADER BUTTONS — SMALL
+       ===================================================== */
+
+    .header .actions {
+        gap: 2px !important;
+    }
+
+    .header .actions .icon,
+    .header .headercta,
+    .header .mobile {
+        width: 24px !important;
+        height: 24px !important;
+        min-width: 24px !important;
+        min-height: 24px !important;
+        border-radius: 5px !important;
+    }
+
+    .header .actions .icon i {
+        font-size: 9px !important;
+    }
+
+    .header .direction-control {
+        font-size: 0.39rem !important;
+    }
+
+    .header .headercta {
+        font-size: 0.40rem !important;
+        padding: 0 !important;
+    }
+
+    .header .mobile i {
+        font-size: 12px !important;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .footer {
+        padding: 24px 0 8px !important;
+    }
+
+    .footer .container {
+        width: calc(100% - 18px) !important;
+        margin: 0 auto !important;
+    }
+
+
+    /* =====================================================
+       EXACTLY 2 COLUMNS
+       ===================================================== */
+
+    .footergrid {
+        display: grid !important;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr) !important;
+
+        column-gap: 18px !important;
+        row-gap: 15px !important;
+
+        align-items: start !important;
+    }
+
+
+    /* =====================================================
+       BRAND COLUMN
+       ===================================================== */
+
+    .footer-brand-column {
+        grid-column: auto !important;
+        min-width: 0 !important;
+    }
+
+
+    /* =====================================================
+       FOOTER LOGO + NAME
+       ===================================================== */
+
+    .footer .brand {
+        display: flex !important;
+
+        align-items: center !important;
+
+        gap: 3px !important;
+
+        width: max-content !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .footer .brand img {
+        width: 25px !important;
+        height: 25px !important;
+
+        flex: 0 0 25px !important;
+
+        object-fit: contain !important;
+    }
+
+    .footer .brand-copy {
+        width: max-content !important;
+        min-width: 0 !important;
+    }
+
+    .footer .brand-name {
+        font-size: 0.64rem !important;
+        line-height: 1 !important;
+
+        white-space: nowrap !important;
+    }
+
+    .footer .brand-copy small {
+        margin-top: 1px !important;
+
+        font-size: 0.25rem !important;
+        line-height: 1 !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* =====================================================
+       DESCRIPTION
+       ===================================================== */
+
+    .footer-description,
+    .footer-copy {
+        max-width: 125px !important;
+
+        margin: 5px 0 0 !important;
+
+        font-size: 0.40rem !important;
+
+        line-height: 1.35 !important;
+    }
+
+
+    /* =====================================================
+       SOCIAL ICONS
+       ===================================================== */
+
+    .footer-social {
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        flex-wrap: nowrap !important;
+
+        align-items: center !important;
+
+        gap: 3px !important;
+
+        width: max-content !important;
+
+        margin-top: 6px !important;
+    }
+
+    .footer-social > a,
+    .social-links a {
+        width: 18px !important;
+        height: 18px !important;
+
+        min-width: 18px !important;
+        max-width: 18px !important;
+
+        flex: 0 0 18px !important;
+
+        border-radius: 50% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .footer-social > a i,
+    .social-links a i {
+        font-size: 7px !important;
+    }
+
+
+    /* =====================================================
+       FOOTER HEADINGS
+       ===================================================== */
+
+    .footer h4 {
+        margin: 0 0 4px !important;
+
+        font-size: 0.47rem !important;
+
+        line-height: 1.1 !important;
+    }
+
+
+    /* =====================================================
+       FOOTER LINKS
+       ===================================================== */
+
+    .footer-column > a {
+        display: block !important;
+
+        width: max-content !important;
+        max-width: 100% !important;
+
+        margin: 2px 0 !important;
+        padding: 0 !important;
+
+        font-size: 0.40rem !important;
+
+        line-height: 1.25 !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* =====================================================
+       CONTACT US
+       ===================================================== */
+
+    .footer .contact-item {
+        display: flex !important;
+
+        align-items: flex-start !important;
+
+        gap: 3px !important;
+
+        margin: 0 0 3px !important;
+    }
+
+    .footer .contact-item > i {
+        flex: 0 0 7px !important;
+
+        width: 7px !important;
+
+        margin-top: 1px !important;
+
+        font-size: 6px !important;
+    }
+
+    .footer .contact-item > span,
+    .footer .contact-item > a {
+        display: block !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        font-size: 0.37rem !important;
+
+        line-height: 1.25 !important;
+
+        word-break: break-word !important;
+    }
+
+
+    /* =====================================================
+       FOOTER BOTTOM
+       ===================================================== */
+
+    .footer .footbottom {
+        display: flex !important;
+
+        flex-direction: row !important;
+
+        align-items: center !important;
+
+        justify-content: space-between !important;
+
+        gap: 5px !important;
+
+        width: 100% !important;
+
+        margin-top: 14px !important;
+
+        padding-top: 6px !important;
+
+        border-top: 1px solid rgba(255,255,255,.13) !important;
+
+        font-size: 0.30rem !important;
+
+        line-height: 1.1 !important;
+    }
+
+    .footer .footbottom span {
+        white-space: nowrap !important;
+    }
+
+}
+html[dir="rtl"] .header .brand {
+    position: relative !important;
+    left: 120px !important;
+}
+/* =========================================
+   REDUCE NAVIGATION GAP
+   ========================================= */
+
+.header .nav {
+    gap: 10px !important;
+}
+
+/* Reduce spacing inside each navigation item */
+.header .nav > a,
+.header .nav > details {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Home dropdown */
+.header .nav > details > summary {
+    padding: 0 4px !important;
+}
+
+/* Normal navigation links */
+.header .nav > a {
+    padding: 0 4px !important;
+}
+html[dir="rtl"] .header .brand {
+    position: relative !important;
+    left: 200px !important;
+}
+/* =========================================================
+   PRICING HERO — PREMIUM SHIMMER TEXT GRADIENT
+   ========================================================= */
+
+body[data-page="pricing"] .pagehero h1 {
+    background: linear-gradient(
+        105deg,
+        #5F7488 0%,
+        #5F7488 25%,
+        #02A59D 38%,
+        #DDF5F2 48%,
+        #F86B4F 58%,
+        #FFB09D 68%,
+        #5F7488 82%,
+        #5F7488 100%
+    );
+
+    background-size: 250% 100%;
+    background-position: 0% 50%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    animation: pricingHeroShimmer 5.5s ease-in-out infinite;
+}
+
+
+/* Make the existing orange accent participate in the animation */
+body[data-page="pricing"] .pagehero h1 .headingAccent {
+    color: transparent !important;
+
+    background: inherit;
+    background-size: inherit;
+    background-position: inherit;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Flowing shimmer */
+@keyframes pricingHeroShimmer {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* =========================================================
+   ORVERA HOME — PRICING
+   FINAL DARK MODE HEADING + ORANGE ACCENT FIX
+   ========================================================= */
+
+/* =========================================================
+   DARK MODE — ALL MAIN HEADINGS WHITE
+   ========================================================= */
+
+[data-theme="dark"] .pricing-hero-new-copy h1,
+[data-theme="dark"] .orvera-section-heading h2,
+[data-theme="dark"] .comparison-intro h2,
+[data-theme="dark"] .benefit-item h3,
+[data-theme="dark"] .booking-step h3,
+[data-theme="dark"] .pricing-final-box h2,
+[data-theme="dark"] .plan-information h3,
+[data-theme="dark"] .comparison-row strong {
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   DARK MODE — HERO HEADING
+   First line = WHITE
+   Second line = ORANGE
+   ========================================================= */
+
+[data-theme="dark"] .pricing-hero-new-copy h1 span {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .pricing-hero-new-copy h1 strong {
+    color: #F86B4F !important;
+}
+
+
+/* =========================================================
+   DARK MODE — SECTION HEADINGS
+   Normal text = WHITE
+   <strong> accent = ORANGE
+   ========================================================= */
+
+[data-theme="dark"] .orvera-section-heading h2 {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .orvera-section-heading h2 strong {
+    color: #F86B4F !important;
+}
+
+
+[data-theme="dark"] .comparison-intro h2 {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .comparison-intro h2 strong {
+    color: #F86B4F !important;
+}
+
+
+[data-theme="dark"] .pricing-final-box h2 {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .pricing-final-box h2 strong {
+    color: #F86B4F !important;
+}
+
+
+/* =========================================================
+   DARK MODE — SMALL HEADINGS
+   ========================================================= */
+
+[data-theme="dark"] .plan-information h3,
+[data-theme="dark"] .benefit-item h3,
+[data-theme="dark"] .booking-step h3 {
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   DARK MODE — BODY TEXT
+   ========================================================= */
+
+[data-theme="dark"] .pricing-hero-new-copy p,
+[data-theme="dark"] .orvera-section-heading p,
+[data-theme="dark"] .comparison-intro p,
+[data-theme="dark"] .comparison-row p,
+[data-theme="dark"] .benefit-item p,
+[data-theme="dark"] .booking-step p,
+[data-theme="dark"] .pricing-final-box > p,
+[data-theme="dark"] .plan-information > p {
+    color: #B7C9C8 !important;
+}
+
+
+/* =========================================================
+   DARK MODE — ORANGE SECONDARY COLOR
+   KEEP EXACTLY THE SAME
+   ========================================================= */
+
+[data-theme="dark"] .orvera-section-heading > span,
+[data-theme="dark"] .comparison-intro > span,
+[data-theme="dark"] .benefit-item > div:last-child > span,
+[data-theme="dark"] .pricing-final-box > span,
+[data-theme="dark"] .popular-label,
+[data-theme="dark"] .standard-plan .plan-label {
+    color: #F86B4F !important;
+}
+
+
+/* =========================================================
+   DARK MODE — ICONS
+   ICONS WHITE
+   ========================================================= */
+
+[data-theme="dark"] .comparison-icon i,
+[data-theme="dark"] .benefit-icon i,
+[data-theme="dark"] .booking-step-top i,
+[data-theme="dark"] .final-pulse-icon i {
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
+   DARK MODE — ICON CONTAINERS
+   ========================================================= */
+
+[data-theme="dark"] .comparison-icon,
+[data-theme="dark"] .booking-step-top,
+[data-theme="dark"] .benefit-icon,
+[data-theme="dark"] .final-pulse-icon,
+[data-theme="dark"] .plan-index {
+    background: #203334 !important;
+}
+
+
+/* =========================================================
+   DARK MODE — BORDERS
+   ========================================================= */
+
+[data-theme="dark"] .orvera-plan,
+[data-theme="dark"] .pricing-final-box,
+[data-theme="dark"] .comparison-icon,
+[data-theme="dark"] .booking-step-top {
+    border-color: #294143 !important;
+}
+
+[data-theme="dark"] .orvera-plan:hover {
+    border-color: #02A59D !important;
+}
+
+[data-theme="dark"] .benefit-item {
+    border-color: #294143 !important;
+}
+
+[data-theme="dark"] .comparison-list {
+    border-color: rgba(2,165,157,.35) !important;
+}
+
+[data-theme="dark"] .comparison-row {
+    border-color: #294143 !important;
+}
+
+
+/* =========================================================
+   DARK MODE — ORANGE HOVER
+   ========================================================= */
+
+[data-theme="dark"] .orvera-plan:hover,
+[data-theme="dark"] .pricing-final-box:hover {
+    border-color: #F86B4F !important;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   STOP GENERIC MAIN HEADING RULES FROM OVERRIDING
+   PRICING DARK MODE
+   ========================================================= */
+
+[data-theme="dark"] main .orvera-section-heading h2,
+[data-theme="dark"] main .comparison-intro h2,
+[data-theme="dark"] main .pricing-final-box h2,
+[data-theme="dark"] main .pricing-hero-new-copy h1 {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] main .orvera-section-heading h2 strong,
+[data-theme="dark"] main .comparison-intro h2 strong,
+[data-theme="dark"] main .pricing-final-box h2 strong,
+[data-theme="dark"] main .pricing-hero-new-copy h1 strong {
+    color: #F86B4F !important;
+}
+/* =========================================================
+   ORVERA HOME — PRICING
+   FINAL DARK MODE VISIBILITY + PREMIUM BORDER FINISH
+   ========================================================= */
+
+
+/* =========================================================
+   1. DARK MODE — CARD TEXT VISIBILITY
+   ========================================================= */
+
+/* Card descriptions */
+[data-theme="dark"] .plan-information > p {
+    color: #C7D6D5 !important;
+}
+
+/* Card feature text */
+[data-theme="dark"] .plan-features span {
+    color: #E8F2F1 !important;
+}
+
+/* Check icons stay teal */
+[data-theme="dark"] .plan-features i {
+    color: #02A59D !important;
+}
+
+/* PER VISIT */
+[data-theme="dark"] .plan-action small {
+    color: #AFC1BF !important;
+}
+
+/* Prices */
+[data-theme="dark"] .plan-action strong {
+    color: #FFFFFF !important;
+}
+
+/* Standard price remains teal */
+[data-theme="dark"] .standard-plan .plan-action strong {
+    color: #02A59D !important;
+}
+
+
+/* =========================================================
+   2. PLAN LABELS
+   ========================================================= */
+
+[data-theme="dark"] .plan-label {
+    color: #02A59D !important;
+}
+
+[data-theme="dark"] .standard-plan .plan-label,
+[data-theme="dark"] .premium-plan .plan-label {
+    color: #F86B4F !important;
+}
+
+[data-theme="dark"] .popular-label {
+    color: #F86B4F !important;
+    background: rgba(248,107,79,.14) !important;
+}
+
+
+/* =========================================================
+   3. PREMIUM CARD BACKGROUNDS
+   Make every card slightly different but still consistent.
+   ========================================================= */
+
+[data-theme="dark"] .orvera-plan {
+    background:
+        linear-gradient(
+            145deg,
+            #17292B 0%,
+            #132224 55%,
+            #102022 100%
+        ) !important;
+
+    border: 1px solid rgba(2,165,157,.38) !important;
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.035) !important;
+}
+
+
+/* Essential */
+[data-theme="dark"] .essential-plan {
+    border-color: rgba(2,165,157,.42) !important;
+}
+
+/* Standard */
+[data-theme="dark"] .standard-plan {
+    background:
+        linear-gradient(
+            145deg,
+            #192A2C 0%,
+            #142527 55%,
+            #182124 100%
+        ) !important;
+
+    border-color: rgba(248,107,79,.42) !important;
+}
+
+/* Premium */
+[data-theme="dark"] .premium-plan {
+    background:
+        linear-gradient(
+            145deg,
+            #20272A 0%,
+            #172326 52%,
+            #242022 100%
+        ) !important;
+
+    border-color: rgba(248,107,79,.55) !important;
+}
+
+
+/* =========================================================
+   4. CARD HOVER — MORE PREMIUM
+   ========================================================= */
+
+[data-theme="dark"] .orvera-plan:hover {
+    transform: translateY(-8px) !important;
+
+    border-color: #02A59D !important;
+
+    box-shadow:
+        0 28px 70px rgba(0,0,0,.42),
+        0 0 0 1px rgba(2,165,157,.16),
+        0 0 35px rgba(2,165,157,.08) !important;
+}
+
+[data-theme="dark"] .standard-plan:hover,
+[data-theme="dark"] .premium-plan:hover {
+    border-color: #F86B4F !important;
+
+    box-shadow:
+        0 28px 70px rgba(0,0,0,.42),
+        0 0 0 1px rgba(248,107,79,.14),
+        0 0 35px rgba(248,107,79,.08) !important;
+}
+
+
+/* =========================================================
+   5. PLAN NUMBER CIRCLES
+   ========================================================= */
+
+[data-theme="dark"] .plan-index {
+    background: rgba(2,165,157,.13) !important;
+
+    border: 1px solid rgba(2,165,157,.35) !important;
+
+    color: #02A59D !important;
+}
+
+[data-theme="dark"] .standard-plan .plan-index {
+    background: #02A59D !important;
+
+    border-color: #02A59D !important;
+
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .premium-plan .plan-index {
+    background: rgba(248,107,79,.14) !important;
+
+    border-color: rgba(248,107,79,.45) !important;
+
+    color: #F86B4F !important;
+}
+
+
+/* =========================================================
+   6. SECTION BACKGROUNDS
+   Dark mode should NOT be one flat black color.
+   ========================================================= */
+
+[data-theme="dark"] .orvera-pricing-plans {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(2,165,157,.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #0C1719 0%,
+            #101E20 50%,
+            #0C1719 100%
+        ) !important;
+
+    border-top: 1px solid rgba(2,165,157,.20) !important;
+    border-bottom: 1px solid rgba(2,165,157,.16) !important;
+}
+
+
+[data-theme="dark"] .orvera-comparison {
+    background:
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(248,107,79,.08),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #111D20 0%,
+            #172527 50%,
+            #101A1D 100%
+        ) !important;
+
+    border-bottom: 1px solid rgba(248,107,79,.18) !important;
+}
+
+
+[data-theme="dark"] .orvera-benefits {
+    background:
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(2,165,157,.07),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #0D191B,
+            #152426,
+            #0D191B
+        ) !important;
+
+    border-bottom: 1px solid rgba(2,165,157,.18) !important;
+}
+
+
+[data-theme="dark"] .orvera-booking-process {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(248,107,79,.07),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #172224,
+            #101B1D,
+            #182426
+        ) !important;
+
+    border-bottom: 1px solid rgba(248,107,79,.18) !important;
+}
+
+
+[data-theme="dark"] .orvera-pricing-final {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(2,165,157,.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #0B1719,
+            #142224
+        ) !important;
+}
+
+
+/* =========================================================
+   7. SECTION HEADING — WHITE + ORANGE
+   ========================================================= */
+
+[data-theme="dark"] .orvera-section-heading h2,
+[data-theme="dark"] .comparison-intro h2,
+[data-theme="dark"] .pricing-final-box h2 {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .orvera-section-heading h2 strong,
+[data-theme="dark"] .comparison-intro h2 strong,
+[data-theme="dark"] .pricing-final-box h2 strong {
+    color: #F86B4F !important;
+}
+
+
+/* Section descriptions */
+[data-theme="dark"] .orvera-section-heading p,
+[data-theme="dark"] .comparison-intro p {
+    color: #B9CCCA !important;
+}
+
+
+/* Small orange eyebrow */
+[data-theme="dark"] .orvera-section-heading > span,
+[data-theme="dark"] .comparison-intro > span,
+[data-theme="dark"] .pricing-final-box > span {
+    color: #F86B4F !important;
+}
+
+
+/* =========================================================
+   8. COMPARISON ROWS
+   ========================================================= */
+
+[data-theme="dark"] .comparison-row {
+    background:
+        rgba(255,255,255,.025) !important;
+
+    border-color:
+        rgba(2,165,157,.22) !important;
+
+    border-radius: 16px;
+}
+
+[data-theme="dark"] .comparison-row strong {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .comparison-row p {
+    color: #B9CCCA !important;
+}
+
+[data-theme="dark"] .comparison-icon {
+    background: rgba(2,165,157,.10) !important;
+
+    border: 1px solid rgba(2,165,157,.35) !important;
+
+    color: #02A59D !important;
+}
+
+
+/* =========================================================
+   9. BENEFIT ITEMS
+   ========================================================= */
+
+[data-theme="dark"] .benefit-item {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.015)
+        ) !important;
+
+    border: 1px solid rgba(2,165,157,.25) !important;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.22);
+}
+
+[data-theme="dark"] .benefit-item h3 {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .benefit-item p {
+    color: #B9CCCA !important;
+}
+
+[data-theme="dark"] .benefit-icon {
+    background: rgba(2,165,157,.12) !important;
+
+    border: 1px solid rgba(2,165,157,.30) !important;
+
+    color: #02A59D !important;
+}
+
+
+/* =========================================================
+   10. BOOKING PROCESS
+   ========================================================= */
+
+[data-theme="dark"] .booking-step {
+    color: #FFFFFF;
+}
+
+[data-theme="dark"] .booking-step h3 {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .booking-step p {
+    color: #B9CCCA !important;
+}
+
+[data-theme="dark"] .booking-step-top {
+    background:
+        rgba(2,165,157,.10) !important;
+
+    border: 1px solid rgba(2,165,157,.32) !important;
+
+    color: #02A59D !important;
+}
+
+[data-theme="dark"] .booking-step-top i {
+    color: #02A59D !important;
+}
+
+
+/* =========================================================
+   11. FINAL CTA
+   ========================================================= */
+
+[data-theme="dark"] .pricing-final-box {
+    background:
+        linear-gradient(
+            135deg,
+            #17292B,
+            #132124,
+            #211F20
+        ) !important;
+
+    border: 1px solid rgba(2,165,157,.40) !important;
+
+    box-shadow:
+        0 25px 75px rgba(0,0,0,.38),
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+[data-theme="dark"] .pricing-final-box:hover {
+    border-color: #F86B4F !important;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        0 0 35px rgba(248,107,79,.08);
+}
+
+[data-theme="dark"] .final-pulse-icon {
+    background: rgba(2,165,157,.12) !important;
+
+    border: 1px solid rgba(2,165,157,.30) !important;
+
+    color: #02A59D !important;
+}
+
+[data-theme="dark"] .pricing-final-box > p {
+    color: #B9CCCA !important;
+}
+
+[data-theme="dark"] .final-contact-link {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .final-contact-link:hover {
+    color: #F86B4F !important;
+}
+
+
+/* =========================================================
+   12. HERO IMAGE — PREMIUM BORDER
+   ========================================================= */
+
+[data-theme="dark"] .pricing-visual-image {
+    border: 3px solid rgba(2,165,157,.55) !important;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45),
+        0 0 0 6px rgba(2,165,157,.06),
+        0 0 35px rgba(2,165,157,.10) !important;
+}
+
+
+/* Image inner frame */
+[data-theme="dark"] .pricing-visual-image::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+
+    border: 1px solid rgba(248,107,79,.35);
+
+    border-radius: inherit;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   13. ORBIT PRICE CARDS
+   ========================================================= */
+
+[data-theme="dark"] .pricing-orbit-card {
+    background:
+        linear-gradient(
+            145deg,
+            #1D3032,
+            #162527
+        ) !important;
+
+    border: 1px solid rgba(2,165,157,.38) !important;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.38),
+        0 0 20px rgba(2,165,157,.06);
+}
+
+[data-theme="dark"] .pricing-orbit-card strong {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .pricing-orbit-card span {
+    color: #F86B4F !important;
+}
+
+[data-theme="dark"] .pricing-orbit-card small {
+    color: #B9CCCA !important;
+}
+
+
+/* =========================================================
+   14. SECTION DIVIDERS
+   ========================================================= */
+
+[data-theme="dark"] .orvera-pricing-plans::after,
+[data-theme="dark"] .orvera-comparison::after,
+[data-theme="dark"] .orvera-benefits::after,
+[data-theme="dark"] .orvera-booking-process::after {
+    content: "";
+    display: block;
+
+    width: 70px;
+    height: 2px;
+
+    margin: 80px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #02A59D,
+            #F86B4F
+        );
+
+    border-radius: 10px;
+
+    opacity: .65;
+}
+
+
+/* =========================================================
+   15. MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    [data-theme="dark"] .orvera-plan {
+        border-radius: 20px !important;
+    }
+
+    [data-theme="dark"] .pricing-visual-image {
+        border-width: 2px !important;
+    }
+
+    [data-theme="dark"] .pricing-visual-image::before {
+        inset: 8px;
+    }
+}
+/* ============================================================
+   ORVERA HOME — PRICING
+   COLORFUL PREMIUM DARK MODE
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] {
+    background:
+        radial-gradient(
+            circle at 8% 5%,
+            rgba(2,165,157,.34) 0,
+            rgba(2,165,157,.15) 18%,
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 92% 12%,
+            rgba(248,107,79,.28) 0,
+            rgba(248,107,79,.10) 20%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 82% 38%,
+            rgba(72,92,190,.20) 0,
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 12% 55%,
+            rgba(0,194,177,.18) 0,
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 88% 72%,
+            rgba(248,107,79,.16) 0,
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 25% 92%,
+            rgba(92,72,190,.18) 0,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #061315 0%,
+            #0A1D28 20%,
+            #10252D 42%,
+            #101D35 63%,
+            #0B2022 82%,
+            #061315 100%
+        ) !important;
+
+    background-attachment: fixed;
+}
+
+
+/* ============================================================
+   COLORFUL SECTION ATMOSPHERE
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .orvera-pricing-plans {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(2,165,157,.20),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(5,25,28,.94),
+            rgba(10,32,38,.90)
+        ) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .orvera-comparison {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(248,107,79,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(72,92,190,.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #101A2C,
+            #13252D
+        ) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .orvera-benefits {
+    background:
+        radial-gradient(
+            circle at 10% 40%,
+            rgba(2,165,157,.17),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 65%,
+            rgba(248,107,79,.13),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #081B20,
+            #102A2C
+        ) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .orvera-booking-process {
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(92,72,190,.16),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(2,165,157,.17),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #101A30,
+            #0A2528
+        ) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .orvera-pricing-final {
+    background:
+        radial-gradient(
+            circle at 12% 50%,
+            rgba(2,165,157,.27),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 88% 50%,
+            rgba(248,107,79,.25),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #071719,
+            #142532,
+            #101D30
+        ) !important;
+}
+
+
+/* ============================================================
+   PLAN CARDS — COLORFUL GLASS
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .orvera-plan {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(21,61,64,.96),
+            rgba(17,39,54,.96)
+        ) !important;
+
+    border:
+        1px solid rgba(2,165,157,.38) !important;
+
+    box-shadow:
+        0 25px 65px rgba(0,0,0,.34),
+        inset 0 1px 0 rgba(255,255,255,.05) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .standard-plan {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18,65,67,.98),
+            rgba(31,43,68,.98)
+        ) !important;
+
+    border-color:
+        rgba(248,107,79,.42) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .premium-plan {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,52,78,.96),
+            rgba(26,48,54,.98)
+        ) !important;
+
+    border-color:
+        rgba(92,154,190,.42) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .orvera-plan:hover {
+    transform: translateY(-9px);
+
+    border-color:
+        #02A59D !important;
+
+    box-shadow:
+        0 30px 75px rgba(0,0,0,.42),
+        0 0 40px rgba(2,165,157,.15) !important;
+}
+
+
+/* ============================================================
+   PLAN INDEX COLORS
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .plan-index {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2,165,157,.24),
+            rgba(2,165,157,.08)
+        ) !important;
+
+    border:
+        1px solid rgba(2,165,157,.35);
+
+    color:
+        #5DE0D8 !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .standard-plan .plan-index {
+    background:
+        linear-gradient(
+            135deg,
+            #02A59D,
+            #087C89
+        ) !important;
+
+    color:
+        #FFFFFF !important;
+}
+
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"]
+.orvera-section-heading h2,
+
+[data-theme="dark"] body[data-page="pricing"]
+.comparison-intro h2,
+
+[data-theme="dark"] body[data-page="pricing"]
+.benefit-item h3,
+
+[data-theme="dark"] body[data-page="pricing"]
+.booking-step h3,
+
+[data-theme="dark"] body[data-page="pricing"]
+.pricing-final-box h2,
+
+[data-theme="dark"] body[data-page="pricing"]
+.plan-information h3,
+
+[data-theme="dark"] body[data-page="pricing"]
+.comparison-row strong {
+    color:
+        #FFFFFF !important;
+}
+
+
+/* Orange accent remains EXACTLY the same */
+
+[data-theme="dark"] body[data-page="pricing"]
+.orvera-section-heading h2 strong,
+
+[data-theme="dark"] body[data-page="pricing"]
+.comparison-intro h2 strong,
+
+[data-theme="dark"] body[data-page="pricing"]
+.pricing-final-box h2 strong,
+
+[data-theme="dark"] body[data-page="pricing"]
+.plan-label,
+
+[data-theme="dark"] body[data-page="pricing"]
+.pricing-final-box > span,
+
+[data-theme="dark"] body[data-page="pricing"]
+.orvera-section-heading > span {
+    color:
+        #F86B4F !important;
+}
+
+
+/* ============================================================
+   COLORFUL COMPARISON ROWS
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .comparison-row {
+    border-bottom-color:
+        rgba(2,165,157,.22) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .comparison-icon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2,165,157,.25),
+            rgba(72,92,190,.18)
+        ) !important;
+
+    border:
+        1px solid rgba(2,165,157,.32);
+
+    color:
+        #5DE0D8 !important;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.25);
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .comparison-row:hover .comparison-icon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2,165,157,.45),
+            rgba(248,107,79,.30)
+        ) !important;
+
+    color:
+        #FFFFFF !important;
+}
+
+
+/* ============================================================
+   BENEFIT ITEMS
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .benefit-item {
+    border-bottom-color:
+        rgba(2,165,157,.20) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .benefit-icon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2,165,157,.25),
+            rgba(72,92,190,.20)
+        ) !important;
+
+    border:
+        1px solid rgba(2,165,157,.30);
+
+    color:
+        #5DE0D8 !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .benefit-item:hover .benefit-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #02A59D,
+            #087D89
+        ) !important;
+
+    color:
+        #FFFFFF !important;
+
+    box-shadow:
+        0 0 30px rgba(2,165,157,.22);
+}
+
+
+/* ============================================================
+   BOOKING STEPS
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .booking-step-top {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2,165,157,.24),
+            rgba(92,72,190,.20)
+        ) !important;
+
+    border:
+        2px solid rgba(2,165,157,.35) !important;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.28);
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .booking-step-top i {
+    color:
+        #5DE0D8 !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .booking-step-top span {
+    background:
+        #F86B4F !important;
+
+    color:
+        #FFFFFF !important;
+
+    box-shadow:
+        0 0 18px rgba(248,107,79,.28);
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .booking-line {
+    background:
+        rgba(2,165,157,.20) !important;
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .booking-line::after {
+    background:
+        linear-gradient(
+            90deg,
+            #02A59D,
+            #5DE0D8,
+            #F86B4F
+        ) !important;
+}
+
+
+/* ============================================================
+   FINAL CTA — MOST COLORFUL AREA
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .pricing-final-box {
+    background:
+        radial-gradient(
+            circle at 12% 25%,
+            rgba(2,165,157,.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 88% 75%,
+            rgba(248,107,79,.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #123D40,
+            #182E45,
+            #33283E
+        ) !important;
+
+    border:
+        1px solid rgba(2,165,157,.42) !important;
+
+    box-shadow:
+        0 30px 85px rgba(0,0,0,.40),
+        0 0 55px rgba(2,165,157,.08) !important;
+}
+
+
+/* ============================================================
+   FINAL ICON
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .final-pulse-icon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2,165,157,.30),
+            rgba(248,107,79,.22)
+        ) !important;
+
+    border:
+        1px solid rgba(2,165,157,.38);
+
+    color:
+        #5DE0D8 !important;
+
+    box-shadow:
+        0 0 30px rgba(2,165,157,.15);
+}
+
+
+/* ============================================================
+   NORMAL TEXT
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"]
+.orvera-section-heading p,
+
+[data-theme="dark"] body[data-page="pricing"]
+.comparison-intro p,
+
+[data-theme="dark"] body[data-page="pricing"]
+.comparison-row p,
+
+[data-theme="dark"] body[data-page="pricing"]
+.benefit-item p,
+
+[data-theme="dark"] body[data-page="pricing"]
+.booking-step p,
+
+[data-theme="dark"] body[data-page="pricing"]
+.pricing-final-box > p,
+
+[data-theme="dark"] body[data-page="pricing"]
+.plan-information > p {
+    color:
+        #C4D6D5 !important;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .btn-primary,
+[data-theme="dark"] body[data-page="pricing"] .standard-plan .plan-action a {
+    background:
+        linear-gradient(
+            135deg,
+            #02A59D,
+            #08B9AE
+        ) !important;
+
+    border-color:
+        #02A59D !important;
+
+    box-shadow:
+        0 8px 25px rgba(2,165,157,.18);
+}
+
+
+[data-theme="dark"] body[data-page="pricing"] .btn-primary:hover,
+[data-theme="dark"] body[data-page="pricing"] .plan-action a:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #F86B4F,
+            #FF826A
+        ) !important;
+
+    border-color:
+        #F86B4F !important;
+
+    box-shadow:
+        0 10px 30px rgba(248,107,79,.22);
+}
+
+
+/* ============================================================
+   COLORFUL PLAN FEATURE ICONS
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"] .plan-features i {
+    color:
+        #5DE0D8 !important;
+}
+
+
+/* ============================================================
+   GLOWING SECTION BORDERS
+   ============================================================ */
+
+[data-theme="dark"] body[data-page="pricing"]
+.orvera-pricing-plans,
+[data-theme="dark"] body[data-page="pricing"]
+.orvera-comparison,
+[data-theme="dark"] body[data-page="pricing"]
+.orvera-benefits,
+[data-theme="dark"] body[data-page="pricing"]
+.orvera-booking-process {
+    border-bottom:
+        1px solid rgba(2,165,157,.18) !important;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width:700px) {
+
+    [data-theme="dark"] body[data-page="pricing"] {
+        background:
+            radial-gradient(
+                circle at 20% 5%,
+                rgba(2,165,157,.28),
+                transparent 35%
+            ),
+            radial-gradient(
+                circle at 90% 30%,
+                rgba(248,107,79,.20),
+                transparent 32%
+            ),
+            radial-gradient(
+                circle at 20% 75%,
+                rgba(92,72,190,.16),
+                transparent 35%
+            ),
+            linear-gradient(
+                145deg,
+                #061315,
+                #10252D,
+                #101D30,
+                #071719
+            ) !important;
+    }
+
+    [data-theme="dark"] body[data-page="pricing"] .orvera-plan,
+    [data-theme="dark"] body[data-page="pricing"] .comparison-row,
+    [data-theme="dark"] body[data-page="pricing"] .pricing-final-box {
+        box-shadow:
+            0 18px 45px rgba(0,0,0,.30) !important;
+    }
+}

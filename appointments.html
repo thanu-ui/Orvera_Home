@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Appointments | Orvera Home</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  >
+
+  <link href="css/appointments.css" rel="stylesheet">
+  <link href="css/dashboard-chrome.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/orvexa-logo.png">
+
+  <script defer src="js/app.js"></script>
+</head>
+
+<body class="dashboard-page">
+
+  <input
+    aria-label="Toggle dashboard sidebar"
+    class="side-toggle"
+    id="side-toggle"
+    type="checkbox"
+  >
+
+  <div class="dash">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="side" id="side">
+
+      <a
+        aria-label="Orvera Home"
+        class="brand"
+        href="index.html"
+      >
+        <img
+          src="assets/orvexa-logo.png"
+          alt="Orvera Home logo"
+        >
+
+        <span class="brand-copy">
+          <span class="brand-name">
+            <span class="orvera">Orvera</span>
+            <span class="home">Home</span>
+          </span>
+
+          <small>Connected Care. Right at Home.</small>
+        </span>
+      </a>
+
+      
+
+      <!-- Navigation -->
+      <nav>
+
+        <a href="dashboard.html">
+          <i class="bi bi-grid-1x2"></i>
+          <span>Overview</span>
+        </a>
+
+        <a class="active" href="appointments.html">
+          <i class="bi bi-calendar-check"></i>
+          <span>Appointments</span>
+        </a>
+
+        <a href="vitals.html">
+          <i class="bi bi-heart-pulse"></i>
+          <span>Vitals History</span>
+        </a>
+
+        <a href="visit-notes.html">
+          <i class="bi bi-journal-text"></i>
+          <span>Visit Notes</span>
+        </a>
+
+        <a href="medications.html">
+          <i class="bi bi-capsule"></i>
+          <span>Medications</span>
+        </a>
+
+        <a href="reminders.html">
+          <i class="bi bi-alarm"></i>
+          <span>Reminders</span>
+        </a>
+
+        <a href="profile.html">
+          <i class="bi bi-person-circle"></i>
+          <span>Profile</span>
+        </a>
+
+        <a href="settings.html">
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+        </a>
+
+        <a href="support.html">
+          <i class="bi bi-headset"></i>
+          <span>Help &amp; Support</span>
+        </a>
+
+      </nav>
+
+      <!-- Logout -->
+      <div class="sideBottom">
+        <a href="login.html">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="dashmain">
+
+      <!-- Topbar -->
+      <div class="topbar">
+
+        <label
+          aria-label="Toggle dashboard menu"
+          class="icon dashboardMenu"
+          for="side-toggle"
+        >
+          <i class="bi bi-list"></i>
+        </label>
+
+        <div class="topbar-title">
+          <span class="topbar-kicker">PATIENT PORTAL</span>
+          <strong>APPOINTMENTS</strong>
+        </div>
+
+        <div class="topuser">
+
+          <button
+            aria-label="Notifications"
+            class="icon"
+            type="button"
+          >
+            <i class="bi bi-bell"></i>
+          </button>
+
+          <a
+            aria-label="Go to Orvera Home"
+            class="icon"
+            href="index.html"
+          >
+            <i class="bi bi-house-fill"></i>
+          </a>
+
+          <button
+            aria-label="Switch direction"
+            class="icon direction-control"
+            onclick="rtlToggle()"
+            type="button"
+          >
+            RTL
+          </button>
+
+          <button
+            aria-label="Switch theme"
+            class="icon theme-control"
+            onclick="themeToggle()"
+            type="button"
+          >
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <span class="avatar">MK</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= CONTENT ================= -->
+      <div class="dashcontent">
+
+        <!-- Page Heading -->
+        <div class="dc-head">
+
+          <div>
+
+            <span class="dc-kicker dc-kicker-plain">
+              APPOINTMENTS
+            </span>
+
+            <h1>
+              Your home visits,
+              <span>clearly scheduled.</span>
+            </h1>
+
+            <p>
+              Book, review and manage your upcoming
+              in-home care appointments.
+            </p>
+
+          </div>
+
+          <a
+            class="btn btn-primary"
+            href="book-visit.html"
+          >
+            <i class="bi bi-calendar-plus"></i>
+            Book Vitals Check
+          </a>
+
+        </div>
+
+
+        <!-- ================= STATS ================= -->
+        <div class="page-grid three">
+
+          <div class="page-stat">
+
+            <span class="ico">
+              <i class="bi bi-calendar-check"></i>
+            </span>
+
+            <strong>1</strong>
+
+            <small>
+              Upcoming visit
+            </small>
+
+          </div>
+
+
+          <div class="page-stat">
+
+            <span class="ico">
+              <i class="bi bi-clock"></i>
+            </span>
+
+            <strong>10:30 AM</strong>
+
+            <small>
+              Next visit time
+            </small>
+
+          </div>
+
+
+          <div class="page-stat">
+
+            <span class="ico">
+              <i class="bi bi-person-badge"></i>
+            </span>
+
+            <strong>Ananya R.</strong>
+
+            <small>
+              Assigned nurse
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================= UPCOMING VISIT ================= -->
+        <section
+          class="page-panel"
+          style="margin-top:20px"
+        >
+
+          <div class="dc-card-top">
+
+            <span class="dc-kicker dc-kicker-teal">
+              UPCOMING VISIT
+            </span>
+
+            <span class="pill">
+              Confirmed
+            </span>
+
+          </div>
+
+          <h2>
+            Home Vitals Check
+          </h2>
+
+          <p>
+            Tuesday, 14 October 2026 ·
+            10:30 AM · Home visit
+          </p>
+
+
+          <div
+            class="page-grid three"
+            style="margin-top:18px"
+          >
+
+            <div class="note">
+
+              <strong>
+                <i class="bi bi-person-badge"></i>
+                Nurse
+              </strong>
+
+              <span>
+                Ananya R.
+              </span>
+
+            </div>
+
+
+            <div class="note">
+
+              <strong>
+                <i class="bi bi-geo-alt"></i>
+                Location
+              </strong>
+
+              <span>
+                Address on file
+              </span>
+
+            </div>
+
+
+            <div class="note">
+
+              <strong>
+                <i class="bi bi-heart-pulse"></i>
+                Service
+              </strong>
+
+              <span>
+                Vitals Checks
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="btnrow"
+            style="margin-top:20px"
+          >
+
+            <a
+              class="btn btn-primary"
+              href="book-visit.html"
+            >
+              Reschedule
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="dashboard.html"
+            >
+              View Dashboard
+            </a>
+
+          </div>
+
+        </section>
+
+
+        <!-- ================= APPOINTMENT HISTORY ================= -->
+        <section
+          class="page-panel"
+          style="margin-top:20px"
+        >
+
+          <div class="dc-card-top">
+
+            <span class="dc-kicker dc-kicker-teal">
+              APPOINTMENT HISTORY
+            </span>
+
+            <a
+              class="dc-link"
+              href="book-visit.html"
+            >
+              Book another visit
+            </a>
+
+          </div>
+
+
+          <div class="tablewrap">
+
+            <table class="data-table">
+
+              <thead>
+
+                <tr>
+                  <th>Date</th>
+                  <th>Service</th>
+                  <th>Care professional</th>
+                  <th>Status</th>
+                </tr>
+
+              </thead>
+
+
+              <tbody>
+
+                <tr>
+
+                  <td>
+                    26 Sep 2026
+                  </td>
+
+                  <td>
+                    Vitals Checks
+                  </td>
+
+                  <td>
+                    Nurse Ananya R.
+                  </td>
+
+                  <td>
+                    <span class="pill">
+                      Completed
+                    </span>
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    20 Sep 2026
+                  </td>
+
+                  <td>
+                    Wellness Visit
+                  </td>
+
+                  <td>
+                    Care Team
+                  </td>
+
+                  <td>
+                    <span class="pill">
+                      Completed
+                    </span>
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    12 Sep 2026
+                  </td>
+
+                  <td>
+                    Medication Review
+                  </td>
+
+                  <td>
+                    Care Manager
+                  </td>
+
+                  <td>
+                    <span class="pill">
+                      Completed
+                    </span>
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

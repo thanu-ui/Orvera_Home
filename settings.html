@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Settings | Orvera Home</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  >
+
+  <link href="css/settings.css" rel="stylesheet">
+  <link href="css/dashboard-chrome.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/orvexa-logo.png">
+
+
+  <script defer src="js/app.js"></script>
+</head>
+
+<body class="dashboard-page">
+
+  <input
+    aria-label="Toggle dashboard sidebar"
+    class="side-toggle"
+    id="side-toggle"
+    type="checkbox"
+  >
+
+  <div class="dash">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="side" id="side">
+
+      <a aria-label="Orvera Home" class="brand" href="index.html">
+        <img src="assets/orvexa-logo.png" alt="Orvera Home logo">
+
+        <span class="brand-copy">
+          <span class="brand-name">
+            <span class="orvera">Orvera</span>
+            <span class="home">Home</span>
+          </span>
+          <small>Connected Care. Right at Home.</small>
+        </span>
+      </a>
+
+      
+
+      <nav>
+        <a href="dashboard.html">
+          <i class="bi bi-grid-1x2"></i>
+          <span>Overview</span>
+        </a>
+
+        <a href="appointments.html">
+          <i class="bi bi-calendar-check"></i>
+          <span>Appointments</span>
+        </a>
+
+        <a href="vitals.html">
+          <i class="bi bi-heart-pulse"></i>
+          <span>Vitals History</span>
+        </a>
+
+        <a href="visit-notes.html">
+          <i class="bi bi-journal-text"></i>
+          <span>Visit Notes</span>
+        </a>
+
+        <a href="medications.html">
+          <i class="bi bi-capsule"></i>
+          <span>Medications</span>
+        </a>
+
+        <a href="reminders.html">
+          <i class="bi bi-alarm"></i>
+          <span>Reminders</span>
+        </a>
+
+        <a href="profile.html">
+          <i class="bi bi-person-circle"></i>
+          <span>Profile</span>
+        </a>
+
+        <a class="active" href="settings.html">
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+        </a>
+
+        <a href="support.html">
+          <i class="bi bi-headset"></i>
+          <span>Help &amp; Support</span>
+        </a>
+      </nav>
+
+      <div class="sideBottom">
+        <a href="login.html">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="dashmain">
+
+      <!-- TOPBAR -->
+      <div class="topbar">
+
+        <label
+          aria-label="Toggle dashboard menu"
+          class="icon dashboardMenu"
+          for="side-toggle"
+        >
+          <i class="bi bi-list"></i>
+        </label>
+
+        <div class="topbar-title">
+          <span class="topbar-kicker">PATIENT PORTAL</span>
+          <strong>SETTINGS</strong>
+        </div>
+
+        <div class="topuser">
+
+          <button aria-label="Notifications" class="icon" type="button">
+            <i class="bi bi-bell"></i>
+          </button>
+
+          <a
+            aria-label="Go to Orvera Home"
+            class="icon home-control"
+            href="index.html"
+          >
+            <i class="bi bi-house-fill"></i>
+          </a>
+
+          <button
+            aria-label="RTL"
+            class="icon direction-control"
+            onclick="rtlToggle()"
+            type="button"
+          >
+            RTL
+          </button>
+
+          <button
+            aria-label="Switch theme"
+            class="icon theme-control"
+            onclick="themeToggle()"
+            type="button"
+          >
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <span class="avatar">MK</span>
+        </div>
+
+      </div>
+
+
+      <!-- CONTENT -->
+      <div class="dashcontent">
+
+        <!-- PAGE HEADER -->
+        <section class="settings-head">
+
+          <div>
+            <span class="eyebrow">ACCOUNT SETTINGS</span>
+
+            <h1>
+              Make your care portal
+              <span>work for you.</span>
+            </h1>
+
+            <p>
+              Manage your profile preferences, notifications, privacy,
+              appearance and account security from one place.
+            </p>
+          </div>
+
+          <a class="btn btn-primary" href="profile.html">
+            <i class="bi bi-person-circle"></i>
+            View Profile
+          </a>
+
+        </section>
+
+
+        <!-- SETTINGS LAYOUT -->
+        <section class="settings-layout">
+
+          <!-- SETTINGS NAV -->
+          <aside class="settings-nav">
+
+            <span class="settings-nav-title">SETTINGS MENU</span>
+
+            <a class="setting-link active" href="#account">
+              <span class="setting-link-icon">
+                <i class="bi bi-person"></i>
+              </span>
+              <span>
+                <strong>Account</strong>
+                <small>Personal account details</small>
+              </span>
+              <i class="bi bi-chevron-right arrow"></i>
+            </a>
+
+            <a class="setting-link" href="#notifications">
+              <span class="setting-link-icon coral">
+                <i class="bi bi-bell"></i>
+              </span>
+              <span>
+                <strong>Notifications</strong>
+                <small>Care and appointment alerts</small>
+              </span>
+              <i class="bi bi-chevron-right arrow"></i>
+            </a>
+
+            <a class="setting-link" href="#appearance">
+              <span class="setting-link-icon">
+                <i class="bi bi-palette"></i>
+              </span>
+              <span>
+                <strong>Appearance</strong>
+                <small>Theme and direction</small>
+              </span>
+              <i class="bi bi-chevron-right arrow"></i>
+            </a>
+
+            <a class="setting-link" href="#privacy">
+              <span class="setting-link-icon coral">
+                <i class="bi bi-shield-lock"></i>
+              </span>
+              <span>
+                <strong>Privacy</strong>
+                <small>Profile and information</small>
+              </span>
+              <i class="bi bi-chevron-right arrow"></i>
+            </a>
+
+            <a class="setting-link" href="#security">
+              <span class="setting-link-icon">
+                <i class="bi bi-key"></i>
+              </span>
+              <span>
+                <strong>Security</strong>
+                <small>Password and account access</small>
+              </span>
+              <i class="bi bi-chevron-right arrow"></i>
+            </a>
+
+            <div class="settings-nav-note">
+              <i class="bi bi-headset"></i>
+              <div>
+                <strong>Need help?</strong>
+                <span>Our support team can help with your account settings.</span>
+              </div>
+              <a href="support.html">Support</a>
+            </div>
+
+          </aside>
+
+
+          <!-- SETTINGS CONTENT -->
+          <div class="settings-content">
+
+            <!-- ACCOUNT -->
+            <section class="settings-panel" id="account">
+
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">ACCOUNT</span>
+                  <h2>Account information</h2>
+                </div>
+
+                <span class="status-pill">
+                  <i class="bi bi-check-circle-fill"></i>
+                  Active
+                </span>
+              </div>
+
+              <div class="account-banner">
+
+                <div class="account-avatar">M</div>
+
+                <div>
+                  <strong>Madhavi</strong>
+                  <span>Patient • Home Care</span>
+                </div>
+
+                <a class="btn btn-secondary small-btn" href="profile.html">
+                  <i class="bi bi-pencil-square"></i>
+                  Edit Profile
+                </a>
+
+              </div>
+
+              <div class="settings-form-grid">
+
+                <div class="field">
+                  <label for="full-name">Full Name</label>
+                  <div class="input-wrap">
+                    <i class="bi bi-person"></i>
+                    <input id="full-name" type="text" value="Madhavi">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="care-type">Care Type</label>
+                  <div class="input-wrap">
+                    <i class="bi bi-house-heart"></i>
+                    <input id="care-type" type="text" value="Home Care" readonly>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="email">Email</label>
+                  <div class="input-wrap">
+                    <i class="bi bi-envelope"></i>
+                    <input id="email" type="email" placeholder="Enter your email">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <div class="input-wrap">
+                    <i class="bi bi-telephone"></i>
+                    <input id="phone" type="tel" placeholder="Enter your phone">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="panel-actions">
+                <span>
+                  <i class="bi bi-info-circle"></i>
+                  Keep your account details current for care communication.
+                </span>
+
+                <button class="btn btn-primary" type="button">
+                  Save Changes
+                </button>
+              </div>
+
+            </section>
+
+
+            <!-- NOTIFICATIONS -->
+            <section class="settings-panel" id="notifications">
+
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">NOTIFICATIONS</span>
+                  <h2>Care notifications</h2>
+                </div>
+
+                <span class="panel-note">
+                  Stay informed about your care
+                </span>
+              </div>
+
+              <div class="preference-list">
+
+                <div class="preference-row">
+
+                  <span class="preference-icon">
+                    <i class="bi bi-calendar-check"></i>
+                  </span>
+
+                  <div class="preference-copy">
+                    <strong>Appointment reminders</strong>
+                    <span>Receive reminders before scheduled appointments.</span>
+                  </div>
+
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+
+                </div>
+
+                <div class="preference-row">
+
+                  <span class="preference-icon coral">
+                    <i class="bi bi-capsule"></i>
+                  </span>
+
+                  <div class="preference-copy">
+                    <strong>Medication reminders</strong>
+                    <span>Receive reminders for your medication schedule.</span>
+                  </div>
+
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+
+                </div>
+
+                <div class="preference-row">
+
+                  <span class="preference-icon">
+                    <i class="bi bi-alarm"></i>
+                  </span>
+
+                  <div class="preference-copy">
+                    <strong>Care reminders</strong>
+                    <span>Receive important care and follow-up reminders.</span>
+                  </div>
+
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                  </label>
+
+                </div>
+
+                <div class="preference-row">
+
+                  <span class="preference-icon coral">
+                    <i class="bi bi-megaphone"></i>
+                  </span>
+
+                  <div class="preference-copy">
+                    <strong>Service updates</strong>
+                    <span>Receive important updates about the patient portal.</span>
+                  </div>
+
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                  </label>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- APPEARANCE -->
+            <section class="settings-panel" id="appearance">
+
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">APPEARANCE</span>
+                  <h2>Portal appearance</h2>
+                </div>
+              </div>
+
+              <div class="appearance-grid">
+
+                <div class="appearance-card">
+
+                  <span class="appearance-icon">
+                    <i class="bi bi-moon-stars"></i>
+                  </span>
+
+                  <div>
+                    <strong>Theme</strong>
+                    <span>Switch between light and dark mode.</span>
+                  </div>
+
+                  <button
+                    class="appearance-action"
+                    onclick="themeToggle()"
+                    type="button"
+                  >
+                    <i class="bi bi-circle-half"></i>
+                    Change theme
+                  </button>
+
+                </div>
+
+                <div class="appearance-card">
+
+                  <span class="appearance-icon coral">
+                    <i class="bi bi-translate"></i>
+                  </span>
+
+                  <div>
+                    <strong>Direction</strong>
+                    <span>Change the portal reading direction.</span>
+                  </div>
+
+                  <button
+                    class="appearance-action"
+                    onclick="rtlToggle()"
+                    type="button"
+                  >
+                    <i class="bi bi-arrow-left-right"></i>
+                    RTL
+                  </button>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- PRIVACY -->
+            <section class="settings-panel" id="privacy">
+
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">PRIVACY</span>
+                  <h2>Privacy preferences</h2>
+                </div>
+
+                <span class="status-pill">
+                  <i class="bi bi-shield-check"></i>
+                  Protected
+                </span>
+              </div>
+
+              <div class="privacy-grid">
+
+                <div class="privacy-card">
+                  <span class="privacy-icon">
+                    <i class="bi bi-person-lock"></i>
+                  </span>
+
+                  <div>
+                    <strong>Profile visibility</strong>
+                    <p>
+                      Keep your patient profile information available
+                      within your care portal.
+                    </p>
+                  </div>
+
+                  <span class="privacy-status">Private</span>
+                </div>
+
+                <div class="privacy-card">
+                  <span class="privacy-icon coral">
+                    <i class="bi bi-file-earmark-lock"></i>
+                  </span>
+
+                  <div>
+                    <strong>Care information</strong>
+                    <p>
+                      Your care-related information is managed through
+                      the patient portal.
+                    </p>
+                  </div>
+
+                  <span class="privacy-status">Protected</span>
+                </div>
+
+              </div>
+
+            </section>
+
+
+            <!-- SECURITY -->
+            <section class="settings-panel" id="security">
+
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">SECURITY</span>
+                  <h2>Account security</h2>
+                </div>
+              </div>
+
+              <div class="security-row">
+
+                <span class="security-icon">
+                  <i class="bi bi-key"></i>
+                </span>
+
+                <div>
+                  <strong>Password</strong>
+                  <span>Change your account password regularly to help protect access.</span>
+                </div>
+
+                <button class="btn btn-secondary small-btn" type="button">
+                  Change Password
+                </button>
+
+              </div>
+
+              <div class="security-row">
+
+                <span class="security-icon coral">
+                  <i class="bi bi-shield-check"></i>
+                </span>
+
+                <div>
+                  <strong>Account protection</strong>
+                  <span>Review your account settings whenever your access details change.</span>
+                </div>
+
+                <span class="security-pill">
+                  Protected
+                </span>
+
+              </div>
+
+            </section>
+
+
+            <!-- BOTTOM NOTE -->
+            <section class="settings-note">
+
+              <div class="note-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+
+              <div>
+                <span class="eyebrow">ACCOUNT CARE</span>
+                <h3>Keep your settings up to date.</h3>
+                <p>
+                  Review your communication, privacy and security preferences
+                  whenever your needs change.
+                </p>
+              </div>
+
+              <a class="btn btn-secondary" href="support.html">
+                Contact Support
+              </a>
+
+            </section>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Profile | Orvera Home</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  >
+
+  <link href="css/profile.css" rel="stylesheet">
+  <link href="css/dashboard-chrome.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/orvexa-logo.png">
+
+  <script defer src="js/app.js"></script>
+</head>
+
+<body class="dashboard-page">
+
+  <input
+    aria-label="Toggle dashboard sidebar"
+    class="side-toggle"
+    id="side-toggle"
+    type="checkbox"
+  >
+
+  <div class="dash">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="side" id="side">
+
+      <a aria-label="Orvera Home" class="brand" href="index.html">
+        <img src="assets/orvexa-logo.png" alt="Orvera Home logo">
+
+        <span class="brand-copy">
+          <span class="brand-name">
+            <span class="orvera">Orvera</span>
+            <span class="home">Home</span>
+          </span>
+          <small>Connected Care. Right at Home.</small>
+        </span>
+      </a>
+
+     
+
+      <nav>
+        <a href="dashboard.html">
+          <i class="bi bi-grid-1x2"></i>
+          <span>Overview</span>
+        </a>
+
+        <a href="appointments.html">
+          <i class="bi bi-calendar-check"></i>
+          <span>Appointments</span>
+        </a>
+
+        <a href="vitals.html">
+          <i class="bi bi-heart-pulse"></i>
+          <span>Vitals History</span>
+        </a>
+
+        <a href="visit-notes.html">
+          <i class="bi bi-journal-text"></i>
+          <span>Visit Notes</span>
+        </a>
+
+        <a href="medications.html">
+          <i class="bi bi-capsule"></i>
+          <span>Medications</span>
+        </a>
+
+        <a href="reminders.html">
+          <i class="bi bi-alarm"></i>
+          <span>Reminders</span>
+        </a>
+
+        <a class="active" href="profile.html">
+          <i class="bi bi-person-circle"></i>
+          <span>Profile</span>
+        </a>
+
+        <a href="settings.html">
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+        </a>
+
+        <a href="support.html">
+          <i class="bi bi-headset"></i>
+          <span>Help &amp; Support</span>
+        </a>
+      </nav>
+
+      <div class="sideBottom">
+        <a href="login.html">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="dashmain">
+
+      <!-- TOPBAR -->
+      <div class="topbar">
+
+        <label
+          aria-label="Toggle dashboard menu"
+          class="icon dashboardMenu"
+          for="side-toggle"
+        >
+          <i class="bi bi-list"></i>
+        </label>
+
+        <div class="topbar-title">
+          <span class="topbar-kicker">PATIENT PORTAL</span>
+          <strong>PROFILE</strong>
+        </div>
+
+        <div class="topuser">
+
+          <button aria-label="Notifications" class="icon" type="button">
+            <i class="bi bi-bell"></i>
+          </button>
+
+          <a
+            aria-label="Go to Orvera Home"
+            class="icon home-control"
+            href="index.html"
+          >
+            <i class="bi bi-house-fill"></i>
+          </a>
+
+          <button
+            aria-label="Switch direction"
+            class="icon direction-control"
+            onclick="rtlToggle()"
+            type="button"
+          >
+            LTR
+          </button>
+
+          <button
+            aria-label="Switch theme"
+            class="icon theme-control"
+            onclick="themeToggle()"
+            type="button"
+          >
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <span class="avatar">MK</span>
+        </div>
+      </div>
+
+
+      <!-- CONTENT -->
+      <div class="dashcontent">
+
+        <!-- PAGE HEADER -->
+        <section class="profile-head">
+          <div>
+            <span class="eyebrow">PATIENT PROFILE</span>
+
+            <h1>
+              Your care profile,
+              <span>all in one place.</span>
+            </h1>
+
+            <p>
+              Review your personal information, care details and
+              communication preferences from one connected profile.
+            </p>
+          </div>
+
+          <a class="btn btn-primary" href="settings.html">
+            <i class="bi bi-pencil-square"></i>
+            Edit Profile
+          </a>
+        </section>
+
+
+        <!-- PROFILE OVERVIEW -->
+        <section class="profile-overview">
+
+          <article class="profile-card profile-identity">
+
+            <div class="profile-cover">
+              <span class="cover-icon">
+                <i class="bi bi-person-heart"></i>
+              </span>
+            </div>
+
+            <div class="identity-body">
+
+              <div class="large-avatar">
+                M
+                <span class="avatar-status"></span>
+              </div>
+
+              <div class="identity-copy">
+                <span class="eyebrow">PATIENT</span>
+                <h2>Madhavi</h2>
+                <p>
+                  <i class="bi bi-heart-pulse-fill"></i>
+                  Patient • Home Care
+                </p>
+              </div>
+
+              <span class="profile-status">
+                <i class="bi bi-check-circle-fill"></i>
+                Active profile
+              </span>
+
+            </div>
+
+            <div class="identity-meta">
+              <div>
+                <span>Profile ID</span>
+                <strong>ORV-PAT-001</strong>
+              </div>
+
+              <div>
+                <span>Care Type</span>
+                <strong>Home Care</strong>
+              </div>
+
+              <div>
+                <span>Member Since</span>
+                <strong>2026</strong>
+              </div>
+            </div>
+
+          </article>
+
+
+          <aside class="profile-care-card">
+
+            <span class="eyebrow">CARE CONNECTION</span>
+
+            <div class="care-icon">
+              <i class="bi bi-house-heart"></i>
+            </div>
+
+            <h2>Connected home care</h2>
+
+            <p>
+              Your profile keeps essential care information together
+              so it is easier to review during appointments and home visits.
+            </p>
+
+            <div class="care-points">
+              <div>
+                <i class="bi bi-check2-circle"></i>
+                <span>Appointments organized</span>
+              </div>
+
+              <div>
+                <i class="bi bi-check2-circle"></i>
+                <span>Medication information available</span>
+              </div>
+
+              <div>
+                <i class="bi bi-check2-circle"></i>
+                <span>Reminders connected</span>
+              </div>
+            </div>
+
+            <a class="btn btn-secondary" href="support.html">
+              <i class="bi bi-headset"></i>
+              Contact Support
+            </a>
+
+          </aside>
+
+        </section>
+
+
+        <!-- PERSONAL INFORMATION -->
+        <section class="profile-panel">
+
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">PERSONAL INFORMATION</span>
+              <h2>Basic details</h2>
+            </div>
+
+            <span class="panel-note">
+              <i class="bi bi-lock-fill"></i>
+              Private
+            </span>
+          </div>
+
+          <div class="details-grid">
+
+            <div class="detail-item">
+              <span class="detail-icon">
+                <i class="bi bi-person"></i>
+              </span>
+              <div>
+                <span>Full Name</span>
+                <strong>Madhavi</strong>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="detail-icon coral">
+                <i class="bi bi-calendar3"></i>
+              </span>
+              <div>
+                <span>Date of Birth</span>
+                <strong>19 September 2003</strong>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="detail-icon">
+                <i class="bi bi-gender-ambiguous"></i>
+              </span>
+              <div>
+                <span>Gender</span>
+                <strong>Female</strong>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <span class="detail-icon coral">
+                <i class="bi bi-geo-alt"></i>
+              </span>
+              <div>
+                <span>Location</span>
+                <strong>India</strong>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- CONTACT + CARE INFORMATION -->
+        <section class="profile-two-column">
+
+          <article class="profile-panel">
+
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">CONTACT INFORMATION</span>
+                <h2>How we can reach you</h2>
+              </div>
+            </div>
+
+            <div class="contact-list">
+
+              <div class="contact-row">
+                <span class="contact-icon">
+                  <i class="bi bi-envelope"></i>
+                </span>
+
+                <div>
+                  <span>Email</span>
+                  <strong>Update your email in Settings</strong>
+                </div>
+
+                <a href="settings.html" aria-label="Edit email">
+                  <i class="bi bi-chevron-right"></i>
+                </a>
+              </div>
+
+              <div class="contact-row">
+                <span class="contact-icon coral">
+                  <i class="bi bi-telephone"></i>
+                </span>
+
+                <div>
+                  <span>Phone</span>
+                  <strong>Update your phone in Settings</strong>
+                </div>
+
+                <a href="settings.html" aria-label="Edit phone">
+                  <i class="bi bi-chevron-right"></i>
+                </a>
+              </div>
+
+              <div class="contact-row">
+                <span class="contact-icon">
+                  <i class="bi bi-bell"></i>
+                </span>
+
+                <div>
+                  <span>Notifications</span>
+                  <strong>Care updates enabled</strong>
+                </div>
+
+                <a href="settings.html" aria-label="Manage notifications">
+                  <i class="bi bi-chevron-right"></i>
+                </a>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="profile-panel">
+
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">CARE INFORMATION</span>
+                <h2>Current care setup</h2>
+              </div>
+            </div>
+
+            <div class="care-detail-list">
+
+              <div>
+                <span class="care-detail-icon">
+                  <i class="bi bi-house-heart"></i>
+                </span>
+                <div>
+                  <span>Care model</span>
+                  <strong>Home Care</strong>
+                </div>
+              </div>
+
+              <div>
+                <span class="care-detail-icon coral">
+                  <i class="bi bi-calendar-check"></i>
+                </span>
+                <div>
+                  <span>Appointments</span>
+                  <strong>Managed through patient portal</strong>
+                </div>
+              </div>
+
+              <div>
+                <span class="care-detail-icon">
+                  <i class="bi bi-capsule"></i>
+                </span>
+                <div>
+                  <span>Medication tracking</span>
+                  <strong>Available</strong>
+                </div>
+              </div>
+
+              <div>
+                <span class="care-detail-icon coral">
+                  <i class="bi bi-alarm"></i>
+                </span>
+                <div>
+                  <span>Care reminders</span>
+                  <strong>Available</strong>
+                </div>
+              </div>
+
+            </div>
+
+          </article>
+
+        </section>
+
+
+        <!-- PREFERENCES -->
+        <section class="profile-panel preferences-panel">
+
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">PROFILE PREFERENCES</span>
+              <h2>Communication &amp; privacy</h2>
+            </div>
+
+            <a class="btn btn-secondary small-btn" href="settings.html">
+              Manage Settings
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="preference-grid">
+
+            <div class="preference-item">
+              <span class="preference-icon">
+                <i class="bi bi-bell-fill"></i>
+              </span>
+
+              <div>
+                <strong>Care notifications</strong>
+                <span>Receive appointment and care updates.</span>
+              </div>
+
+              <span class="enabled-pill">Enabled</span>
+            </div>
+
+            <div class="preference-item">
+              <span class="preference-icon coral">
+                <i class="bi bi-shield-lock-fill"></i>
+              </span>
+
+              <div>
+                <strong>Profile privacy</strong>
+                <span>Your profile details remain within your care portal.</span>
+              </div>
+
+              <span class="enabled-pill">Protected</span>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- PROFILE NOTE -->
+        <section class="profile-note">
+
+          <div class="note-icon">
+            <i class="bi bi-shield-check"></i>
+          </div>
+
+          <div>
+            <span class="eyebrow">PROFILE CARE NOTE</span>
+            <h3>Keep your information current.</h3>
+            <p>
+              Update your profile when important personal or communication
+              details change so your care information remains clear and current.
+            </p>
+          </div>
+
+          <a class="btn btn-secondary" href="settings.html">
+            Update Settings
+          </a>
+
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

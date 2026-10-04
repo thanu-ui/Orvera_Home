@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vitals History | Orvera Home</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <link rel="stylesheet" href="css/vitals.css">
+  <link rel="stylesheet" href="css/dashboard-chrome.css">
+    <link rel="icon" type="image/png" href="assets/orvexa-logo.png">
+
+
+  <script defer src="js/app.js"></script>
+</head>
+
+
+<body class="dashboard-page">
+
+  <!-- SIDEBAR TOGGLE -->
+  <input
+    type="checkbox"
+    id="side-toggle"
+    class="side-toggle"
+    aria-label="Toggle dashboard sidebar"
+  >
+
+
+  <div class="dash">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="side" id="side">
+
+      <!-- BRAND -->
+
+      <a
+        href="index.html"
+        class="brand"
+        aria-label="Orvera Home"
+      >
+
+        <img
+          src="assets/orvexa-logo.png"
+          alt="Orvera Home logo"
+        >
+
+        <span class="brand-copy">
+
+          <span class="brand-name">
+            <span class="orvera">Orvera</span>
+            <span class="home">Home</span>
+          </span>
+
+          <small>
+            Connected Care. Right at Home.
+          </small>
+
+        </span>
+
+      </a>
+
+
+     
+
+
+      <!-- NAVIGATION -->
+
+      <nav>
+
+        <a href="dashboard.html">
+          <i class="bi bi-grid-1x2"></i>
+          <span>Overview</span>
+        </a>
+
+
+        <a href="appointments.html">
+          <i class="bi bi-calendar-check"></i>
+          <span>Appointments</span>
+        </a>
+
+
+        <a
+          href="vitals.html"
+          class="active"
+        >
+          <i class="bi bi-heart-pulse"></i>
+          <span>Vitals History</span>
+        </a>
+
+
+        <a href="visit-notes.html">
+          <i class="bi bi-journal-text"></i>
+          <span>Visit Notes</span>
+        </a>
+
+
+        <a href="medications.html">
+          <i class="bi bi-capsule"></i>
+          <span>Medications</span>
+        </a>
+
+
+        <a href="reminders.html">
+          <i class="bi bi-alarm"></i>
+          <span>Reminders</span>
+        </a>
+
+
+        <a href="profile.html">
+          <i class="bi bi-person-circle"></i>
+          <span>Profile</span>
+        </a>
+
+
+        <a href="settings.html">
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+        </a>
+
+
+        <a href="support.html">
+          <i class="bi bi-headset"></i>
+          <span>Help &amp; Support</span>
+        </a>
+
+      </nav>
+
+
+      <!-- LOGOUT -->
+
+      <div class="sideBottom">
+
+        <a href="login.html">
+
+          <i class="bi bi-box-arrow-right"></i>
+
+          <span>
+            Logout
+          </span>
+
+        </a>
+
+      </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashmain">
+
+
+      <!-- =================================================
+           TOPBAR
+           ================================================= -->
+
+      <div class="topbar">
+
+        <label
+          for="side-toggle"
+          class="icon dashboardMenu"
+          aria-label="Toggle dashboard menu"
+        >
+          <i class="bi bi-list"></i>
+        </label>
+
+
+        <div class="topbar-title">
+
+          <span class="topbar-kicker">
+            PATIENT PORTAL
+          </span>
+
+          <strong>
+            VITALS HISTORY
+          </strong>
+
+        </div>
+
+
+        <div class="topuser">
+
+
+          <!-- Notifications -->
+
+          <button
+            type="button"
+            class="icon"
+            aria-label="Notifications"
+          >
+            <i class="bi bi-bell"></i>
+          </button>
+
+
+          <!-- Home -->
+
+          <a
+            href="index.html"
+            class="icon home-control"
+            aria-label="Go to Orvera Home"
+          >
+            <i class="bi bi-house-fill"></i>
+          </a>
+
+
+          <!-- RTL -->
+
+          <button
+            type="button"
+            class="icon direction-control"
+            onclick="rtlToggle()"
+            aria-label="Switch direction"
+          >
+            RTL
+          </button>
+
+
+          <!-- Theme -->
+
+          <button
+            type="button"
+            class="icon theme-control"
+            onclick="themeToggle()"
+            aria-label="Switch theme"
+          >
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+
+          <!-- Avatar -->
+
+          <span class="avatar">
+            MK
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CONTENT
+           ================================================= -->
+
+      <div class="dashcontent">
+
+
+        <!-- =================================================
+             PAGE HEADER
+             ================================================= -->
+
+        <section class="vitals-head">
+
+          <div>
+
+            <span class="eyebrow">
+              VITALS MONITORING
+            </span>
+
+            <h1>
+              Understand your
+              <span>vitals over time.</span>
+            </h1>
+
+            <p>
+              Review measurements recorded during your
+              home vitals checks and keep your care
+              information connected.
+            </p>
+
+          </div>
+
+<a class="btn btn-primary" href="contact.html">
+    Contact Us <i class="bi bi-arrow-up-right"></i>
+</a>
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK VITALS
+             ================================================= -->
+
+        <section class="vitals-summary">
+
+
+          <!-- Blood Pressure -->
+
+          <article class="vital-stat">
+
+            <div class="vital-stat-top">
+
+              <span class="vital-icon blue">
+                <i class="bi bi-heart-pulse"></i>
+              </span>
+
+              <span class="vital-status">
+                Latest
+              </span>
+
+            </div>
+
+            <strong>
+              118/76
+            </strong>
+
+            <span>
+              Blood Pressure
+            </span>
+
+            <small>
+              mmHg · Oct 14
+            </small>
+
+          </article>
+
+
+          <!-- Heart Rate -->
+
+          <article class="vital-stat">
+
+            <div class="vital-stat-top">
+
+              <span class="vital-icon coral">
+                <i class="bi bi-activity"></i>
+              </span>
+
+              <span class="vital-status">
+                Latest
+              </span>
+
+            </div>
+
+            <strong>
+              72
+            </strong>
+
+            <span>
+              Heart Rate
+            </span>
+
+            <small>
+              bpm · Oct 14
+            </small>
+
+          </article>
+
+
+          <!-- SpO2 -->
+
+          <article class="vital-stat">
+
+            <div class="vital-stat-top">
+
+              <span class="vital-icon teal">
+                <i class="bi bi-lungs"></i>
+              </span>
+
+              <span class="vital-status">
+                Latest
+              </span>
+
+            </div>
+
+            <strong>
+              98%
+            </strong>
+
+            <span>
+              Oxygen Saturation
+            </span>
+
+            <small>
+              SpO₂ · Oct 14
+            </small>
+
+          </article>
+
+
+          <!-- Temperature -->
+
+          <article class="vital-stat">
+
+            <div class="vital-stat-top">
+
+              <span class="vital-icon green">
+                <i class="bi bi-thermometer-half"></i>
+              </span>
+
+              <span class="vital-status">
+                Latest
+              </span>
+
+            </div>
+
+            <strong>
+              98.4°F
+            </strong>
+
+            <span>
+              Temperature
+            </span>
+
+            <small>
+              Oct 14
+            </small>
+
+          </article>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TREND SECTION
+             ================================================= -->
+
+        <section class="trend-panel">
+
+
+          <div class="trend-header">
+
+            <div>
+
+              <span class="eyebrow">
+                VITALS HISTORY
+              </span>
+
+              <h2>
+                Blood pressure
+                <span>trend</span>
+              </h2>
+
+              <p>
+                Recorded at your last 7 home vitals checks.
+              </p>
+
+            </div>
+
+
+            <!-- TABS -->
+
+            <div class="vital-tabs">
+
+              <button
+                type="button"
+                class="active"
+              >
+                BP
+              </button>
+
+              <button type="button">
+                Heart Rate
+              </button>
+
+              <button type="button">
+                SpO₂
+              </button>
+
+              <button type="button">
+                Temp
+              </button>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =================================================
+               CHART
+               ================================================= -->
+
+          <div class="chart-card">
+
+            <div class="chart-y-axis">
+
+              <span>
+                130
+              </span>
+
+              <span>
+                120
+              </span>
+
+              <span>
+                110
+              </span>
+
+              <span>
+                100
+              </span>
+
+              <span>
+                90
+              </span>
+
+            </div>
+
+
+            <div class="chart-area">
+
+
+              <div class="chart-grid">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+
+              <div class="chart-bars">
+
+
+                <div
+                  class="chart-bar"
+                  style="--height:58%;"
+                >
+                  <span>
+                    112/74
+                  </span>
+                </div>
+
+
+                <div
+                  class="chart-bar"
+                  style="--height:64%;"
+                >
+                  <span>
+                    116/76
+                  </span>
+                </div>
+
+
+                <div
+                  class="chart-bar"
+                  style="--height:52%;"
+                >
+                  <span>
+                    110/72
+                  </span>
+                </div>
+
+
+                <div
+                  class="chart-bar"
+                  style="--height:70%;"
+                >
+                  <span>
+                    120/78
+                  </span>
+                </div>
+
+
+                <div
+                  class="chart-bar"
+                  style="--height:66%;"
+                >
+                  <span>
+                    117/77
+                  </span>
+                </div>
+
+
+                <div
+                  class="chart-bar active"
+                  style="--height:74%;"
+                >
+                  <span>
+                    118/76
+                  </span>
+                </div>
+
+
+                <div
+                  class="chart-bar"
+                  style="--height:68%;"
+                >
+                  <span>
+                    119/75
+                  </span>
+                </div>
+
+              </div>
+
+
+              <div class="chart-labels">
+
+                <span>
+                  Aug 20
+                </span>
+
+                <span>
+                  Aug 30
+                </span>
+
+                <span>
+                  Sep 9
+                </span>
+
+                <span>
+                  Sep 19
+                </span>
+
+                <span>
+                  Sep 29
+                </span>
+
+                <span>
+                  Oct 8
+                </span>
+
+                <span>
+                  Oct 14
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             RECENT READINGS
+             ================================================= -->
+
+        <section class="readings-panel">
+
+
+          <div class="panel-head">
+
+            <div>
+
+              <span class="eyebrow">
+                RECENT CHECKS
+              </span>
+
+              <h2>
+                Latest vitals readings
+              </h2>
+
+            </div>
+
+            <span class="reading-count">
+              7 checks
+            </span>
+
+          </div>
+
+
+
+          <div class="readings-table-wrap">
+
+            <table class="readings-table">
+
+              <thead>
+
+                <tr>
+
+                  <th>
+                    Date
+                  </th>
+
+                  <th>
+                    Blood Pressure
+                  </th>
+
+                  <th>
+                    Heart Rate
+                  </th>
+
+                  <th>
+                    SpO₂
+                  </th>
+
+                  <th>
+                    Temperature
+                  </th>
+
+                  <th>
+                    Recorded By
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody>
+
+
+                <tr>
+
+                  <td>
+                    <strong>Oct 14, 2026</strong>
+                    <small>Home visit</small>
+                  </td>
+
+                  <td>
+                    <strong>118/76</strong>
+                    <small>mmHg</small>
+                  </td>
+
+                  <td>
+                    <strong>72</strong>
+                    <small>bpm</small>
+                  </td>
+
+                  <td>
+                    <strong>98%</strong>
+                    <small>SpO₂</small>
+                  </td>
+
+                  <td>
+                    <strong>98.4°F</strong>
+                    <small>Temperature</small>
+                  </td>
+
+                  <td>
+                    Ananya R.
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <strong>Oct 8, 2026</strong>
+                    <small>Home visit</small>
+                  </td>
+
+                  <td>
+                    <strong>119/75</strong>
+                    <small>mmHg</small>
+                  </td>
+
+                  <td>
+                    <strong>74</strong>
+                    <small>bpm</small>
+                  </td>
+
+                  <td>
+                    <strong>98%</strong>
+                    <small>SpO₂</small>
+                  </td>
+
+                  <td>
+                    <strong>98.2°F</strong>
+                    <small>Temperature</small>
+                  </td>
+
+                  <td>
+                    Ananya R.
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <strong>Sep 29, 2026</strong>
+                    <small>Home visit</small>
+                  </td>
+
+                  <td>
+                    <strong>117/77</strong>
+                    <small>mmHg</small>
+                  </td>
+
+                  <td>
+                    <strong>71</strong>
+                    <small>bpm</small>
+                  </td>
+
+                  <td>
+                    <strong>97%</strong>
+                    <small>SpO₂</small>
+                  </td>
+
+                  <td>
+                    <strong>98.6°F</strong>
+                    <small>Temperature</small>
+                  </td>
+
+                  <td>
+                    Ananya R.
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <strong>Sep 19, 2026</strong>
+                    <small>Home visit</small>
+                  </td>
+
+                  <td>
+                    <strong>120/78</strong>
+                    <small>mmHg</small>
+                  </td>
+
+                  <td>
+                    <strong>76</strong>
+                    <small>bpm</small>
+                  </td>
+
+                  <td>
+                    <strong>98%</strong>
+                    <small>SpO₂</small>
+                  </td>
+
+                  <td>
+                    <strong>98.5°F</strong>
+                    <small>Temperature</small>
+                  </td>
+
+                  <td>
+                    Ananya R.
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <strong>Sep 9, 2026</strong>
+                    <small>Home visit</small>
+                  </td>
+
+                  <td>
+                    <strong>110/72</strong>
+                    <small>mmHg</small>
+                  </td>
+
+                  <td>
+                    <strong>70</strong>
+                    <small>bpm</small>
+                  </td>
+
+                  <td>
+                    <strong>98%</strong>
+                    <small>SpO₂</small>
+                  </td>
+
+                  <td>
+                    <strong>98.1°F</strong>
+                    <small>Temperature</small>
+                  </td>
+
+                  <td>
+                    Ananya R.
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <strong>Aug 30, 2026</strong>
+                    <small>Home visit</small>
+                  </td>
+
+                  <td>
+                    <strong>116/76</strong>
+                    <small>mmHg</small>
+                  </td>
+
+                  <td>
+                    <strong>73</strong>
+                    <small>bpm</small>
+                  </td>
+
+                  <td>
+                    <strong>97%</strong>
+                    <small>SpO₂</small>
+                  </td>
+
+                  <td>
+                    <strong>98.4°F</strong>
+                    <small>Temperature</small>
+                  </td>
+
+                  <td>
+                    Ananya R.
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <strong>Aug 20, 2026</strong>
+                    <small>Home visit</small>
+                  </td>
+
+                  <td>
+                    <strong>112/74</strong>
+                    <small>mmHg</small>
+                  </td>
+
+                  <td>
+                    <strong>72</strong>
+                    <small>bpm</small>
+                  </td>
+
+                  <td>
+                    <strong>98%</strong>
+                    <small>SpO₂</small>
+                  </td>
+
+                  <td>
+                    <strong>98.3°F</strong>
+                    <small>Temperature</small>
+                  </td>
+
+                  <td>
+                    Ananya R.
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CARE NOTE
+             ================================================= -->
+
+        <section class="care-note">
+
+
+          <div class="care-note-icon">
+
+            <i class="bi bi-clipboard2-pulse"></i>
+
+          </div>
+
+
+          <div>
+
+            <span class="eyebrow">
+              VITALS FOLLOW-UP
+            </span>
+
+            <h3>
+              Keep your readings connected to your care.
+            </h3>
+
+            <p>
+              Your vitals history helps keep measurements
+              from different home checks together for
+              easier review during future visits.
+            </p>
+
+          </div>
+
+
+          <a
+            href="visit-notes.html"
+            class="btn btn-secondary"
+          >
+            View Visit Notes
+          </a>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOOK NEXT CHECK
+             ================================================= -->
+
+        <section class="booking-section">
+
+
+          <div class="booking-copy">
+
+            <span class="eyebrow">
+              SCHEDULE A VISIT
+            </span>
+
+            <h2>
+              Book your next
+              <span>vitals check.</span>
+            </h2>
+
+            <p>
+              Choose a convenient date and time. A nurse
+              will visit your home to record blood pressure,
+              heart rate, oxygen saturation and temperature.
+            </p>
+
+
+            <ul>
+
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Confirmed within 2 hours
+              </li>
+
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Same nurse where possible
+              </li>
+
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Readings saved to your history
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          <div class="booking-card">
+
+            <span class="booking-card-label">
+              NEXT AVAILABLE CHECK
+            </span>
+
+            <div class="booking-date">
+
+              <strong>
+                15
+              </strong>
+
+              <div>
+
+                <span>
+                  OCTOBER
+                </span>
+
+                <strong>
+                  2026
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="booking-info">
+
+              <div>
+                <i class="bi bi-clock"></i>
+                <span>10:30 AM</span>
+              </div>
+
+              <div>
+                <i class="bi bi-house-heart"></i>
+                <span>At your home</span>
+              </div>
+
+            </div>
+
+
+            <a class="btn btn-primary" href="contact.html">
+    Contact Us <i class="bi bi-arrow-up-right"></i>
+</a>
+
+          </div>
+
+        </section>
+
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

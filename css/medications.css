@@ -1,0 +1,3638 @@
+/* =========================================================
+   ORVERA HOME — MEDICATIONS
+   MATCHED TO APPOINTMENTS PAGE
+   ========================================================= */
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+:root {
+
+  --primary: #02A59D;
+  --secondary: #F86B4F;
+
+  --ink: #183B3D;
+  --muted: #5F6F71;
+
+  --bg: #F4F8F7;
+  --surface: #FFFFFF;
+  --soft: #EEF7F5;
+
+  --border: #DDE8E7;
+
+  --shadow-sm:
+    0 8px 24px rgba(24,59,61,.06);
+
+  --shadow-md:
+    0 18px 45px rgba(24,59,61,.08);
+
+  --radius: 18px;
+  --radius-sm: 12px;
+
+  --sidebar-width: 300px;
+  --topbar-height: 76px;
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+
+  background: var(--bg);
+
+  color: var(--ink);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  line-height: 1.6;
+
+  overflow-x: hidden;
+}
+
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+img {
+  max-width: 100%;
+
+  display: block;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color: var(--ink);
+
+  margin: 0 0 10px;
+
+  line-height: 1.18;
+}
+
+
+p {
+  margin: 0 0 12px;
+
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard-page {
+  min-height: 100vh;
+}
+
+
+.dash {
+  width: 100%;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR TOGGLE
+   ========================================================= */
+
+.side-toggle {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  margin: -1px;
+  padding: 0;
+
+  overflow: hidden;
+
+  clip: rect(0,0,0,0);
+
+  white-space: nowrap;
+
+  border: 0;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.side {
+  position: fixed;
+
+  inset: 0 auto 0 0;
+
+  width: var(--sidebar-width);
+
+  height: 100vh;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 22px 14px 14px;
+
+  background: var(--surface);
+
+  border-right: 1px solid var(--border);
+
+  z-index: 1000;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.side .brand {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  width: 100%;
+
+  min-height: auto;
+
+  padding: 0 10px 20px;
+
+  margin: 0;
+
+  border-bottom: 0;
+
+  background: transparent;
+
+  text-decoration: none;
+
+  direction: ltr;
+}
+
+
+.side .brand img {
+
+  width: 50px;
+
+  height: 50px;
+
+  min-width: 50px;
+
+  flex: 0 0 50px;
+
+  object-fit: contain;
+}
+
+
+.side .brand-copy {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  min-width: 0;
+
+  direction: ltr;
+}
+
+
+.side .brand-name {
+
+  display: flex;
+
+  flex-direction: column;
+
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.2rem;
+
+  line-height: .95;
+
+  font-weight: 800;
+}
+
+
+.side .brand-name .orvera {
+
+  color: var(--primary);
+}
+
+
+.side .brand-name .home {
+
+  color: var(--secondary);
+}
+
+
+.side .brand small {
+
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: .65rem;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.side-profile {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  padding: 16px 18px 20px;
+
+  margin: 8px -14px 18px;
+
+  border-top: 1px solid var(--border);
+
+  border-bottom: 1px solid var(--border);
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--surface),
+      var(--soft)
+    );
+}
+
+
+.side-avatar-wrap {
+
+  position: relative;
+
+  width: 82px;
+
+  height: 82px;
+
+  margin: 0 auto 9px;
+}
+
+
+.side-avatar {
+
+  width: 82px;
+
+  height: 82px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 3px solid var(--secondary);
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--soft),
+      var(--surface)
+    );
+
+  color: var(--primary);
+
+  font-size: 2rem;
+
+  font-weight: 900;
+}
+
+
+.side-online {
+
+  position: absolute;
+
+  right: 2px;
+
+  bottom: 4px;
+
+  width: 18px;
+
+  height: 18px;
+
+  border: 3px solid var(--surface);
+
+  border-radius: 50%;
+
+  background: #2FC36D;
+}
+
+
+.side-profile > strong {
+
+  display: block;
+
+  color: var(--ink);
+
+  font-size: .95rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: .04em;
+}
+
+
+.side-profile > span {
+
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--muted);
+
+  font-size: .78rem;
+}
+
+
+.side-profile i {
+
+  color: var(--primary);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.side nav {
+
+  flex: 0 0 auto;
+
+  display: grid;
+
+  gap: 6px;
+
+  padding: 18px 10px 0;
+}
+
+
+.side nav a {
+
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 11px 14px;
+
+  margin: 0;
+
+  gap: 12px;
+
+  border-radius: 11px;
+
+  color: var(--muted);
+
+  font-size: .9rem;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background .2s ease,
+    color .2s ease;
+}
+
+
+.side nav a i {
+
+  width: 20px;
+
+  min-width: 20px;
+
+  color: var(--primary);
+
+  font-size: 1.05rem;
+
+  text-align: center;
+}
+
+
+.side nav a:hover:not(.active) {
+
+  background: var(--soft);
+
+  color: var(--primary);
+}
+
+
+.side nav a.active {
+
+  background: var(--primary);
+
+  color: #FFFFFF;
+
+  border: 0;
+
+  box-shadow:
+    0 10px 24px rgba(2,165,157,.16);
+}
+
+
+.side nav a.active i {
+
+  color: #FFFFFF;
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.sideBottom {
+
+  margin-top: auto;
+
+  padding: 12px 18px 0;
+
+  border-top: 1px solid var(--border);
+}
+
+
+.sideBottom a {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 0 12px;
+
+  border-radius: 11px;
+
+  color: var(--muted);
+
+  font-weight: 700;
+}
+
+
+.sideBottom a i {
+
+  color: var(--primary);
+
+  font-size: 1.05rem;
+}
+
+
+.sideBottom a:hover {
+
+  background: rgba(2,165,157,.08);
+
+  color: var(--primary);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.dashmain {
+
+  width: calc(100% - var(--sidebar-width));
+
+  min-width: 0;
+
+  margin-left: var(--sidebar-width);
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background: var(--bg);
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+
+  width: 100%;
+
+  height: var(--topbar-height);
+
+  min-height: var(--topbar-height);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 26px;
+
+  background: var(--surface);
+
+  border-bottom: 1px solid var(--border);
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 30;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.dashboardMenu {
+
+  display: none;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--primary);
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   TOPBAR TITLE
+   ========================================================= */
+
+.topbar-title {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+.topbar-kicker {
+
+  display: none;
+}
+
+
+.topbar-title strong {
+
+  margin: 0;
+
+  color: var(--ink);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.45rem;
+
+  line-height: 1;
+
+  letter-spacing: .02em;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   TOP CONTROLS
+   ========================================================= */
+
+.topuser {
+
+  margin-left: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.topuser .icon {
+
+  width: 40px;
+
+  height: 40px;
+
+  min-width: 40px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+
+  outline: 0;
+
+  border-radius: 0;
+
+  background: transparent;
+
+  color: var(--primary);
+
+  box-shadow: none;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+
+.topuser .icon i {
+
+  color: var(--primary);
+
+  font-size: 1.05rem;
+}
+
+
+.topuser .icon:hover {
+
+  background: transparent;
+
+  color: var(--secondary);
+
+  transform: translateY(-1px);
+}
+
+
+.topuser .icon:hover i {
+
+  color: var(--secondary);
+}
+
+
+/* =========================================================
+   RTL CONTROL
+   ========================================================= */
+
+.direction-control {
+
+  font-size: .78rem;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   AVATAR
+   ========================================================= */
+
+.topuser .avatar {
+
+  width: 52px;
+
+  height: 52px;
+
+  min-width: 52px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin-left: 3px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  color: #FFFFFF;
+
+  font-size: .9rem;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.dashcontent {
+
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 34px 34px 60px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.med-head {
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 30px;
+}
+
+
+.eyebrow {
+
+  display: inline-block;
+
+  margin-bottom: 8px;
+
+  color: var(--secondary);
+
+  font-size: .72rem;
+
+  font-weight: 800;
+
+  letter-spacing: .14em;
+
+  text-transform: uppercase;
+}
+
+
+.med-head h1 {
+
+  max-width: 720px;
+
+  margin: 0 0 6px;
+
+  color: var(--ink);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      2.5rem
+    );
+
+  line-height: 1.08;
+
+  font-weight: 800;
+}
+
+
+.med-head h1 span {
+
+  color: var(--secondary);
+}
+
+
+.med-head p {
+
+  max-width: 480px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: .95rem;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+
+  min-height: 46px;
+
+  padding: 0 20px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  border-radius: 12px;
+
+  border: 1px solid transparent;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: .92rem;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
+}
+
+
+.btn-primary {
+
+  background: var(--primary);
+
+  color: #FFFFFF;
+
+  border-color: var(--primary);
+}
+
+
+.btn-primary:hover {
+
+  background: var(--secondary);
+
+  color: #FFFFFF;
+
+  border-color: var(--secondary);
+
+  transform: translateY(-2px);
+}
+
+
+.btn-secondary {
+
+  background: var(--surface);
+
+  color: var(--ink);
+
+  border-color: var(--border);
+}
+
+
+.btn-secondary:hover {
+
+  background: var(--surface);
+
+  color: var(--primary);
+
+  border-color: var(--primary);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.med-summary {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 18px;
+
+  margin-bottom: 20px;
+}
+
+
+.med-stat {
+
+  min-height: 118px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 17px;
+
+  padding: 20px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+
+.med-stat:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: var(--shadow-md);
+}
+/* =========================================================
+   MEDICATION SUMMARY ICONS — PREMIUM
+   ========================================================= */
+
+.med-stat-icon {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  font-size: 1.35rem;
+  line-height: 1;
+
+  border: 1px solid transparent;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.35),
+    0 8px 18px rgba(24,59,61,.06);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+/* Capsule */
+.med-stat-icon.teal {
+  background: rgba(2,165,157,.10);
+  color: var(--primary);
+  border-color: rgba(2,165,157,.20);
+}
+
+/* Clock */
+.med-stat-icon.coral {
+  background: rgba(248,107,79,.10);
+  color: var(--secondary);
+  border-color: rgba(248,107,79,.20);
+}
+
+/* Completed */
+.med-stat-icon.blue {
+  background: rgba(85,116,217,.09);
+  color: #5574D9;
+  border-color: rgba(85,116,217,.18);
+}
+
+/* Next dose */
+.med-stat-icon.green {
+  background: rgba(38,168,102,.09);
+  color: #26A866;
+  border-color: rgba(38,168,102,.18);
+}
+
+
+/* ICON ITSELF */
+.med-stat-icon i {
+  display: block;
+
+  font-size: 1.35rem;
+  line-height: 1;
+
+  transform: none;
+}
+
+
+/* CARD HOVER */
+.med-stat:hover .med-stat-icon {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(24,59,61,.10);
+}
+
+
+
+
+
+
+
+
+
+.med-stat strong {
+
+  display: block;
+
+  color: var(--ink);
+
+  font-size: 1.45rem;
+}
+
+
+.med-stat span {
+
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--muted);
+
+  font-size: .78rem;
+}
+
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.med-main-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(300px, .75fr);
+
+  gap: 20px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   PANELS
+   ========================================================= */
+
+.med-panel,
+.med-review-panel {
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+.med-panel {
+
+  padding: 26px;
+}
+
+
+/* =========================================================
+   PANEL HEADER
+   ========================================================= */
+
+.panel-head {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 18px;
+}
+
+
+.panel-head h2 {
+
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: 1.45rem;
+}
+
+
+.status-pill {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 30px;
+
+  padding: 0 12px;
+
+  border-radius: 999px;
+
+  background: rgba(2,165,157,.1);
+
+  color: var(--primary);
+
+  font-size: .72rem;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   MEDICATION ROW
+   ========================================================= */
+
+.med-row {
+
+  display: grid;
+
+  grid-template-columns:
+    70px
+    48px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 18px 0;
+
+  border-top: 1px solid var(--border);
+}
+
+
+.med-time strong {
+
+  display: block;
+
+  color: var(--ink);
+
+  font-size: .95rem;
+}
+
+
+.med-time span {
+
+  color: var(--muted);
+
+  font-size: .66rem;
+
+  letter-spacing: .08em;
+}
+
+
+.med-icon {
+
+  width: 46px;
+
+  height: 46px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 13px;
+
+  background: rgba(2,165,157,.11);
+
+  color: var(--primary);
+
+  font-size: 1.1rem;
+}
+
+
+.coral-icon {
+
+  background:
+    rgba(248,107,79,.11);
+
+  color: var(--secondary);
+}
+
+
+.green-icon {
+
+  background: #EAF8F0;
+
+  color: #26A866;
+}
+
+
+.med-info h3 {
+
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: 1rem;
+}
+
+
+.med-info p {
+
+  margin: 4px 0;
+
+  color: var(--muted);
+
+  font-size: .78rem;
+}
+
+
+.med-info span {
+
+  color: var(--primary);
+
+  font-size: .7rem;
+}
+
+
+.med-check {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--muted);
+
+  font-size: .7rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.med-check input {
+
+  width: 18px;
+
+  height: 18px;
+
+  accent-color: var(--primary);
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   REVIEW PANEL
+   ========================================================= */
+
+.med-review-panel {
+
+  padding: 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--surface),
+      var(--soft)
+    );
+}
+
+
+.review-icon {
+
+  width: 56px;
+
+  height: 56px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin: 15px 0;
+
+  border-radius: 16px;
+
+  background: var(--primary);
+
+  color: #FFFFFF;
+
+  font-size: 1.25rem;
+
+  box-shadow:
+    0 12px 28px rgba(2,165,157,.18);
+}
+
+
+.med-review-panel h2 {
+
+  margin: 0 0 8px;
+
+  color: var(--ink);
+
+  font-size: 1.45rem;
+}
+
+
+.med-review-panel > p {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: .85rem;
+
+  line-height: 1.7;
+}
+
+
+.review-detail {
+
+  display: grid;
+
+  gap: 11px;
+
+  margin: 20px 0;
+}
+
+
+.review-detail > div {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 11px;
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+}
+
+
+.review-detail i {
+
+  color: var(--primary);
+
+  margin-top: 3px;
+}
+
+
+.review-detail span {
+
+  color: var(--muted);
+
+  font-size: .7rem;
+}
+
+
+.review-detail strong {
+
+  display: block;
+
+  margin-top: 3px;
+
+  color: var(--ink);
+
+  font-size: .82rem;
+}
+
+
+.med-review-panel .btn {
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   MEDICATION TABLE
+   ========================================================= */
+
+.medication-list-panel {
+
+  margin-top: 20px;
+}
+
+
+.list-count {
+
+  color: var(--muted);
+
+  font-size: .78rem;
+
+  font-weight: 700;
+}
+
+
+.med-table-wrap {
+
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+
+.med-table {
+
+  width: 100%;
+
+  min-width: 720px;
+
+  border-collapse: collapse;
+}
+
+
+.med-table th {
+
+  padding: 12px 14px;
+
+  color: var(--muted);
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: .7rem;
+
+  letter-spacing: .08em;
+
+  text-align: left;
+
+  text-transform: uppercase;
+}
+
+
+.med-table td {
+
+  padding: 16px 14px;
+
+  color: var(--muted);
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: .8rem;
+}
+
+
+.med-table tbody tr:last-child td {
+
+  border-bottom: 0;
+}
+
+
+.table-med {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+.table-med > span {
+
+  width: 38px;
+
+  height: 38px;
+
+  min-width: 38px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: rgba(2,165,157,.1);
+
+  color: var(--primary);
+}
+
+
+.table-med strong,
+.table-med small {
+
+  display: block;
+}
+
+
+.table-med strong {
+
+  color: var(--ink);
+
+  font-size: .86rem;
+}
+
+
+.table-med small {
+
+  margin-top: 3px;
+
+  color: var(--muted);
+
+  font-size: .67rem;
+}
+
+
+/* =========================================================
+   SAFETY SECTION
+   ========================================================= */
+
+.med-safety {
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin-top: 20px;
+
+  padding: 22px;
+
+  border: 1px solid rgba(2,165,157,.2);
+
+  border-radius: 18px;
+
+  background: var(--soft);
+}
+
+
+.safety-icon {
+
+  width: 54px;
+
+  height: 54px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 15px;
+
+  background: var(--primary);
+
+  color: #FFFFFF;
+
+  font-size: 1.2rem;
+}
+
+
+.med-safety h3 {
+
+  margin: 3px 0 5px;
+
+  color: var(--ink);
+
+  font-size: 1rem;
+}
+
+
+.med-safety p {
+
+  margin: 0;
+
+  max-width: 760px;
+
+  color: var(--muted);
+
+  font-size: .77rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   RTL
+   ========================================================= */
+
+html[dir="rtl"] .side {
+
+  left: auto;
+
+  right: 0;
+
+  border-right: 0;
+
+  border-left: 1px solid var(--border);
+}
+
+
+html[dir="rtl"] .dashmain {
+
+  margin-left: 0;
+
+  margin-right: var(--sidebar-width);
+}
+
+
+html[dir="rtl"] .topuser {
+
+  margin-left: 0;
+
+  margin-right: auto;
+}
+
+
+/* =========================================
+   RTL BRAND FIX (sidebar)
+   row-reverse swap — no gap between logo + name
+   ========================================= */
+html[dir="rtl"] .side .brand {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 4px !important;
+  direction: ltr !important;
+}
+
+html[dir="rtl"] .side .brand > .brand-copy {
+  order: 1 !important;
+  direction: ltr !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+html[dir="rtl"] .side .brand > img {
+  order: 2 !important;
+}
+
+html[dir="rtl"] .brand-name {
+  direction: ltr !important;
+  line-height: .88 !important;
+  text-align: left !important;
+}
+
+html[dir="rtl"] .brand small {
+  margin-top: 3px !important;
+}
+
+@media (max-width: 800px) {
+  html[dir="rtl"] .side .brand {
+    gap: 3px !important;
+  }
+}
+
+
+html[dir="rtl"] .med-table th,
+html[dir="rtl"] .med-table td {
+
+  text-align: right;
+}
+
+
+html[dir="rtl"] .med-head,
+html[dir="rtl"] .panel-head {
+
+  direction: rtl;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+[data-theme="dark"] {
+
+  --bg: #081719;
+
+  --surface: #102325;
+
+  --soft: #132D2F;
+
+  --ink: #F2F8F7;
+
+  --muted: #AABDBD;
+
+  --border: #294244;
+
+}
+
+
+[data-theme="dark"] .side {
+
+  background: var(--surface);
+
+  border-color: var(--border);
+}
+
+
+[data-theme="dark"] .topbar {
+
+  background: var(--surface);
+
+  border-color: var(--border);
+}
+
+
+[data-theme="dark"] .topuser .icon {
+
+  background: transparent;
+
+  color: var(--primary);
+
+  border: 0;
+}
+
+
+[data-theme="dark"] .topuser .icon i {
+
+  color: var(--primary);
+}
+
+
+[data-theme="dark"] .topuser .icon:hover,
+[data-theme="dark"] .topuser .icon:hover i {
+
+  color: var(--secondary);
+}
+
+
+[data-theme="dark"] .med-review-panel {
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--surface),
+      var(--soft)
+    );
+}
+
+
+[data-theme="dark"] .review-detail > div {
+
+  background: var(--surface);
+
+  border-color: var(--border);
+}
+
+
+[data-theme="dark"] .med-stat-icon.blue {
+
+  background: #202B4A;
+
+  color: #9FB2FF;
+}
+
+
+[data-theme="dark"] .med-stat-icon.green {
+
+  background: #17382A;
+
+  color: #5BD48F;
+}
+
+
+[data-theme="dark"] .btn-secondary {
+
+  background: var(--surface);
+
+  color: var(--ink);
+
+  border-color: var(--border);
+}
+
+
+[data-theme="dark"] .btn-secondary:hover {
+
+  background: var(--soft);
+
+  color: var(--primary);
+
+  border-color: var(--primary);
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1200
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .med-summary {
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .med-main-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1100
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  :root {
+
+    --sidebar-width: 270px;
+
+  }
+
+
+  .side {
+
+    width: 270px;
+  }
+
+
+  .dashmain {
+
+    width: calc(100% - 270px);
+
+    margin-left: 270px;
+  }
+
+
+  html[dir="rtl"] .dashmain {
+
+    margin-left: 0;
+
+    margin-right: 270px;
+  }
+
+
+  .dashcontent {
+
+    padding: 30px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 900
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .side {
+
+    width: 300px;
+
+    transform:
+      translateX(-105%);
+
+    transition:
+      transform .3s ease;
+  }
+
+
+  .dashmain {
+
+    width: 100%;
+
+    margin-left: 0;
+  }
+
+
+  html[dir="rtl"] .side {
+
+    transform:
+      translateX(105%);
+  }
+
+
+  html[dir="rtl"] .dashmain {
+
+    width: 100%;
+
+    margin-right: 0;
+  }
+
+
+  .side-toggle:checked ~ .dash .side {
+
+    transform:
+      translateX(0);
+  }
+
+
+  html[dir="rtl"]
+  .side-toggle:checked
+  ~ .dash
+  .side {
+
+    transform:
+      translateX(0);
+  }
+
+
+  .dashboardMenu {
+
+    display: grid;
+
+    width: 42px;
+
+    height: 42px;
+
+    place-items: center;
+
+    margin-right: 8px;
+
+    border: 0;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    color: var(--primary);
+
+    cursor: pointer;
+  }
+
+
+  html[dir="rtl"] .dashboardMenu {
+
+    margin-right: 0;
+
+    margin-left: 8px;
+  }
+
+
+  .topbar {
+
+    height: 76px;
+
+    min-height: 76px;
+
+    padding: 0 18px;
+  }
+
+
+  .dashcontent {
+
+    padding: 26px 20px 48px;
+  }
+
+
+  .med-head {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+
+  .med-head > .btn {
+
+    width: auto;
+  }
+
+
+  .med-safety {
+
+    grid-template-columns:
+      auto
+      minmax(0,1fr);
+  }
+
+
+  .med-safety > .btn {
+
+    grid-column: 1 / -1;
+
+    justify-self: start;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 650
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .side {
+
+    width: 285px;
+  }
+
+
+  .side .brand {
+
+    padding:
+      0 10px 16px;
+  }
+
+
+  .side .brand img {
+
+    width: 50px;
+
+    height: 50px;
+
+    flex-basis: 50px;
+  }
+
+
+  .side .brand-name {
+
+    font-size: 1.1rem;
+  }
+
+
+  .side .brand small {
+
+    font-size: .6rem;
+  }
+
+
+  .topbar {
+
+    height: 66px;
+
+    min-height: 66px;
+
+    padding: 0 14px;
+  }
+
+
+  .topbar-title strong {
+
+    font-size: 1.05rem;
+  }
+
+
+  .topuser {
+
+    gap: 3px;
+  }
+
+
+  .topuser .icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    min-width: 34px;
+  }
+
+
+  .topuser .avatar {
+
+    width: 38px;
+
+    height: 38px;
+
+    min-width: 38px;
+  }
+
+
+  .dashcontent {
+
+    padding:
+      22px 14px 40px;
+  }
+
+
+  .med-summary {
+
+    grid-template-columns: 1fr;
+  }
+
+
+  .med-panel,
+  .med-review-panel {
+
+    padding: 20px;
+  }
+
+
+  .med-row {
+
+    grid-template-columns:
+      55px
+      44px
+      minmax(0,1fr);
+
+    gap: 10px;
+  }
+
+
+  .med-check {
+
+    grid-column: 3;
+
+    justify-self: start;
+  }
+
+
+  .med-head h1 {
+
+    font-size: 2rem;
+  }
+
+
+  .med-head > .btn {
+
+    width: 100%;
+  }
+
+
+  .med-safety {
+
+    grid-template-columns: 1fr;
+  }
+
+
+  .med-safety > .btn {
+
+    width: 100%;
+  }
+
+
+  .safety-icon {
+
+    width: 48px;
+
+    height: 48px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 430
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .dashcontent {
+
+    padding-inline: 14px;
+  }
+
+
+  .side {
+
+    width: 285px;
+  }
+
+
+  .med-stat {
+
+    min-height: 100px;
+
+    padding: 16px;
+  }
+
+
+  .med-stat-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    min-width: 46px;
+  }
+
+
+  .panel-head {
+
+    flex-direction: column;
+  }
+
+
+  .status-pill {
+
+    align-self: flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    scroll-behavior: auto !important;
+
+    transition-duration: .01ms !important;
+
+    animation-duration: .01ms !important;
+  }
+
+}
+/* =========================================================
+   ORVERA DASHBOARD — CORRECT SIDEBAR + CONTENT LAYOUT
+   ========================================================= */
+
+/* Main dashboard structure */
+.dash {
+  display: flex !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.side {
+  position: fixed !important;
+  inset: 0 auto 0 0 !important;
+
+  width: 300px !important;
+  height: 100vh !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  background: var(--surface) !important;
+  border-right: 1px solid var(--border) !important;
+
+  z-index: 1000 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* Navigation stays together */
+.side nav {
+  flex: 0 0 auto !important;
+  padding: 18px 10px 0 !important;
+  margin: 0 !important;
+}
+
+/* Navigation links */
+.side nav a {
+  display: flex !important;
+  align-items: center !important;
+
+  width: 100% !important;
+  min-height: 58px !important;
+
+  padding: 0 18px !important;
+  margin: 3px 0 !important;
+
+  border-radius: 14px !important;
+
+  color: var(--muted) !important;
+  text-decoration: none !important;
+
+  gap: 14px !important;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease !important;
+}
+
+.side nav a i {
+  width: 24px !important;
+  min-width: 24px !important;
+
+  color: var(--primary) !important;
+
+  font-size: 1.15rem !important;
+  text-align: center !important;
+}
+
+.side nav a span {
+  font-weight: 700 !important;
+}
+
+/* Active page */
+.side nav a.active {
+  background: var(--primary) !important;
+  color: #fff !important;
+
+  box-shadow: 0 10px 25px rgba(2,165,157,.18) !important;
+}
+
+.side nav a.active i {
+  color: #fff !important;
+}
+
+.side nav a:hover:not(.active) {
+  background: rgba(2,165,157,.08) !important;
+  color: var(--primary) !important;
+  transform: translateX(3px) !important;
+}
+
+
+/* =========================================================
+   LOGOUT — DIRECTLY AFTER NAVIGATION
+   ========================================================= */
+
+.sideBottom {
+  position: static !important;
+
+  flex: 0 0 auto !important;
+
+  width: auto !important;
+
+  margin: 12px 18px 18px !important;
+  padding: 12px 0 0 !important;
+
+  border-top: 1px solid var(--border) !important;
+}
+
+.sideBottom a {
+  display: flex !important;
+  align-items: center !important;
+
+  width: 100% !important;
+  min-height: 52px !important;
+
+  padding: 0 12px !important;
+
+  gap: 14px !important;
+
+  border-radius: 12px !important;
+
+  color: var(--muted) !important;
+  text-decoration: none !important;
+
+  transition:
+    background .25s ease,
+    color .25s ease !important;
+}
+
+.sideBottom a i {
+  color: var(--primary) !important;
+  font-size: 1.15rem !important;
+}
+
+.sideBottom a:hover {
+  background: rgba(2,165,157,.08) !important;
+  color: var(--primary) !important;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.dashmain {
+  width: calc(100% - 300px) !important;
+
+  min-width: 0 !important;
+
+  margin-left: 300px !important;
+
+  min-height: 100vh !important;
+
+  overflow-x: hidden !important;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+  width: 100% !important;
+
+  min-height: 88px !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  padding: 0 30px !important;
+
+  background: var(--surface) !important;
+
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.topbar-title {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.topbar-title strong {
+  color: var(--ink) !important;
+  font-size: 1.45rem !important;
+}
+
+.topuser {
+  margin-left: auto !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 10px !important;
+}
+
+.dashboardMenu {
+  display: none !important;
+}
+
+
+/* =========================================================
+   DASHBOARD CONTENT
+   ========================================================= */
+
+.dashcontent {
+  width: 100% !important;
+  max-width: 1400px !important;
+
+  margin: 0 auto !important;
+
+  padding: 38px 42px 60px !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .side {
+    width: 270px !important;
+  }
+
+  .dashmain {
+    width: calc(100% - 270px) !important;
+    margin-left: 270px !important;
+  }
+
+  .dashcontent {
+    padding: 30px !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .side {
+    width: 300px !important;
+
+    transform: translateX(-100%) !important;
+
+    transition: transform .3s ease !important;
+  }
+
+  .dashmain {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .dashboardMenu {
+    display: grid !important;
+  }
+
+  .side-toggle:checked ~ .dash .side {
+    transform: translateX(0) !important;
+  }
+
+  .side-toggle:checked ~ .dash::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.35);
+
+    z-index: 900;
+  }
+
+  .dashcontent {
+    padding: 26px 18px 45px !important;
+  }
+
+  .topbar {
+    min-height: 76px !important;
+    padding: 0 18px !important;
+  }
+}
+
+
+/* =========================================================
+   RTL
+   ========================================================= */
+
+html[dir="rtl"] .side {
+  left: auto !important;
+  right: 0 !important;
+
+  border-right: 0 !important;
+  border-left: 1px solid var(--border) !important;
+}
+
+html[dir="rtl"] .dashmain {
+  margin-left: 0 !important;
+  margin-right: 300px !important;
+}
+
+html[dir="rtl"] .side nav a:hover:not(.active) {
+  transform: translateX(-3px) !important;
+}
+
+html[dir="rtl"] .topuser {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+@media (max-width: 1100px) {
+  html[dir="rtl"] .dashmain {
+    margin-right: 270px !important;
+  }
+}
+
+@media (max-width: 900px) {
+
+  html[dir="rtl"] .side {
+    transform: translateX(100%) !important;
+  }
+
+  html[dir="rtl"] .side-toggle:checked ~ .dash .side {
+    transform: translateX(0) !important;
+  }
+
+  html[dir="rtl"] .dashmain {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+[data-theme="dark"] .side,
+[data-theme="dark"] .topbar {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+[data-theme="dark"] .side nav a {
+  color: var(--muted) !important;
+}
+
+[data-theme="dark"] .side nav a:hover:not(.active) {
+  background: rgba(2,165,157,.12) !important;
+}
+
+[data-theme="dark"] .sideBottom a:hover {
+  background: rgba(2,165,157,.12) !important;
+}
+/* =========================================================
+   DASHBOARD SIDEBAR — LINEAR BRAND
+   ========================================================= */
+
+/* LTR */
+.dashboard-page .side > .brand {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    direction: ltr !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+
+    gap: 6px !important;
+    column-gap: 6px !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+/* LOGO — LEFT */
+.dashboard-page .side > .brand > img {
+    order: 1 !important;
+
+    width: 58px !important;
+    height: 58px !important;
+
+    flex: 0 0 58px !important;
+
+    object-fit: contain !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* TEXT — RIGHT OF LOGO */
+.dashboard-page .side > .brand > .brand-copy {
+    order: 2 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+    justify-content: center !important;
+
+    width: max-content !important;
+    min-width: 0 !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ORVERA HOME — SAME LINE */
+.dashboard-page .side > .brand .brand-name {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+
+    width: max-content !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    white-space: nowrap !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    line-height: 1 !important;
+}
+
+/* ORVERA */
+.dashboard-page .side > .brand .orvera {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* HOME */
+.dashboard-page .side > .brand .home {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* TAGLINE */
+.dashboard-page .side > .brand .brand-copy > small {
+    display: block !important;
+
+    margin: 4px 0 0 !important;
+    padding: 0 !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   RTL
+   WEBSITE NAME LEFT — LOGO RIGHT
+   ========================================================= */
+
+html[dir="rtl"] .dashboard-page .side > .brand,
+body[dir="rtl"] .dashboard-page .side > .brand {
+    flex-direction: row !important;
+    direction: ltr !important;
+
+    gap: 4px !important;
+    column-gap: 4px !important;
+}
+
+/* WEBSITE NAME */
+html[dir="rtl"] .dashboard-page .side > .brand > .brand-copy,
+body[dir="rtl"] .dashboard-page .side > .brand > .brand-copy {
+    order: 1 !important;
+
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* LOGO */
+html[dir="rtl"] .dashboard-page .side > .brand > img,
+body[dir="rtl"] .dashboard-page .side > .brand > img {
+    order: 2 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .dashboard-page .side > .brand > img {
+        width: 52px !important;
+        height: 52px !important;
+        flex-basis: 52px !important;
+    }
+
+    .dashboard-page .side > .brand .brand-name {
+        font-size: 1.2rem !important;
+    }
+
+    .dashboard-page .side > .brand .brand-copy > small {
+        font-size: .6rem !important;
+    }
+}
+/* =========================================================
+   GLOBAL SIDEBAR — SAME ON EVERY PAGE
+   ========================================================= */
+
+/* SIDEBAR */
+.side {
+    width: 300px !important;
+    min-width: 300px !important;
+
+    background: #ffffff !important;
+
+    border-right: 1px solid #dce7e7 !important;
+
+    padding: 24px 18px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   BRAND
+   LOGO LEFT + ORVERA HOME RIGHT
+   ========================================================= */
+
+.side > .brand {
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    direction: ltr !important;
+
+    width: max-content !important;
+    max-width: 100% !important;
+
+    margin: 0 auto 18px !important;
+    padding: 0 !important;
+
+    gap: 5px !important;
+    column-gap: 5px !important;
+}
+
+
+/* LOGO */
+.side > .brand > img {
+    order: 1 !important;
+
+    width: 58px !important;
+    height: 58px !important;
+
+    flex: 0 0 58px !important;
+
+    object-fit: contain !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* WEBSITE NAME */
+.side > .brand > .brand-copy {
+    order: 2 !important;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+
+    justify-content: center !important;
+
+    direction: ltr !important;
+
+    width: max-content !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* ORVERA HOME — ONE LINE */
+.side .brand-name {
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: baseline !important;
+
+    direction: ltr !important;
+
+    white-space: nowrap !important;
+
+    width: max-content !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    line-height: 1 !important;
+}
+
+
+/* ORVERA */
+.side .brand-name .orvera {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* HOME */
+.side .brand-name .home {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* TAGLINE */
+.side .brand-copy > small {
+    display: block !important;
+
+    margin: 4px 0 0 !important;
+
+    direction: ltr !important;
+
+    white-space: nowrap !important;
+
+    font-size: .66rem !important;
+}
+
+
+/* =========================================================
+   SIDEBAR MENU
+   ========================================================= */
+
+.side nav {
+    margin-top: 10px !important;
+    padding: 0 !important;
+}
+
+
+/* EVERY MENU ITEM */
+.side nav a {
+    display: flex !important;
+
+    align-items: center !important;
+
+    min-height: 58px !important;
+
+    padding: 0 20px !important;
+
+    margin: 3px 0 !important;
+
+    border-radius: 14px !important;
+
+    background: transparent !important;
+
+    color: #52616f !important;
+
+    text-decoration: none !important;
+
+    font-weight: 700 !important;
+
+    transition: .2s ease !important;
+}
+
+
+/* ICON */
+.side nav a i {
+    width: 26px !important;
+
+    margin-right: 14px !important;
+
+    color: #02a9a5 !important;
+
+    font-size: 20px !important;
+}
+
+
+/* ACTIVE PAGE */
+.side nav a.active {
+    background: #02a9a5 !important;
+
+    color: #ffffff !important;
+
+    box-shadow: 0 12px 25px rgba(2,169,165,.18) !important;
+}
+
+
+.side nav a.active i {
+    color: #ffffff !important;
+}
+
+
+/* HOVER */
+.side nav a:hover {
+    background: #eaf7f6 !important;
+
+    color: #02a9a5 !important;
+}
+
+
+/* =========================================================
+   REMOVE MADHAVI PROFILE
+   ========================================================= */
+
+.side .sideProfile,
+.side .profile-card,
+.side .user-profile,
+.side .profile-info,
+.side .user-info {
+    display: none !important;
+}
+
+
+/* =========================================================
+   BOTTOM LINKS
+   ========================================================= */
+
+.sideBottom {
+    margin-top: 18px !important;
+
+    padding-top: 10px !important;
+
+    border-top: 1px solid #dce7e7 !important;
+}
+
+
+.sideBottom a {
+    display: flex !important;
+
+    align-items: center !important;
+
+    min-height: 55px !important;
+
+    padding: 0 20px !important;
+
+    color: #52616f !important;
+
+    text-decoration: none !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   RTL — SIDEBAR MOVES TO RIGHT
+   ========================================================= */
+
+html[dir="rtl"] .side,
+body[dir="rtl"] .side {
+    border-right: 0 !important;
+
+    border-left: 1px solid #dce7e7 !important;
+}
+
+
+html[dir="rtl"] .side > .brand {
+    direction: ltr !important;
+
+    flex-direction: row !important;
+}
+
+
+/* RTL BRAND:
+   WEBSITE NAME LEFT + LOGO RIGHT */
+
+html[dir="rtl"] .side > .brand > .brand-copy {
+    order: 1 !important;
+}
+
+html[dir="rtl"] .side > .brand > img {
+    order: 2 !important;
+}
+
+
+/* RTL MENU */
+html[dir="rtl"] .side nav a,
+body[dir="rtl"] .side nav a {
+    direction: rtl !important;
+
+    flex-direction: row-reverse !important;
+
+    text-align: right !important;
+
+    justify-content: flex-start !important;
+}
+
+
+html[dir="rtl"] .side nav a i,
+body[dir="rtl"] .side nav a i {
+    margin-right: 0 !important;
+
+    margin-left: 14px !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .side {
+        width: 280px !important;
+        min-width: 280px !important;
+    }
+
+    .side > .brand > img {
+        width: 52px !important;
+        height: 52px !important;
+        flex-basis: 52px !important;
+    }
+
+    .side .brand-name {
+        font-size: 1.15rem !important;
+    }
+}
+/* =========================================================
+   SIDEBAR — FIT ALL ELEMENTS INSIDE SCREEN
+   ========================================================= */
+
+.side {
+    height: 100vh !important;
+    min-height: 100vh !important;
+
+    box-sizing: border-box !important;
+
+    padding: 14px 18px 10px !important;
+
+    overflow: hidden !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+
+/* =========================================================
+   BRAND — COMPACT
+   ========================================================= */
+
+.side > .brand {
+    flex: 0 0 auto !important;
+
+    margin: 0 auto 8px !important;
+
+    gap: 4px !important;
+    column-gap: 4px !important;
+}
+
+.side > .brand > img {
+    width: 54px !important;
+    height: 54px !important;
+    flex-basis: 54px !important;
+}
+
+.side .brand-name {
+    font-size: 1.25rem !important;
+    line-height: .95 !important;
+}
+
+.side .brand-copy > small {
+    margin-top: 2px !important;
+    font-size: .60rem !important;
+    line-height: 1 !important;
+}
+
+
+/* =========================================================
+   MENU — REDUCE VERTICAL SPACE
+   ========================================================= */
+
+.side nav {
+    flex: 1 1 auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    justify-content: flex-start !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    min-height: 0 !important;
+}
+
+
+/* EACH MENU ITEM */
+
+.side nav a {
+    min-height: 48px !important;
+    height: 48px !important;
+
+    flex: 0 0 48px !important;
+
+    margin: 1px 0 !important;
+
+    padding: 0 18px !important;
+
+    border-radius: 12px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* ICON */
+
+.side nav a i {
+    width: 24px !important;
+
+    margin-right: 12px !important;
+
+    font-size: 18px !important;
+}
+
+
+/* MENU TEXT */
+
+.side nav a span {
+    line-height: 1 !important;
+}
+
+
+/* =========================================================
+   ACTIVE ITEM
+   ========================================================= */
+
+.side nav a.active {
+    min-height: 48px !important;
+    height: 48px !important;
+}
+
+
+/* =========================================================
+   BOTTOM SECTION
+   ========================================================= */
+
+.sideBottom {
+    flex: 0 0 auto !important;
+
+    margin-top: 4px !important;
+
+    padding-top: 4px !important;
+
+    border-top: 1px solid #dce7e7 !important;
+}
+
+
+.sideBottom a {
+    min-height: 46px !important;
+    height: 46px !important;
+
+    padding: 0 18px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   RTL
+   ========================================================= */
+
+html[dir="rtl"] .side,
+body[dir="rtl"] .side {
+    height: 100vh !important;
+    min-height: 100vh !important;
+
+    overflow: hidden !important;
+}
+
+html[dir="rtl"] .side nav a {
+    flex-direction: row-reverse !important;
+}
+
+html[dir="rtl"] .side nav a i {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+}
+
+
+/* =========================================================
+   SMALL SCREENS
+   ========================================================= */
+
+@media (max-height: 750px) {
+
+    .side {
+        padding-top: 10px !important;
+        padding-bottom: 6px !important;
+    }
+
+    .side > .brand {
+        margin-bottom: 4px !important;
+    }
+
+    .side > .brand > img {
+        width: 48px !important;
+        height: 48px !important;
+        flex-basis: 48px !important;
+    }
+
+    .side .brand-name {
+        font-size: 1.15rem !important;
+    }
+
+    .side .brand-copy > small {
+        font-size: .56rem !important;
+    }
+
+    .side nav a {
+        min-height: 43px !important;
+        height: 43px !important;
+        flex-basis: 43px !important;
+
+        margin: 0 !important;
+    }
+
+    .sideBottom a {
+        min-height: 42px !important;
+        height: 42px !important;
+    }
+}
+/* =========================================================
+   APPOINTMENTS — MOBILE SIDEBAR OVERLAY
+   Click dark area to close sidebar
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .dashboard-page .sidebar-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    display: none;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: rgba(0, 0, 0, 0.42) !important;
+
+    z-index: 99 !important;
+    cursor: pointer !important;
+  }
+
+  /* Show overlay only while sidebar is open */
+  .dashboard-page .sidebar-backdrop {
+    pointer-events: none !important;
+  }
+
+  .dashboard-page .side-toggle:checked ~ .dash .sidebar-backdrop {
+    display: block !important;
+    pointer-events: auto !important;
+  }
+
+  /* Sidebar stays above the dark overlay */
+  .dashboard-page .side {
+    z-index: 100 !important;
+  }
+
+  /* Remove the old pseudo overlay */
+  .dashboard-page .side-toggle:checked ~ .dash::after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+/* RTL */
+@media (max-width: 900px) {
+
+  [dir="rtl"] .dashboard-page .sidebar-backdrop {
+    z-index: 99 !important;
+  }
+
+  [dir="rtl"] .dashboard-page .side {
+    z-index: 100 !important;
+  }
+}
+/* =========================================================
+   FINAL — MEDICATION SUMMARY ICON FIX
+   ========================================================= */
+
+.med-stat > .med-stat-icon {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    max-width: 58px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex: 0 0 58px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border-radius: 16px !important;
+
+    /* IMPORTANT: do NOT use font-size:0 */
+    font-size: 1.35rem !important;
+    line-height: 1 !important;
+
+    box-sizing: border-box !important;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease !important;
+}
+
+
+/* Bootstrap icon itself */
+.med-stat > .med-stat-icon > i.bi {
+    display: inline-block !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 1.35rem !important;
+    line-height: 1 !important;
+
+    font-style: normal !important;
+
+    vertical-align: middle !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    transform: none !important;
+}
+
+
+/* =========================================================
+   COLORS
+   ========================================================= */
+
+.med-stat > .med-stat-icon.teal {
+    background: rgba(2,165,157,.10) !important;
+    color: #02A59D !important;
+    border: 1px solid rgba(2,165,157,.25) !important;
+}
+
+.med-stat > .med-stat-icon.coral {
+    background: rgba(248,107,79,.10) !important;
+    color: #F86B4F !important;
+    border: 1px solid rgba(248,107,79,.25) !important;
+}
+
+.med-stat > .med-stat-icon.blue {
+    background: rgba(85,116,217,.09) !important;
+    color: #5574D9 !important;
+    border: 1px solid rgba(85,116,217,.22) !important;
+}
+
+.med-stat > .med-stat-icon.green {
+    background: rgba(38,168,102,.09) !important;
+    color: #26A866 !important;
+    border: 1px solid rgba(38,168,102,.22) !important;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.med-stat:hover > .med-stat-icon {
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 10px 22px rgba(24,59,61,.10) !important;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+[data-theme="dark"] .med-stat > .med-stat-icon.teal {
+    background: rgba(2,165,157,.15) !important;
+    color: #35D0C6 !important;
+    border-color: rgba(53,208,198,.30) !important;
+}
+
+[data-theme="dark"] .med-stat > .med-stat-icon.coral {
+    background: rgba(248,107,79,.15) !important;
+    color: #FF927C !important;
+    border-color: rgba(255,146,124,.30) !important;
+}
+
+[data-theme="dark"] .med-stat > .med-stat-icon.blue {
+    background: rgba(85,116,217,.16) !important;
+    color: #A8B8FF !important;
+    border-color: rgba(168,184,255,.28) !important;
+}
+
+[data-theme="dark"] .med-stat > .med-stat-icon.green {
+    background: rgba(38,168,102,.15) !important;
+    color: #61D995 !important;
+    border-color: rgba(97,217,149,.28) !important;
+}
+/* =========================================================
+   MEDICATION ROW ICONS — DARK MODE FIX
+   ========================================================= */
+
+[data-theme="dark"] .med-icon {
+    background: rgba(2, 165, 157, .14) !important;
+    color: #35D0C6 !important;
+    border: 1px solid rgba(53, 208, 198, .20) !important;
+}
+
+[data-theme="dark"] .med-icon i {
+    color: #35D0C6 !important;
+}
+
+
+/* CORAL MEDICATION */
+
+[data-theme="dark"] .med-icon.coral-icon {
+    background: rgba(248, 107, 79, .14) !important;
+    color: #FF927C !important;
+    border: 1px solid rgba(255, 146, 124, .20) !important;
+}
+
+[data-theme="dark"] .med-icon.coral-icon i {
+    color: #FF927C !important;
+}
+
+
+/* GREEN MEDICATION */
+
+[data-theme="dark"] .med-icon.green-icon {
+    background: rgba(38, 168, 102, .14) !important;
+    color: #61D995 !important;
+    border: 1px solid rgba(97, 217, 149, .20) !important;
+}
+
+[data-theme="dark"] .med-icon.green-icon i {
+    color: #61D995 !important;
+}
+
+
+/* ICON SIZE + CENTERING */
+
+.med-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    padding: 0 !important;
+}
+
+.med-icon i {
+    font-size: 1.15rem !important;
+    line-height: 1 !important;
+}
