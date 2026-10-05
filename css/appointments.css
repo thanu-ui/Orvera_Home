@@ -3539,3 +3539,45 @@ html[dir="rtl"] .side nav a i {
     z-index: 100 !important;
   }
 }
+/* =========================================================
+   DARK MODE - SIDEBAR TEXT VISIBILITY
+   ========================================================= */
+
+[data-theme="dark"] .dashboard-page .side nav a {
+    color: #F2F8F7 !important;
+}
+
+/* Sidebar icons */
+[data-theme="dark"] .dashboard-page .side nav a i {
+    color: #02A59D !important;
+}
+
+/* Active page - Settings */
+[data-theme="dark"] .dashboard-page .side nav a.active {
+    background: #02A59D !important;
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .dashboard-page .side nav a.active i {
+    color: #FFFFFF !important;
+}
+
+/* Bottom links - Help & Support */
+[data-theme="dark"] .dashboard-page .sideBottom a {
+    color: #F2F8F7 !important;
+}
+
+[data-theme="dark"] .dashboard-page .sideBottom a i {
+    color: #02A59D !important;
+}
+
+/* Hover */
+[data-theme="dark"] .dashboard-page .side nav a:hover:not(.active),
+[data-theme="dark"] .dashboard-page .sideBottom a:hover {
+    color: #FFFFFF !important;
+    background: rgba(2,165,157,.12) !important;
+}
+/* Space between Orvera Home logo and first menu item */
+.side nav {
+    margin-top: 38px !important;
+}

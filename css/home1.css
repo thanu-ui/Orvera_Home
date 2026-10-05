@@ -2732,7 +2732,7 @@ li,
 .splitCopy h2 .headingAccent,
 .familyMain h2 .headingAccent,
 .finalCare h2 .headingAccent {
-  color: #243B53 !important;
+  color: var(--secondary) !important;
 }
 
 .textLink {
@@ -10433,4 +10433,70 @@ html[dir="rtl"] .header .nav details.drop > .dropmenu a {
         transform: scale(1.10) translate(0.5%, -0.2%);
     }
 
+}
+/* =========================================================
+   IMAGE SECTION ORANGE HIGHLIGHTS
+   ========================================================= */
+
+/* VITALS MONITORING */
+html body main .info-image.info-image-monitor .eyebrow {
+    color: #F86B4F !important;
+}
+
+/* "matter." */
+html body main .info-image.info-image-monitor .headingAccent {
+    color: #F86B4F !important;
+}
+
+
+/* HOME VISIT */
+html body main .info-image.info-image-care .eyebrow {
+    color: #F86B4F !important;
+}
+
+/* "are." */
+html body main .info-image.info-image-care .headingAccent {
+    color: #F86B4F !important;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html[data-theme="dark"] body main .info-image.info-image-monitor .eyebrow,
+html[data-theme="dark"] body main .info-image.info-image-monitor .headingAccent,
+html[data-theme="dark"] body main .info-image.info-image-care .eyebrow,
+html[data-theme="dark"] body main .info-image.info-image-care .headingAccent {
+    color: #F86B4F !important;
+}
+/* FOR FAMILIES - ORANGE */
+html body main .info-image.info-image-family .eyebrow {
+    color: #F86B4F !important;
+}
+
+/* "page." - ORANGE */
+html body main .info-image.info-image-family .headingAccent {
+    color: #F86B4F !important;
+}
+
+/* DARK MODE */
+html[data-theme="dark"] body main .info-image.info-image-family .eyebrow,
+html[data-theme="dark"] body main .info-image.info-image-family .headingAccent {
+    color: #F86B4F !important;
+}
+/* CONNECTED CARE - ORANGE */
+html body main .info-image.info-image-wellness .eyebrow {
+    color: #F86B4F !important;
+}
+
+/* "continuity." - ORANGE */
+html body main .info-image.info-image-wellness .headingAccent {
+    color: #F86B4F !important;
+}
+
+/* DARK MODE */
+html[data-theme="dark"] body main .info-image.info-image-wellness .eyebrow,
+html[data-theme="dark"] body main .info-image.info-image-wellness .headingAccent {
+    color: #F86B4F !important;
 }

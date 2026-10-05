@@ -6972,7 +6972,7 @@ html[dir="rtl"] .services-hero-badge-team {
 }
 
 .med-photo small {
-  color: var(--muted)
+  color: black;
 }
 
 .med-timeline {
@@ -7058,7 +7058,7 @@ html[dir="rtl"] .services-hero-badge-team {
 }
 
 .med-footer i {
-  color: var(--primary)
+  color: white;
 }
 
 /* Wellness */

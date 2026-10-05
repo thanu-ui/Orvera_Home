@@ -87,6 +87,13 @@
             <a href="contact.html">Contact</a>
           </div>
           <div class="footer-column">
+            <h4>Services</h4>
+            <a href="vitals.html">Vital Checks</a>
+            <a href="medications.html">Medication Review</a>
+            <a href="appointments.html">Wellness Visits</a>
+            <a href="vitals.html">Home Health Monitoring</a>
+          </div>
+          <div class="footer-column">
             <h4>Additional Pages</h4>
             <a href="dashboard.html">Patient Dashboard</a>
             <a href="support.html">Help &amp; Support</a>

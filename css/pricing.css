@@ -827,7 +827,7 @@ input {
 }
 
 .standard-plan .plan-action a {
-  background: var(--primary);
+  background: var(--secondary);
 }
 
 .plan-action a:hover {
@@ -4131,7 +4131,7 @@ html[dir="rtl"] .brand small {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 82px 0 96px;
+  padding: 56px 0 96px;
   background:
     radial-gradient(circle at 8% 18%, rgba(2,165,157,.14), transparent 30%),
     radial-gradient(circle at 88% 78%, rgba(248,107,79,.13), transparent 30%),
@@ -4497,7 +4497,7 @@ html[dir="rtl"] .brand small {
 
 @media (max-width: 1000px) {
   .pricing-hero-new {
-    padding: 72px 0 82px;
+    padding: 48px 0 82px;
   }
 
   .pricing-hero-new-grid {
@@ -4543,7 +4543,7 @@ html[dir="rtl"] .brand small {
 
 @media (max-width: 700px) {
   .pricing-hero-new {
-    padding: 55px 0 68px;
+    padding: 36px 0 68px;
   }
 
   .pricing-hero-new-grid {
@@ -4960,9 +4960,9 @@ html[dir="rtl"] .brand small {
    ========================================================= */
 
 .premium-plan .plan-action a {
-    background: var(--secondary) !important;
+    background: var(--primary) !important;
 
-    border-color: var(--secondary) !important;
+    border-color: var(--primary) !important;
 
     color: #ffffff !important;
 }
@@ -8354,4 +8354,160 @@ body[data-page="pricing"] .pagehero h1 .headingAccent {
         box-shadow:
             0 18px 45px rgba(0,0,0,.30) !important;
     }
+}
+
+/* Responsive care plan cards */
+@media (max-width: 1024px) {
+    .orvera-plan-list {
+        flex-wrap: wrap;
+    }
+
+    .orvera-plan-list > .orvera-plan {
+        flex: 1 1 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+
+    .orvera-plan-list > .orvera-plan:last-child {
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .orvera-pricing-plans {
+        padding: 64px 0;
+    }
+
+    .orvera-section-heading {
+        margin-bottom: 34px;
+    }
+
+    .orvera-section-heading h2 {
+        font-size: clamp(1.85rem, 8vw, 2.6rem);
+    }
+
+    .orvera-section-heading p {
+        font-size: .94rem;
+        line-height: 1.7;
+    }
+
+    .orvera-plan-list {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .orvera-plan-list > .orvera-plan,
+    .orvera-plan-list > .orvera-plan:last-child {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: none;
+        min-height: 0;
+        margin: 0;
+        padding: 24px 20px;
+        gap: 16px;
+    }
+
+    .orvera-plan .plan-index {
+        margin: 0;
+    }
+
+    .orvera-plan .plan-information h3 {
+        font-size: 1.45rem;
+    }
+
+    .orvera-plan .plan-information > p {
+        margin-bottom: 16px;
+    }
+
+    .orvera-plan .plan-action {
+        margin-top: 4px;
+        padding-top: 18px;
+    }
+
+    .orvera-plan .plan-action a {
+        min-height: 46px;
+        padding-inline: 12px;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 360px) {
+    .orvera-plan-list > .orvera-plan,
+    .orvera-plan-list > .orvera-plan:last-child {
+        padding-inline: 16px;
+    }
+}
+/* =========================================================
+   POPULAR BADGE — CENTER OF CARD TOP BORDER
+   ========================================================= */
+
+.standard-plan {
+    position: relative !important;
+}
+
+.standard-plan .plan-title-line {
+    display: block !important;
+}
+
+.standard-plan .popular-label {
+    position: absolute !important;
+    top: -15px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 7px 16px !important;
+    border-radius: 50px !important;
+
+    background: #F86B4F !important;
+    color: #FFFFFF !important;
+
+    white-space: nowrap !important;
+    z-index: 20 !important;
+}
+
+.standard-plan .popular-label i {
+    color: #FFFFFF !important;
+}
+/* =========================================================
+   POPULAR BADGE — ON TOP BORDER
+   ========================================================= */
+
+.standard-plan {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.standard-plan .plan-title-line {
+    display: block !important;
+}
+
+.standard-plan .popular-label {
+    position: absolute !important;
+
+    top: -17px !important;
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin: 0 !important;
+    padding: 7px 16px !important;
+
+    background: #F86B4F !important;
+    color: #FFFFFF !important;
+
+    border-radius: 50px !important;
+
+    white-space: nowrap !important;
+    z-index: 100 !important;
+}
+
+.standard-plan .popular-label i {
+    color: #FFFFFF !important;
 }

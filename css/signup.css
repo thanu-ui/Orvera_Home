@@ -1344,3 +1344,174 @@ html[dir="rtl"] .auth-page .authbrand-name {
     margin: auto !important;
   }
 }
+
+.auth-page .authtools .theme-control,
+.auth-page .authtools .direction-control {
+  font-family: Arial, sans-serif !important;
+  font-size: .78rem !important;
+  font-weight: 900 !important;
+  text-shadow: 0 0 .01px currentColor;
+}
+
+.auth-page .authtools .theme-control i,
+.auth-page .authtools .theme-control .bi::before {
+  display: inline-block !important;
+  color: inherit !important;
+  font-family: bootstrap-icons !important;
+  font-size: 1.2rem !important;
+  line-height: 1 !important;
+  opacity: 1 !important;
+}
+
+[data-theme="dark"] .auth-page .authtools .theme-control,
+[data-theme="dark"] .auth-page .authtools .direction-control {
+  color: #58ded4 !important;
+}
+/* =========================================================
+   SIGNUP — SMALL HEIGHT REDUCTION ONLY
+   KEEP LOGO & WEBSITE NAME SAME SIZE
+   ========================================================= */
+
+.auth-page {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    overflow: hidden !important;
+}
+
+.auth-page .authcard {
+    padding-top: 14px !important;
+    padding-bottom: 12px !important;
+}
+
+/* KEEP LOGO & WEBSITE NAME SIZE */
+.auth-page .authbrand > img {
+    width: 46px !important;
+    height: 46px !important;
+    flex-basis: 46px !important;
+}
+
+.auth-page .authbrand-name {
+    font-size: clamp(1.45rem, 2vw, 1.9rem) !important;
+}
+
+/* Reduce only spacing */
+.auth-page .authbrand {
+    margin-bottom: 7px !important;
+}
+
+.auth-page .authcard h1 {
+    margin-bottom: 3px !important;
+}
+
+.auth-page .authcard .intro {
+    margin-bottom: 10px !important;
+}
+
+.auth-page .auth-form {
+    gap: 7px !important;
+}
+
+/* Slightly reduce input height */
+.auth-page .field input {
+    height: 43px !important;
+    min-height: 43px !important;
+}
+
+.auth-page .auth-submit {
+    height: 43px !important;
+    min-height: 43px !important;
+}
+
+.auth-page .auth-divider {
+    margin: 7px 0 !important;
+}
+
+.auth-page .auth-social .btn {
+    height: 40px !important;
+    min-height: 40px !important;
+}
+
+.auth-page .auth-switch {
+    margin-top: 5px !important;
+}
+/* =========================================================
+   RTL — PHONE / FORM FIELD ALIGNMENT
+   ========================================================= */
+
+html[dir="rtl"] .auth-page .field {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] .auth-page .field label {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] .auth-page .field input {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Phone icon on the LEFT in RTL */
+html[dir="rtl"] .auth-page .field-icon {
+    left: 15px !important;
+    right: auto !important;
+}
+
+/* Keep enough space for the icon */
+html[dir="rtl"] .auth-page .field:has(.field-icon) input {
+    padding-left: 46px !important;
+    padding-right: 14px !important;
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+    html[dir="rtl"] .auth-page .field-icon {
+        left: 13px !important;
+        right: auto !important;
+    }
+
+    html[dir="rtl"] .auth-page .field:has(.field-icon) input {
+        padding-left: 43px !important;
+        padding-right: 13px !important;
+    }
+}
+/* =========================================================
+   DARK MODE — REMEMBER ME CHECKBOX
+   ========================================================= */
+
+[data-theme="dark"] .auth-page input[type="checkbox"] {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    width: 17px !important;
+    height: 17px !important;
+
+    background: #102325 !important;
+    border: 1px solid #29484A !important;
+    border-radius: 4px !important;
+
+    cursor: pointer !important;
+    position: relative !important;
+    flex: 0 0 17px !important;
+}
+
+/* Checked */
+[data-theme="dark"] .auth-page input[type="checkbox"]:checked {
+    background: #02A59D !important;
+    border-color: #02A59D !important;
+}
+
+/* Check mark */
+[data-theme="dark"] .auth-page input[type="checkbox"]:checked::after {
+    content: "✓" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -55%) !important;
+
+    color: #FFFFFF !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+}

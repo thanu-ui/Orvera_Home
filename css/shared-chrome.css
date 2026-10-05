@@ -317,7 +317,7 @@ body {
 
 .site-footer .site-footer-grid {
   display: grid !important;
-  grid-template-columns: 1.5fr repeat(3, 1fr) !important;
+  grid-template-columns: 1.5fr repeat(4, minmax(0, 1fr)) !important;
   gap: 34px !important;
   padding-bottom: 34px;
 }
@@ -1451,6 +1451,65 @@ html body footer.site-footer .contact-item span {
   }
 }
 
+/* Keep preference controls equally legible across every shared page. */
+html body header.site-header .actions > .theme-control,
+html body header.site-header .actions > .direction-control {
+  color: var(--primary) !important;
+  font-family: Arial, sans-serif !important;
+  font-size: .78rem !important;
+  font-weight: 900 !important;
+  text-shadow: 0 0 .01px currentColor;
+}
+
+html body header.site-header .actions > .theme-control i,
+html body header.site-header .actions > .theme-control .bi::before {
+  display: inline-block !important;
+  color: inherit !important;
+  font-family: bootstrap-icons !important;
+  font-size: 1.2rem !important;
+  font-weight: normal !important;
+  line-height: 1 !important;
+  opacity: 1 !important;
+  vertical-align: middle;
+}
+
+html body header.site-header .actions > .direction-control {
+  letter-spacing: .03em;
+}
+
+html[data-theme="dark"] body header.site-header .actions > .theme-control,
+html[data-theme="dark"] body header.site-header .actions > .direction-control {
+  color: #58ded4 !important;
+}
+
+@media (max-width: 1100px) {
+  html body footer.site-footer .site-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 24px !important;
+    row-gap: 24px !important;
+  }
+
+  html body footer.site-footer .footer-brand-column {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html body footer.site-footer .site-footer-grid {
+    column-gap: 18px !important;
+    row-gap: 22px !important;
+  }
+
+  html body footer.site-footer .footer-brand-column {
+    grid-column: 1 / -1 !important;
+  }
+
+  html body header.site-header .actions > .theme-control i,
+  html body header.site-header .actions > .theme-control .bi::before {
+    font-size: 1.15rem !important;
+  }
+}
+
 @media (max-width: 560px) {
   html body header.site-header .header-controls {
     gap: 4px !important;
@@ -1513,4 +1572,204 @@ html[dir="rtl"] body header.site-header .actions,
 html body:has(#rtl-toggle:checked) header.site-header .actions {
   flex-direction: row-reverse !important;
   direction: ltr !important; /* keeps each button's icon/text untouched */
+}
+/* =========================================================
+   MOBILE HAMBURGER - AVAILABLE FROM ANY SECTION
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    html body .site-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 99999 !important;
+    }
+
+    html body .site-header .mobile {
+        position: relative !important;
+        z-index: 100001 !important;
+        cursor: pointer !important;
+    }
+
+    /* Open menu */
+    html body .site-header .nav-toggle:checked ~ .nav {
+        display: flex !important;
+        position: fixed !important;
+        top: 70px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: calc(100vh - 70px) !important;
+        z-index: 100000 !important;
+        overflow-y: auto !important;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 560px) {
+
+    html body .site-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 99999 !important;
+    }
+
+    html body .site-header .nav-toggle:checked ~ .nav {
+        top: 60px !important;
+        height: calc(100vh - 60px) !important;
+    }
+
+}
+/* =========================================================
+   RESPONSIVE - SPACE BELOW FIXED HEADER
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    body main {
+        padding-top: 25px !important;
+    }
+
+}
+
+@media (max-width: 560px) {
+
+    body main {
+        padding-top: 30px !important;
+    }
+
+}
+/* =========================================================
+   HAMBURGER — WIDER & CLEARER 3 LINES
+   ========================================================= */
+
+html body header.site-header .mobile i {
+    display: block !important;
+    width: 19px !important;
+    height: 15px !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    background:
+        linear-gradient(#02A59D, #02A59D) center top / 19px 2px no-repeat,
+        linear-gradient(#02A59D, #02A59D) center center / 19px 2px no-repeat,
+        linear-gradient(#02A59D, #02A59D) center bottom / 19px 2px no-repeat !important;
+    transform: none !important;
+}
+
+/* Dark mode */
+html[data-theme="dark"] body header.site-header .mobile i {
+    background:
+        linear-gradient(#45D0C5, #45D0C5) center top / 19px 2px no-repeat,
+        linear-gradient(#45D0C5, #45D0C5) center center / 19px 2px no-repeat,
+        linear-gradient(#45D0C5, #45D0C5) center bottom / 19px 2px no-repeat !important;
+}
+
+/* Mobile + iPad */
+@media (max-width: 1100px) {
+    html body header.site-header .mobile i {
+        width: 20px !important;
+        height: 16px !important;
+        background:
+            linear-gradient(#02A59D, #02A59D) center top / 20px 2px no-repeat,
+            linear-gradient(#02A59D, #02A59D) center center / 20px 2px no-repeat,
+            linear-gradient(#02A59D, #02A59D) center bottom / 20px 2px no-repeat !important;
+    }
+
+    html[data-theme="dark"] body header.site-header .mobile i {
+        background:
+            linear-gradient(#45D0C5, #45D0C5) center top / 20px 2px no-repeat,
+            linear-gradient(#45D0C5, #45D0C5) center center / 20px 2px no-repeat,
+            linear-gradient(#45D0C5, #45D0C5) center bottom / 20px 2px no-repeat !important;
+    }
+}
+/* =========================================================
+   MOBILE HAMBURGER + CLOSE ICON
+   ========================================================= */
+
+/* Normal hamburger */
+html body header.site-header .mobile i.bi-list {
+    font-size: 0 !important;
+    display: block !important;
+    width: 20px !important;
+    height: 16px !important;
+    background:
+        linear-gradient(#02A59D, #02A59D) center top / 20px 2px no-repeat,
+        linear-gradient(#02A59D, #02A59D) center center / 20px 2px no-repeat,
+        linear-gradient(#02A59D, #02A59D) center bottom / 20px 2px no-repeat !important;
+}
+
+
+/* CLOSE X */
+html body header.site-header .mobile i.bi-x-lg {
+    font-size: 0 !important;
+    display: block !important;
+    width: 20px !important;
+    height: 20px !important;
+    position: relative !important;
+    background: none !important;
+    transform: none !important;
+}
+
+html body header.site-header .mobile i.bi-x-lg::before,
+html body header.site-header .mobile i.bi-x-lg::after {
+    content: "" !important;
+    position: absolute !important;
+    width: 21px !important;
+    height: 2px !important;
+    top: 50% !important;
+    left: 50% !important;
+    background: #02A59D !important;
+    border-radius: 2px !important;
+}
+
+html body header.site-header .mobile i.bi-x-lg::before {
+    transform: translate(-50%, -50%) rotate(45deg) !important;
+}
+
+html body header.site-header .mobile i.bi-x-lg::after {
+    transform: translate(-50%, -50%) rotate(-45deg) !important;
+}
+
+
+/* DARK MODE */
+html[data-theme="dark"] body header.site-header .mobile i.bi-list {
+    background:
+        linear-gradient(#45D0C5, #45D0C5) center top / 20px 2px no-repeat,
+        linear-gradient(#45D0C5, #45D0C5) center center / 20px 2px no-repeat,
+        linear-gradient(#45D0C5, #45D0C5) center bottom / 20px 2px no-repeat !important;
+}
+
+html[data-theme="dark"] body header.site-header .mobile i.bi-x-lg::before,
+html[data-theme="dark"] body header.site-header .mobile i.bi-x-lg::after {
+    background: #45D0C5 !important;
+}
+
+
+/* MOBILE + IPAD */
+@media (max-width: 1100px) {
+
+    html body header.site-header .mobile i.bi-list {
+        width: 21px !important;
+        height: 17px !important;
+        background-size: 21px 2px !important;
+    }
+
+    html body header.site-header .mobile i.bi-x-lg {
+        width: 21px !important;
+        height: 21px !important;
+    }
+
+    html body header.site-header .mobile i.bi-x-lg::before,
+    html body header.site-header .mobile i.bi-x-lg::after {
+        width: 22px !important;
+        height: 2px !important;
+    }
 }

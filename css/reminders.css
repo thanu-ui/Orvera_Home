@@ -2432,3 +2432,76 @@ html[dir="rtl"] .side nav a i {
     z-index: 100 !important;
   }
 }
+/* =========================================================
+   DARK MODE - SIDEBAR TEXT VISIBILITY
+   ========================================================= */
+
+[data-theme="dark"] .dashboard-page .side nav a {
+    color: #F2F8F7 !important;
+}
+
+/* Sidebar icons */
+[data-theme="dark"] .dashboard-page .side nav a i {
+    color: #02A59D !important;
+}
+
+/* Active page - Settings */
+[data-theme="dark"] .dashboard-page .side nav a.active {
+    background: #02A59D !important;
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .dashboard-page .side nav a.active i {
+    color: #FFFFFF !important;
+}
+
+/* Bottom links - Help & Support */
+[data-theme="dark"] .dashboard-page .sideBottom a {
+    color: #F2F8F7 !important;
+}
+
+[data-theme="dark"] .dashboard-page .sideBottom a i {
+    color: #02A59D !important;
+}
+
+/* Hover */
+[data-theme="dark"] .dashboard-page .side nav a:hover:not(.active),
+[data-theme="dark"] .dashboard-page .sideBottom a:hover {
+    color: #FFFFFF !important;
+    background: rgba(2,165,157,.12) !important;
+}
+/* =========================================================
+   REMINDERS — HAMBURGER LIKE VISIT NOTES
+   ========================================================= */
+
+.dashboard-page .dashboardMenu {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.dashboard-page .dashboardMenu i {
+    font-size: 17px !important;
+    color: #02A59D !important;
+    line-height: 1 !important;
+    background: transparent !important;
+}
+
+/* DARK MODE */
+[data-theme="dark"] .dashboard-page .dashboardMenu {
+    background: transparent !important;
+}
+
+[data-theme="dark"] .dashboard-page .dashboardMenu i {
+    color: #02A59D !important;
+}

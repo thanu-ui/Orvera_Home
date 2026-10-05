@@ -13,7 +13,7 @@
   <script defer src="js/app.js"></script>
 </head>
 
-<body class="dashboard-page">
+<body class="dashboard-page dashboard-overview">
   <input aria-label="Toggle dashboard sidebar" class="side-toggle" id="side-toggle" type="checkbox" />
   <div class="dash">
 
@@ -83,6 +83,43 @@
           </div>
           <a class="btn btn-primary" href="book-visit.html"><i class="bi bi-calendar-plus"></i> Book Vitals Check</a>
         </div>
+
+        <!-- Explore care services -->
+        <section aria-labelledby="dc-services-title" class="dc-services">
+          <div class="dc-section-head dc-services-head">
+            <div>
+              <span class="dc-kicker dc-kicker-plain">EXPLORE</span>
+              <h2 id="dc-services-title">Care services <span class="headingAccent">for your home.</span></h2>
+              <p>Find the support you need, all in one place.</p>
+            </div>
+          </div>
+          <div class="dc-services-grid">
+            <a class="dc-service-card" href="vitals.html">
+              <span aria-hidden="true" class="dc-service-icon"><i class="bi bi-heart-pulse"></i></span>
+              <strong>Vital Checks</strong>
+              <span class="dc-service-description">Track important readings with in-home nurse visits.</span>
+              <span class="dc-service-action">Explore service <i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a aria-label="Medication service" class="dc-service-card" href="medications.html">
+              <span aria-hidden="true" class="dc-service-icon"><i class="bi bi-capsule"></i></span>
+              <strong>Medication</strong>
+              <span class="dc-service-description">Keep prescriptions and daily medication routines organized.</span>
+              <span class="dc-service-action">Explore service <i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="dc-service-card" href="appointments.html">
+              <span aria-hidden="true" class="dc-service-icon"><i class="bi bi-calendar-heart"></i></span>
+              <strong>Wellness Visits</strong>
+              <span class="dc-service-description">Schedule supportive check-ins and ongoing care.</span>
+              <span class="dc-service-action">Explore service <i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="dc-service-card" href="vitals.html">
+              <span aria-hidden="true" class="dc-service-icon"><i class="bi bi-house-heart"></i></span>
+              <strong>Home Health Monitoring</strong>
+              <span class="dc-service-description">Stay connected to your health between home visits.</span>
+              <span class="dc-service-action">Explore service <i class="bi bi-arrow-right"></i></span>
+            </a>
+          </div>
+        </section>
 
         <!-- Quick vitals -->
         <div class="dc-stats">

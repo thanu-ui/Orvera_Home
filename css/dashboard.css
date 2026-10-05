@@ -2950,3 +2950,108 @@ body[dir="rtl"] .dashboard-page .side {
 [data-theme="dark"] .dashboard-page .page-panel p {
   color: #b8c9c9 !important;
 }
+/* =========================================================
+   DARK MODE - SIDEBAR TEXT VISIBILITY
+   ========================================================= */
+
+[data-theme="dark"] .dashboard-page .side nav a {
+    color: #F2F8F7 !important;
+}
+
+/* Sidebar icons */
+[data-theme="dark"] .dashboard-page .side nav a i {
+    color: #02A59D !important;
+}
+
+/* Active page - Settings */
+[data-theme="dark"] .dashboard-page .side nav a.active {
+    background: #02A59D !important;
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .dashboard-page .side nav a.active i {
+    color: #FFFFFF !important;
+}
+
+/* Bottom links - Help & Support */
+[data-theme="dark"] .dashboard-page .sideBottom a {
+    color: #F2F8F7 !important;
+}
+
+[data-theme="dark"] .dashboard-page .sideBottom a i {
+    color: #02A59D !important;
+}
+
+/* Hover */
+[data-theme="dark"] .dashboard-page .side nav a:hover:not(.active),
+[data-theme="dark"] .dashboard-page .sideBottom a:hover {
+    color: #FFFFFF !important;
+    background: rgba(2,165,157,.12) !important;
+}
+.side nav {
+    padding-top: 30px !important;
+}
+/* =========================================================
+   MOBILE + IPAD — OVERVIEW BESIDE HAMBURGER
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .dashboard-page .topbar {
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 0 !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    .dashboard-page .dashboardMenu {
+        display: grid !important;
+        width: 32px !important;
+        min-width: 32px !important;
+        height: 32px !important;
+        margin: 0 4px 0 0 !important;
+        padding: 0 !important;
+    }
+
+    .dashboard-page .topbar-title {
+        position: static !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: auto !important;
+        flex: 0 0 auto !important;
+    }
+
+    .dashboard-page .topbar-title strong {
+        margin: 0 !important;
+        padding: 0 !important;
+        white-space: nowrap !important;
+        font-size: 1.05rem !important;
+    }
+
+    .dashboard-page .topuser {
+        margin-left: auto !important;
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 650px) {
+
+    .dashboard-page .topbar {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .dashboard-page .dashboardMenu {
+        width: 30px !important;
+        min-width: 30px !important;
+        height: 30px !important;
+        margin-right: 3px !important;
+    }
+
+    .dashboard-page .topbar-title strong {
+        font-size: 1rem !important;
+    }
+}
