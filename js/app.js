@@ -141,13 +141,39 @@
       });
     }
 
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
-    body.querySelectorAll(".site-header .nav a").forEach(function (link) {
-      if (link.getAttribute("href") === currentPage) {
+  const currentPage =
+    window.location.pathname.split("/").pop() || "index.html";
+
+
+body.querySelectorAll(".site-header .nav a").forEach(function (link) {
+
+    if (link.getAttribute("href") === currentPage) {
+
         link.classList.add("active");
+
         link.setAttribute("aria-current", "page");
-      }
-    });
+
+    }
+
+});
+
+
+/* Keep HOME active for both Home 1 and Home 2 */
+
+if (currentPage === "index.html" || currentPage === "home2.html") {
+
+    const homeLink =
+        body.querySelector(".site-header .nav .drop-home");
+
+    if (homeLink) {
+
+        homeLink.classList.add("active");
+
+        homeLink.setAttribute("aria-current", "page");
+
+    }
+
+}
   }
 
   if (document.body) {
