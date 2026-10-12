@@ -15299,3 +15299,317 @@ html[dir="rtl"] .header .brand {
     right: 5%;
   }
 }
+
+/* =========================================
+   SERVICES DIRECTORY — ADD SPACE BETWEEN ROWS
+   ========================================= */
+
+.services-focus .directory-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Give each service row its own visual space */
+.services-focus .directory-item {
+    margin: 0;
+    border-radius: 24px;
+}
+
+/* Slightly more spacing on larger screens */
+@media (min-width: 1024px) {
+    .services-focus .directory-list {
+        gap: 20px;
+    }
+}
+
+/* Comfortable spacing on mobile */
+@media (max-width: 600px) {
+    .services-focus .directory-list {
+        gap: 12px;
+    }
+
+    .services-focus .directory-item {
+        padding: 18px;
+    }
+}
+/* Remove the unwanted top horizontal line */
+.service-directory.services-focus .directory-head {
+    border-top: none !important;
+}
+
+.service-directory.services-focus .directory-list {
+    border-top: none !important;
+}
+
+.service-directory.services-focus .directory-item:first-child {
+    margin-top: 0;
+}
+
+/* ==========================================
+   MOBILE FIX — CONNECTED CARE JOURNEY
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    /* Main journey section */
+    .service-journey {
+        padding: 48px 0 40px;
+        overflow: hidden;
+    }
+
+    .service-journey .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* Journey heading */
+    .journey-head {
+        margin-bottom: 28px;
+    }
+
+    .journey-head h2 {
+        font-size: clamp(26px, 7vw, 34px);
+        line-height: 1.2;
+    }
+
+    .journey-head p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* Stack each journey step */
+    .journey-track {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .journey-track > div {
+        width: 100%;
+        min-height: 110px;
+        padding: 18px 16px;
+        display: grid;
+        grid-template-columns: 52px 1fr;
+        grid-template-rows: auto auto auto;
+        column-gap: 14px;
+        row-gap: 4px;
+        align-items: center;
+        border-radius: 18px;
+        box-sizing: border-box;
+    }
+
+    /* Step icon */
+    .journey-track > div > i {
+        grid-column: 1;
+        grid-row: 1 / 4;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        border-radius: 14px;
+    }
+
+    /* Step number */
+    .journey-track > div > b {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    /* Step title */
+    .journey-track > div > strong {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 17px;
+        line-height: 1.35;
+    }
+
+    /* Step description */
+    .journey-track > div > small {
+        grid-column: 2;
+        grid-row: 3;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* Hide arrows between steps on mobile */
+    .journey-track > i {
+        display: none;
+    }
+
+    /* Action buttons */
+    .journey-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .journey-actions .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 380px) {
+    .service-journey .container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .journey-track > div {
+        grid-template-columns: 44px 1fr;
+        column-gap: 12px;
+        padding: 16px 12px;
+    }
+
+    .journey-track > div > i {
+        width: 42px;
+        height: 42px;
+        font-size: 19px;
+    }
+}
+
+/* ==========================================
+   MOBILE FIX — CONNECTED CARE JOURNEY
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    /* Main journey section */
+    .service-journey {
+        padding: 48px 0 40px;
+        overflow: hidden;
+    }
+
+    .service-journey .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    /* Journey heading */
+    .journey-head {
+        margin-bottom: 28px;
+    }
+
+    .journey-head h2 {
+        font-size: clamp(26px, 7vw, 34px);
+        line-height: 1.2;
+    }
+
+    .journey-head p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* Stack each journey step */
+    .journey-track {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .journey-track > div {
+        width: 100%;
+        min-height: 110px;
+        padding: 18px 16px;
+        display: grid;
+        grid-template-columns: 52px 1fr;
+        grid-template-rows: auto auto auto;
+        column-gap: 14px;
+        row-gap: 4px;
+        align-items: center;
+        border-radius: 18px;
+        box-sizing: border-box;
+    }
+
+    /* Step icon */
+    .journey-track > div > i {
+        grid-column: 1;
+        grid-row: 1 / 4;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        border-radius: 14px;
+    }
+
+    /* Step number */
+    .journey-track > div > b {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    /* Step title */
+    .journey-track > div > strong {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 17px;
+        line-height: 1.35;
+    }
+
+    /* Step description */
+    .journey-track > div > small {
+        grid-column: 2;
+        grid-row: 3;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* Hide arrows between steps on mobile */
+    .journey-track > i {
+        display: none;
+    }
+
+    /* Action buttons */
+    .journey-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .journey-actions .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 380px) {
+    .service-journey .container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .journey-track > div {
+        grid-template-columns: 44px 1fr;
+        column-gap: 12px;
+        padding: 16px 12px;
+    }
+
+    .journey-track > div > i {
+        width: 42px;
+        height: 42px;
+        font-size: 19px;
+    }
+}

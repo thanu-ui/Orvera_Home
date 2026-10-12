@@ -1179,3 +1179,53 @@ html[data-theme="dark"] body:not(.dashboard-page) .direction-control {
     margin-inline-start: 4px !important;
   }
 }
+
+/* ORVERA HOME — UNIFIED DARK DASHBOARD ICONS & CONTROLS */
+
+html[data-theme="dark"] body.dashboard-page {
+    --unified-dark-bg: #172321;
+    --unified-dark-border: #29413d;
+    --unified-teal: #00b8b0;
+    --unified-text: #e5efec;
+}
+
+/* Health statistic icon containers */
+html[data-theme="dark"] body.dashboard-page
+:is(.dc-stat-ico, .dc-stat-icon, .med-stat-icon, .med-icon,
+    .vital-icon, .stat-icon, .dc-service-icon) {
+    background: #1d302d !important;
+    border-color: #29413d !important;
+    color: #00b8b0 !important;
+}
+
+/* Icons inside the containers */
+html[data-theme="dark"] body.dashboard-page
+:is(.dc-stat-ico, .dc-stat-icon, .med-stat-icon, .med-icon,
+    .vital-icon, .stat-icon, .dc-service-icon) i {
+    color: #00b8b0 !important;
+}
+
+/* Dashboard action buttons */
+html[data-theme="dark"] body.dashboard-page
+:is(button, .btn, a.btn, [role="button"]) {
+    background: #172321 !important;
+    border: 1px solid #29413d !important;
+    color: #00b8b0 !important;
+    box-shadow: none !important;
+}
+
+/* Hover */
+html[data-theme="dark"] body.dashboard-page
+:is(button, .btn, a.btn, [role="button"]):hover {
+    background: #1d302d !important;
+    border-color: #00b8b0 !important;
+    color: #00b8b0 !important;
+}
+
+/* Health-stat cards retain their existing layout */
+html[data-theme="dark"] body.dashboard-page
+:is(.dc-stat, .page-stat, .med-stat, .support-stat, .vital-card) {
+    background: #172321;
+    border-color: #29413d;
+    color: #e5efec;
+}

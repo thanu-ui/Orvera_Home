@@ -101,7 +101,7 @@
           <div class="footer-column footer-contact">
             <h4>Contact Us</h4>
             <div class="contact-item"><i class="bi bi-geo-alt-fill"></i><span>Hyderabad, Telangana</span></div>
-            <div class="contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+919876543210">+91 98765 43210</a></div>
+            <div class="contact-item"><i class="bi bi-telephone-fill"></i><a href="tel:+919876543210">+91 9876543210</a></div>
             <div class="contact-item"><i class="bi bi-envelope-fill"></i><a href="mailto:hello@orverahome.com">hello@orverahome.com</a></div>
           </div>
         </div>
